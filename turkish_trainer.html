@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Türkçe">
+<title>Türkçe Тренажёр</title>
+<style>
+:root{--bg:#f5f4f0;--bg2:#fff;--bg3:#ededea;--text:#1a1a18;--text2:#5a5a56;--text3:#9a9a96;--b:rgba(0,0,0,0.1);--b2:rgba(0,0,0,0.18);--gr:#0F6E56;--grb:rgba(15,110,86,0.1);--re:#A32D2D;--reb:rgba(226,75,74,0.08);--r:12px;--rs:8px}
+@media(prefers-color-scheme:dark){:root{--bg:#1a1a18;--bg2:#242422;--bg3:#2e2e2b;--text:#f0efeb;--text2:#a0a09a;--text3:#666660;--b:rgba(255,255,255,0.1);--b2:rgba(255,255,255,0.18);--grb:rgba(29,158,117,0.15);--reb:rgba(226,75,74,0.12)}}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text)}
+#app{max-width:480px;margin:0 auto;min-height:100%}
+.nav{background:var(--bg2);border-bottom:.5px solid var(--b);padding:0 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;height:52px}
+.nbk{font-size:15px;color:var(--gr);cursor:pointer;padding:8px 0}
+.nt{font-size:15px;font-weight:500;flex:1}
+.ns{font-size:11px;color:var(--text3)}
+.home{padding:20px 16px}
+.hero h1{font-size:26px;font-weight:600;margin-bottom:4px}
+.hero p{font-size:14px;color:var(--text2);margin-bottom:24px}
+.sgrid{display:flex;flex-direction:column;gap:10px}
+.scard{background:var(--bg2);border:.5px solid var(--b);border-radius:var(--r);padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:14px}
+.scard:active{transform:scale(.98)}
+.snum{width:40px;height:40px;border-radius:10px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;color:var(--gr);flex-shrink:0}
+.scard.done .snum{background:var(--grb)}
+.sinfo{flex:1}
+.sname{font-size:14px;font-weight:500;margin-bottom:2px}
+.sdesc{font-size:12px;color:var(--text2)}
+.sprog{font-size:11px;color:var(--text3);margin-top:3px}
+.sp{padding:16px}
+.mtabs{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
+.mtabs::-webkit-scrollbar{display:none}
+.mtab{padding:6px 14px;border:.5px solid var(--b2);border-radius:20px;font-size:13px;cursor:pointer;white-space:nowrap;background:var(--bg2);color:var(--text2);flex-shrink:0}
+.mtab.on{background:var(--gr);color:#fff;border-color:var(--gr)}
+.pb{height:3px;background:var(--bg3);border-radius:2px;margin-bottom:14px}
+.pf{height:100%;background:#1D9E75;border-radius:2px;transition:width .35s}
+.sr{display:flex;gap:8px;margin-bottom:14px}
+.sb{flex:1;background:var(--bg2);border-radius:var(--rs);padding:8px 10px;text-align:center}
+.sb .v{font-size:20px;font-weight:600}
+.sb .l{font-size:10px;color:var(--text3);margin-top:1px}
+.card{background:var(--bg2);border:.5px solid var(--b);border-radius:var(--r);padding:18px;margin-bottom:12px}
+.bdg{display:inline-block;font-size:11px;color:var(--text3);background:var(--bg3);padding:2px 8px;border-radius:10px;margin-bottom:10px}
+.q{font-size:17px;line-height:1.5;margin-bottom:12px}
+.hint{font-size:13px;color:var(--text2);margin-bottom:12px;padding:8px 10px;background:var(--bg3);border-radius:var(--rs)}
+.hint::before{content:'💡 '}
+textarea,input[type=text]{width:100%;padding:10px 12px;font-size:15px;border:1px solid var(--b2);border-radius:var(--rs);background:var(--bg);color:var(--text);font-family:inherit;outline:none}
+textarea{resize:none;min-height:72px}
+textarea:focus,input[type=text]:focus{border-color:var(--gr)}
+.ok{border-color:var(--gr)!important;background:var(--grb)!important}
+.ng{border-color:var(--re)!important;background:var(--reb)!important}
+.br{display:flex;gap:8px;margin-top:12px}
+.btn{padding:10px 18px;border:1px solid var(--b2);border-radius:var(--rs);font-size:14px;cursor:pointer;background:var(--bg2);color:var(--text);font-family:inherit}
+.btn:active{transform:scale(.97)}
+.btnp{background:var(--gr);color:#fff;border-color:var(--gr);flex:1;font-weight:500}
+.fb{margin-top:10px;padding:10px 12px;border-radius:var(--rs);font-size:14px;display:none}
+.fb.show{display:block}
+.fbo{background:var(--grb);color:var(--gr)}
+.fbn{background:var(--reb);color:var(--re)}
+.fba{font-weight:600;margin-top:4px}
+.fc{min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer}
+.fcw{font-size:30px;font-weight:600;margin-bottom:8px}
+.fct{font-size:13px;color:var(--text3)}
+.fcr{font-size:24px;font-weight:500;color:var(--gr);margin-bottom:6px}
+.fcs{font-size:13px;color:var(--text2)}
+.fcb{display:flex;gap:10px;margin-top:12px}
+.bno{background:var(--reb);color:var(--re);border-color:transparent}
+.byes{background:var(--grb);color:var(--gr);border-color:transparent}
+.mcg{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.mco{width:100%;padding:12px 14px;border:1px solid var(--b);border-radius:var(--rs);font-size:14px;cursor:pointer;background:var(--bg2);color:var(--text);text-align:left;font-family:inherit}
+.mcok{background:var(--grb)!important;border-color:var(--gr)!important;color:var(--gr)!important}
+.mcng{background:var(--reb)!important;border-color:var(--re)!important;color:var(--re)!important}
+.fis{font-size:16px;line-height:2.4}
+.fii{display:inline-block;width:120px;padding:2px 6px;font-size:15px;border:none;border-bottom:2px solid var(--b2);background:transparent;color:var(--text);font-family:inherit;outline:none;vertical-align:bottom}
+.fii:focus{border-bottom-color:var(--gr)}
+.done{text-align:center;padding:32px 16px}
+.done .em{font-size:52px;margin-bottom:12px}
+.done h2{font-size:20px;font-weight:600;margin-bottom:6px}
+.done p{font-size:14px;color:var(--text2);margin-bottom:20px}
+
+/* REMINDER SCREEN */
+.remind-page{padding:16px;display:none;overflow-y:auto}
+.remind-hero{margin-bottom:20px}
+.remind-hero h2{font-size:20px;font-weight:600;margin-bottom:4px}
+.remind-hero p{font-size:13px;color:var(--text2)}
+.rblock{background:var(--bg2);border:.5px solid var(--b);border-radius:var(--r);padding:16px;margin-bottom:12px}
+.rblock-h{font-size:15px;font-weight:600;color:var(--gr);margin-bottom:6px}
+.rblock-body{font-size:13px;color:var(--text2);margin-bottom:10px;line-height:1.6}
+.rex{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:.5px solid var(--b);gap:12px}
+.rex:last-child{border-bottom:none}
+.rex-tr{font-size:14px;font-weight:500;color:var(--text);flex-shrink:0}
+.rex-ru{font-size:13px;color:var(--text2);text-align:right}
+.btn-start{width:100%;padding:14px;background:var(--gr);color:#fff;border:none;border-radius:var(--r);font-size:16px;font-weight:500;cursor:pointer;margin-top:8px;font-family:inherit}
+.btn-start:active{transform:scale(.98)}
+</style>
+</head>
+<body>
+<div id="app">
+<div class="nav">
+  <span class="nbk" id="nbk" onclick="goHome()" style="display:none">← Разделы</span>
+  <div style="flex:1"><div class="nt" id="nt">Türkçe Тренажёр</div><div class="ns" id="ns">Оганова, Часть 1</div></div>
+</div>
+<div class="home" id="hp"><div class="hero"><h1>Türkçe 🇹🇷</h1><p>Тренажёр по учебнику Огановой — Разделы 1–13</p></div><div class="sgrid" id="sg"></div></div>
+<div class="sp" id="sp" style="display:none"><div class="mtabs" id="mt"></div><div class="pb"><div class="pf" id="pf" style="width:0%"></div></div><div class="sr"><div class="sb"><div class="v" id="so">0</div><div class="l">Верно</div></div><div class="sb"><div class="v" id="se">0</div><div class="l">Ошибок</div></div><div class="sb"><div class="v" id="sl">—</div><div class="l">Осталось</div></div></div><div id="ea"></div></div>
+
+<div class="remind-page" id="rpage">
+  <div class="remind-hero">
+    <h2 id="r-title"></h2>
+    <p>Повторите правила перед упражнениями</p>
+  </div>
+  <div id="r-blocks"></div>
+  <button class="btn-start" onclick="startExercises()">Перейти к упражнениям →</button>
+</div>
+</div>
+<script>
+const D=[
+{id:1,nm:"Раздел 1",ds:"Приветствия, bu/şu/o, var/yok, именное сказуемое",
+c:[{tr:"günaydın",ru:"доброе утро",t:"Приветствия"},{tr:"iyi günler",ru:"добрый день",t:"Приветствия"},{tr:"iyi akşamlar",ru:"добрый вечер",t:"Приветствия"},{tr:"iyi geceler",ru:"спокойной ночи",t:"Приветствия"},{tr:"nasılsınız?",ru:"как вы поживаете?",t:"Приветствия"},{tr:"teşekkür ederim",ru:"спасибо",t:"Приветствия"},{tr:"görüşürüz",ru:"увидимся",t:"Приветствия"},{tr:"merhaba",ru:"привет / здравствуйте",t:"Приветствия"},{tr:"var",ru:"есть / существует",t:"var/yok"},{tr:"yok",ru:"нет / не существует",t:"var/yok"},{tr:"bu",ru:"это / этот / эта",t:"Указат. мест."},{tr:"şu",ru:"вон тот",t:"Указат. мест."},{tr:"o",ru:"тот / он / она",t:"Указат. мест."},{tr:"burası",ru:"здесь / это место",t:"Указат. мест."},{tr:"büyük",ru:"большой",t:"Прилагательные"},{tr:"küçük",ru:"маленький",t:"Прилагательные"},{tr:"iyi",ru:"хороший / хорошо",t:"Прилагательные"},{tr:"kötü",ru:"плохой",t:"Прилагательные"},{tr:"sıcak",ru:"горячий / жарко",t:"Прилагательные"},{tr:"soğuk",ru:"холодный / холодно",t:"Прилагательные"},{tr:"uzak",ru:"далеко / далёкий",t:"Прилагательные"},{tr:"yakın",ru:"близко / близкий",t:"Прилагательные"},{tr:"ucuz",ru:"дешёвый",t:"Прилагательные"},{tr:"pahalı",ru:"дорогой",t:"Прилагательные"},{tr:"temiz",ru:"чистый",t:"Прилагательные"},{tr:"çok",ru:"очень / много",t:"Наречия"},{tr:"biraz",ru:"немного",t:"Наречия"}],
+tr:[{ru:"Отель далеко.",tr:"Otel uzak.",hint:"uzak = далеко",t:"Именное сказуемое"},{ru:"Погода холодная.",tr:"Hava soğuk.",hint:"",t:"Именное сказуемое"},{ru:"Книга очень интересная.",tr:"Kitap çok ilginç.",hint:"ilginç = интересный",t:"Именное сказуемое"},{ru:"Добрый день!",tr:"İyi günler!",hint:"",t:"Приветствия"},{ru:"Спокойной ночи.",tr:"İyi geceler.",hint:"",t:"Приветствия"},{ru:"Как вы поживаете?",tr:"Nasılsınız?",hint:"",t:"Приветствия"},{ru:"Это студент.",tr:"Bu öğrenci.",hint:"",t:"bu/şu/o"},{ru:"Что это? — Это стол.",tr:"Bu ne? – Bu masa.",hint:"",t:"bu/şu/o"},{ru:"В комнате жарко.",tr:"Odada sıcak.",hint:"-da = местный падеж",t:"Именное сказуемое"},{ru:"У него нет машины.",tr:"Arabası yok.",hint:"",t:"var/yok"},{ru:"У нас много дел.",tr:"Çok işimiz var.",hint:"",t:"var/yok"},{ru:"Есть ли эти книги в библиотеке?",tr:"Kütüphanede bu kitaplar var mı?",hint:"var mı = есть ли",t:"var/yok"}],
+f:[{b:"Otel çok",bl:"uzak",a:".",h:"далеко",t:"Прилагат.",ru:"Отель очень далеко."},{b:"Bu",bl:"masa",a:".",h:"стол",t:"Лексика",ru:"Это стол."},{b:"Odada çok",bl:"sıcak",a:".",h:"жарко",t:"Падежи",ru:"В комнате очень жарко."},{b:"Kitaplar var",bl:"mı",a:"?",h:"вопросит. частица",t:"var/yok",ru:"Книги есть?"},{b:"Arabası",bl:"yok",a:".",h:"нет",t:"var/yok",ru:"Машины нет."},{b:"Hava",bl:"soğuk",a:".",h:"холодная",t:"Прилагат.",ru:"Погода холодная."},{b:"Kitap çok",bl:"ilginç",a:".",h:"интересный",t:"Прилагат.",ru:"Книга очень интересная."}],
+m:[{q:"Что значит «var»?",o:["нет","есть","нужно","можно"],c:1,t:"var/yok"},{q:"«Это» (ближайшее):",o:["o","şu","bu","onlar"],c:2,t:"Указат. мест."},{q:"«Доброе утро»:",o:["iyi geceler","iyi günler","günaydın","merhaba"],c:2,t:"Приветствия"},{q:"«Машины нет»:",o:["Arabam var","Araba yok","Arabası lazım","Araba mı?"],c:1,t:"var/yok"},{q:"«Большой» по-турецки:",o:["küçük","uzun","büyük","kısa"],c:2,t:"Прилагат."},{q:"«Вон тот» по-турецки:",o:["bu","o","burası","şu"],c:3,t:"Указат. мест."},{q:"«Очень» по-турецки:",o:["biraz","az","çok","kadar"],c:2,t:"Наречия"}]},
+{id:2,nm:"Раздел 2",ds:"Изафет, аффиксы сказуемости, именное сказуемое",
+c:[{tr:"öğrencinin kitabı",ru:"книга студента (2-афф.)",t:"Изафет"},{tr:"Türkiye'nin başkenti",ru:"столица Турции",t:"Изафет"},{tr:"sınıf arkadaşı",ru:"одноклассник (1-афф.)",t:"Изафет"},{tr:"çelik kapı",ru:"стальная дверь (безафф.)",t:"Изафет"},{tr:"-Im / -yIm",ru:"аффикс сказуемости 1л.ед.",t:"Сказуемость"},{tr:"-sIn",ru:"аффикс сказуемости 2л.ед.",t:"Сказуемость"},{tr:"-Iz / -yIz",ru:"аффикс сказуемости 1л.мн.",t:"Сказуемость"},{tr:"-sInIz",ru:"аффикс сказуемости 2л.мн.",t:"Сказуемость"},{tr:"değil",ru:"не / нет (отрицание)",t:"Отрицание"},{tr:"öğrenciyim",ru:"я студент",t:"Сказуемость"},{tr:"doktor değilim",ru:"я не врач",t:"Отрицание"},{tr:"mühendis misin?",ru:"ты инженер?",t:"Вопрос"}],
+tr:[{ru:"Я студент.",tr:"Ben öğrenciyim.",hint:"-yIm = аффикс 1л.ед.",t:"Сказуемость"},{ru:"Ты врач?",tr:"Sen doktor musun?",hint:"musun = вопрос 2л.ед.",t:"Сказуемость"},{ru:"Мы не инженеры.",tr:"Biz mühendis değiliz.",hint:"değiliz = не (1л.мн.)",t:"Сказуемость"},{ru:"Книга студента.",tr:"Öğrencinin kitabı.",hint:"двухаффиксный изафет",t:"Изафет"},{ru:"Вы преподаватель?",tr:"Siz öğretmen misiniz?",hint:"",t:"Сказуемость"},{ru:"Он не врач, он инженер.",tr:"O doktor değil, mühendis.",hint:"",t:"Сказуемость"},{ru:"Стальная дверь.",tr:"Çelik kapı.",hint:"безаффиксный изафет",t:"Изафет"}],
+f:[{b:"Ben öğrenci",bl:"yim",a:".",h:"аффикс 1л.ед.",t:"Сказуемость",ru:"Я студент."},{b:"Sen doktor",bl:"musun",a:"?",h:"вопрос 2л.ед.",t:"Сказуемость",ru:"Ты врач?"},{b:"Biz mühendis",bl:"değiliz",a:".",h:"не (1л.мн.)",t:"Отрицание",ru:"Мы не инженеры."},{b:"Öğrencinin",bl:"kitabı",a:".",h:"2-афф. изафет",t:"Изафет",ru:"Книга студента."},{b:"Siz öğretmen",bl:"misiniz",a:"?",h:"вопрос 2л.мн.",t:"Сказуемость",ru:"Вы преподаватель?"}],
+m:[{q:"Аффикс сказуемости 1л.ед. после гласной:",o:["-Im","-yIm","-sIn","-Iz"],c:1,t:"Сказуемость"},{q:"«Ты не студент»:",o:["öğrenci değilim","öğrenci değilsin","öğrenci değil","öğrenci değiliz"],c:1,t:"Сказуемость"},{q:"«Книга студента» (2-афф. изафет):",o:["öğrenci kitap","öğrencinin kitabı","öğrencinin kitap","öğrenci kitabı"],c:1,t:"Изафет"},{q:"Вопросит. частица для «o»:",o:["misin","misiniz","mi","musun"],c:2,t:"Вопрос"},{q:"Аффикс 2л.мн.:",o:["-sIn","-Iz","-sInIz","-lar"],c:2,t:"Сказуемость"}]},
+{id:3,nm:"Раздел 3",ds:"Повелит. наклонение, настоящее время -yor, неопр. местоимения",
+c:[{tr:"gel!",ru:"иди! (2л.ед.)",t:"Повелит."},{tr:"gelin!",ru:"идите! (2л.мн.)",t:"Повелит."},{tr:"gelme!",ru:"не ходи! (запрет 2л.ед.)",t:"Повелит."},{tr:"gelmeyin!",ru:"не ходите! (запрет 2л.мн.)",t:"Повелит."},{tr:"lütfen",ru:"пожалуйста",t:"Вежливость"},{tr:"geliyorum",ru:"я иду (-yor 1л.ед.)",t:"Настоящее -yor"},{tr:"geliyorsun",ru:"ты идёшь",t:"Настоящее -yor"},{tr:"geliyor",ru:"он/она идёт",t:"Настоящее -yor"},{tr:"geliyoruz",ru:"мы идём",t:"Настоящее -yor"},{tr:"geliyorsunuz",ru:"вы идёте",t:"Настоящее -yor"},{tr:"geliyorlar",ru:"они идут",t:"Настоящее -yor"},{tr:"gelmiyor",ru:"не идёт (-mıyor отриц.)",t:"Настоящее -yor"},{tr:"kimse",ru:"никто / кто-то",t:"Неопр. мест."},{tr:"hiçbir şey",ru:"ничего",t:"Неопр. мест."},{tr:"lazım / gerek",ru:"нужен / нужно",t:"Модальность"}],
+tr:[{ru:"Пожалуйста, напишите письмо Ахмеду.",tr:"Lütfen Ahmet'e mektup yazın.",hint:"-e = дательный, -In = 2л.мн. повелит.",t:"Повелит."},{ru:"Не говорите здесь.",tr:"Burada konuşmayın.",hint:"-mAyIn = запрет 2л.мн.",t:"Повелит."},{ru:"Я сейчас работаю.",tr:"Şu an çalışıyorum.",hint:"-yor 1л.ед.",t:"Настоящее -yor"},{ru:"Ты говоришь по-турецки?",tr:"Türkçe konuşuyor musun?",hint:"",t:"Настоящее -yor"},{ru:"Мы не знакомы.",tr:"Tanışmıyoruz.",hint:"-mıyor 1л.мн.",t:"Настоящее -yor"},{ru:"В классе никого нет.",tr:"Sınıfta kimse yok.",hint:"kimse = никто",t:"Неопр. мест."},{ru:"Мне нужна помощь.",tr:"Bana yardım lazım.",hint:"bana = мне (дат.)",t:"Модальность"},{ru:"Не делай этого!",tr:"Bunu yapma!",hint:"-mA = запрет 2л.ед.",t:"Повелит."},{ru:"Где живёт Ахмед?",tr:"Ahmet nerede yaşıyor?",hint:"nerede = где",t:"Настоящее -yor"}],
+f:[{b:"Şu an çalış",bl:"ıyorum",a:".",h:"-yor 1л.ед.",t:"Настоящее -yor",ru:"Сейчас я работаю."},{b:"Türkçe konuşuyor",bl:"musun",a:"?",h:"вопрос 2л.ед.",t:"Настоящее -yor",ru:"Ты говоришь по-турецки?"},{b:"Sınıfta kimse",bl:"yok",a:".",h:"никого нет",t:"Неопр. мест.",ru:"В классе никого нет."},{b:"Lütfen Ahmet'e mektup",bl:"yazın",a:".",h:"2л.мн. повелит.",t:"Повелит.",ru:"Напишите Ахмеду письмо."},{b:"Burada",bl:"konuşmayın",a:".",h:"-mAyIn запрет",t:"Повелит.",ru:"Здесь не говорите."},{b:"Bana yardım",bl:"lazım",a:".",h:"нужна",t:"Модальность",ru:"Мне нужна помощь."},{b:"Ahmet nerede",bl:"yaşıyor",a:"?",h:"-yor 3л.ед.",t:"Настоящее -yor",ru:"Где живёт Ахмед?"}],
+m:[{q:"Запрет для «вы»: «не говорите»:",o:["konuşma","konuşmayın","konuşmayım","konuşmadın"],c:1,t:"Повелит."},{q:"«Я иду» (настоящее время):",o:["gidiyorum","gittim","gideceğim","gidiyorsun"],c:0,t:"Настоящее -yor"},{q:"Отрицание настоящего (-yor):",o:["gitmiyorum","gitmiyor um","gitm yorim","gitmiorum"],c:0,t:"Настоящее -yor"},{q:"«Мне нужна помощь»:",o:["Bana yardım gerek","Benim yardım lazım","Bana yardım lazım","Bana yardım yok"],c:2,t:"Модальность"},{q:"«Никто» по-турецки:",o:["birisi","kimse","herkes","biri"],c:1,t:"Неопр. мест."}]},
+{id:4,nm:"Раздел 4",ds:"Падежи с глаголами, инфинитив -mAk, конструкции цели",
+c:[{tr:"-da / -de",ru:"местный падеж (где?)",t:"Падежи"},{tr:"-a / -e",ru:"дательный падеж (куда? кому?)",t:"Падежи"},{tr:"-dan / -den",ru:"исходный падеж (откуда?)",t:"Падежи"},{tr:"-(y)ı / -(y)i",ru:"винительный падеж (кого? что?)",t:"Падежи"},{tr:"okulda",ru:"в школе (местный)",t:"Падежи"},{tr:"okula",ru:"в школу (дательный)",t:"Падежи"},{tr:"okuldan",ru:"из школы (исходный)",t:"Падежи"},{tr:"okulu",ru:"школу (винительный)",t:"Падежи"},{tr:"gitmek için",ru:"чтобы пойти",t:"Цели"},{tr:"çalışmak amacıyla",ru:"с целью работы",t:"Цели"},{tr:"okumayı sevmek",ru:"любить читать (-mAyI)",t:"Инфинитив"},{tr:"çalışmaya başlamak",ru:"начать работать (-mAyA)",t:"Инфинитив"},{tr:"yüzmekten korkmak",ru:"бояться плавать (-mAktAn)",t:"Инфинитив"}],
+tr:[{ru:"Мы каждый день гуляем в парке.",tr:"Her gün parkta yürüyoruz.",hint:"-ta = местный падеж",t:"Местный"},{ru:"Я иду в библиотеку.",tr:"Kütüphaneye gidiyorum.",hint:"-ye = дательный",t:"Дательный"},{ru:"Откуда ты идёшь? — Из университета.",tr:"Nereden geliyorsun? – Üniversiteden.",hint:"-den = исходный",t:"Исходный"},{ru:"Я люблю Стамбул.",tr:"İstanbul'u seviyorum.",hint:"-u = винительный",t:"Винительный"},{ru:"Они пошли на курсы чтобы выучить турецкий.",tr:"Türkçe öğrenmek için kurslara gittiler.",hint:"için = чтобы",t:"Цели"},{ru:"Я люблю читать книги.",tr:"Kitap okumayı seviyorum.",hint:"-mAyI + sevmek",t:"Инфинитив"},{ru:"Когда вы начали учиться?",tr:"Ne zaman ders çalışmaya başladınız?",hint:"-mAyA başlamak",t:"Инфинитив"}],
+f:[{b:"Her gün park",bl:"ta",a:"yürüyoruz.",h:"местный падеж",t:"Падежи",ru:"Каждый день гуляем в парке."},{b:"Kütüphane",bl:"ye",a:"gidiyorum.",h:"дательный падеж",t:"Падежи",ru:"Иду в библиотеку."},{b:"Üniversite",bl:"den",a:"geliyorum.",h:"исходный падеж",t:"Падежи",ru:"Иду из университета."},{b:"Türkçe öğrenmek",bl:"için",a:"kurslara gittiler.",h:"чтобы",t:"Цели",ru:"Пошли на курсы, чтобы выучить."},{b:"Kitap okumayı",bl:"seviyorum",a:".",h:"-yor 1л.ед.",t:"Инфинитив",ru:"Я люблю читать книги."},{b:"İstanbul'",bl:"u",a:"seviyorum.",h:"винительный",t:"Падежи",ru:"Я люблю Стамбул."}],
+m:[{q:"Местный падеж (где?):",o:["-a / -e","-da / -de","-dan / -den","-(y)ı"],c:1,t:"Падежи"},{q:"Дательный падеж (куда?):",o:["-da","-dan","-a / -e","-(y)ı"],c:2,t:"Падежи"},{q:"«Чтобы пойти»:",o:["gitmek için","gitmekten","gitmeyi","gitmekte"],c:0,t:"Цели"},{q:"«Начать читать»:",o:["okumaktan başlamak","okumaya başlamak","okumak başlamak","okumayı başlamak"],c:1,t:"Инфинитив"},{q:"Исходный падеж (откуда?):",o:["-da","-a","-dan","-ı"],c:2,t:"Падежи"}]},
+{id:5,nm:"Раздел 5",ds:"Прошедшее -DI, специальный вопрос, прошедшее именное",
+c:[{tr:"gittim",ru:"я пошёл (-DI 1л.ед.)",t:"Прош. -DI"},{tr:"gittin",ru:"ты пошёл",t:"Прош. -DI"},{tr:"gitti",ru:"он/она пошёл",t:"Прош. -DI"},{tr:"gittik",ru:"мы пошли",t:"Прош. -DI"},{tr:"gittiniz",ru:"вы пошли",t:"Прош. -DI"},{tr:"gittiler",ru:"они пошли",t:"Прош. -DI"},{tr:"gitmedim",ru:"я не пошёл (отриц.)",t:"Прош. -DI"},{tr:"ne zaman?",ru:"когда?",t:"Вопросы"},{tr:"nerede?",ru:"где?",t:"Вопросы"},{tr:"nereye?",ru:"куда?",t:"Вопросы"},{tr:"neden? / niçin?",ru:"почему? / зачем?",t:"Вопросы"},{tr:"nasıl?",ru:"как?",t:"Вопросы"},{tr:"dün",ru:"вчера",t:"Время"},{tr:"geçen hafta",ru:"на прошлой неделе",t:"Время"},{tr:"öğrenciydim",ru:"я был студентом (прош. именное)",t:"Прош. именное"}],
+tr:[{ru:"Вчера я не ходил в университет.",tr:"Dün üniversiteye gitmedim.",hint:"-meDI = отриц. прош.",t:"Прош. -DI"},{ru:"Когда ваш сын позвонил?",tr:"Oğlunuz ne zaman aradı?",hint:"ne zaman = когда",t:"Вопросы"},{ru:"Где вы были вчера вечером?",tr:"Dün akşam neredeydiniz?",hint:"neredeydiniz = где были (вы)",t:"Прош. именное"},{ru:"Почему ты не пришёл?",tr:"Neden gelmedin?",hint:"neden = почему",t:"Вопросы"},{ru:"Мама вчера убрала все окна.",tr:"Anne dün bütün pencereleri sildi.",hint:"",t:"Прош. -DI"},{ru:"В прошлом году у них не было работы.",tr:"Geçen yıl işleri yoktu.",hint:"yoktu = не было",t:"Прош. именное"},{ru:"Как прошёл урок?",tr:"Ders nasıl geçti?",hint:"nasıl = как",t:"Вопросы"}],
+f:[{b:"Dün üniversiteye git",bl:"medim",a:".",h:"отриц. прош. 1л.ед.",t:"Прош. -DI",ru:"Вчера я не ходил в университет."},{b:"Oğlunuz ne zaman",bl:"aradı",a:"?",h:"прош. 3л.ед.",t:"Прош. -DI",ru:"Когда ваш сын позвонил?"},{b:"Dün akşam nerede",bl:"ydiniz",a:"?",h:"прош. именное 2л.мн.",t:"Прош. именное",ru:"Где вы были вчера вечером?"},{b:"Geçen yıl işleri",bl:"yoktu",a:".",h:"не было",t:"Прош. именное",ru:"В прошлом году у них не было работы."},{b:"Ders nasıl",bl:"geçti",a:"?",h:"прош. 3л.ед.",t:"Прош. -DI",ru:"Как прошёл урок?"}],
+m:[{q:"Прошедшее -DI, 1л.ед. от «yazmak»:",o:["yazdım","yazıyorum","yazacağım","yazdın"],c:0,t:"Прош. -DI"},{q:"«Где?» по-турецки:",o:["nereye?","nereden?","nerede?","ne zaman?"],c:2,t:"Вопросы"},{q:"«Я был студентом» (прош. именное):",o:["öğrenciyim","öğrenciydin","öğrenciydim","öğrenciydik"],c:2,t:"Прош. именное"},{q:"Отрицание прошедшего -DI, 2л.ед.:",o:["gitmedim","gitmedin","gitmedi","gitmedik"],c:1,t:"Прош. -DI"},{q:"«Как?» по-турецки:",o:["neden","nerede","nasıl","ne zaman"],c:2,t:"Вопросы"}]},
+{id:6,nm:"Раздел 6",ds:"Послелоги: için, gibi, kadar, başka, beri, karşı, hakkında",
+c:[{tr:"için",ru:"для / ради / чтобы",t:"Послелоги"},{tr:"gibi",ru:"как / подобно",t:"Послелоги"},{tr:"kadar",ru:"до / настолько... как",t:"Послелоги"},{tr:"başka",ru:"другой / кроме",t:"Послелоги"},{tr:"beri",ru:"с (какого-то времени)",t:"Послелоги"},{tr:"karşı",ru:"напротив / против",t:"Послелоги"},{tr:"hakkında",ru:"о / насчёт",t:"Послелоги"},{tr:"olarak",ru:"как / в качестве",t:"Служ. слова"},{tr:"sayesinde",ru:"благодаря",t:"Послелоги"},{tr:"göre",ru:"по / согласно",t:"Послелоги"},{tr:"rağmen",ru:"несмотря на",t:"Послелоги"},{tr:"amacıyla",ru:"с целью",t:"Послелоги"}],
+tr:[{ru:"Это для тебя.",tr:"Bu senin için.",hint:"için = для",t:"için"},{ru:"Он говорит как преподаватель.",tr:"Öğretmen gibi konuşuyor.",hint:"gibi = как",t:"gibi"},{ru:"Я здесь с прошлой недели.",tr:"Geçen haftadan beri buradayım.",hint:"beri = с (времени)",t:"beri"},{ru:"Кроме этого у нас нет выхода.",tr:"Bundan başka çaremiz yok.",hint:"başka = кроме",t:"başka"},{ru:"Расскажите о вашей работе.",tr:"İşiniz hakkında anlatın.",hint:"hakkında = о",t:"hakkında"},{ru:"Он работает как директор.",tr:"Müdür olarak çalışıyor.",hint:"olarak = как / в кач-ве",t:"olarak"},{ru:"По его словам, всё хорошо.",tr:"Ona göre her şey iyi.",hint:"göre = по мнению",t:"göre"}],
+f:[{b:"Bu senin",bl:"için",a:".",h:"для",t:"için",ru:"Это для тебя."},{b:"Öğretmen",bl:"gibi",a:"konuşuyor.",h:"как",t:"gibi",ru:"Говорит как преподаватель."},{b:"Geçen haftadan",bl:"beri",a:"buradayım.",h:"с (времени)",t:"beri",ru:"Я здесь с прошлой недели."},{b:"Müdür",bl:"olarak",a:"çalışıyor.",h:"в качестве",t:"olarak",ru:"Работает как директор."},{b:"Ona",bl:"göre",a:"her şey iyi.",h:"по мнению",t:"göre",ru:"По его словам всё хорошо."}],
+m:[{q:"«Для / чтобы»:",o:["gibi","beri","için","kadar"],c:2,t:"için"},{q:"«Как / подобно»:",o:["için","gibi","beri","hakkında"],c:1,t:"gibi"},{q:"«Благодаря»:",o:["karşı","hakkında","başka","sayesinde"],c:3,t:"sayesinde"},{q:"«О / насчёт»:",o:["beri","hakkında","kadar","gibi"],c:1,t:"hakkında"},{q:"«По мнению / согласно»:",o:["rağmen","için","göre","beri"],c:2,t:"göre"}]},
+{id:7,nm:"Раздел 7",ds:"Желательное наклонение, все лица повелит., числительные",
+c:[{tr:"gideyim",ru:"дай-ка я пойду (1л.ед. жел.)",t:"Желат."},{tr:"gidelim",ru:"давайте пойдём (1л.мн.)",t:"Желат."},{tr:"gitsin",ru:"пусть он пойдёт (3л.ед.)",t:"3л. повелит."},{tr:"gitsinler",ru:"пусть они пойдут (3л.мн.)",t:"3л. повелит."},{tr:"acaba",ru:"интересно / интересно ли",t:"Частицы"},{tr:"bakalım",ru:"посмотрим / ну-ка",t:"Частицы"},{tr:"bir",ru:"один",t:"Числит."},{tr:"iki",ru:"два",t:"Числит."},{tr:"üç",ru:"три",t:"Числит."},{tr:"dört / beş",ru:"четыре / пять",t:"Числит."},{tr:"on",ru:"десять",t:"Числит."},{tr:"yüz / bin",ru:"сто / тысяча",t:"Числит."}],
+tr:[{ru:"Давайте пойдём в кино.",tr:"Sinemaya gidelim.",hint:"gidelim = давайте пойдём",t:"Желат."},{ru:"Пусть он позвонит мне.",tr:"Beni arasın.",hint:"arasın = пусть позвонит",t:"3л. повелит."},{ru:"Дай-ка я посмотрю.",tr:"Bir bakayım.",hint:"bakayım = 1л.ед. жел.",t:"Желат."},{ru:"Интересно, кто он?",tr:"Acaba o kim?",hint:"acaba = интересно",t:"Частицы"},{ru:"Пусть они придут завтра.",tr:"Yarın gelsinler.",hint:"gelsinler = 3л.мн.",t:"3л. повелит."},{ru:"Ну-ка посмотрим.",tr:"Bir bakalım.",hint:"bakalım = ну-ка",t:"Частицы"}],
+f:[{b:"Sinemaya",bl:"gidelim",a:".",h:"давайте пойдём",t:"Желат.",ru:"Давайте пойдём в кино."},{b:"Beni",bl:"arasın",a:".",h:"пусть позвонит",t:"3л. повелит.",ru:"Пусть он позвонит мне."},{b:"Yarın",bl:"gelsinler",a:".",h:"3л.мн. повелит.",t:"3л. повелит.",ru:"Пусть они придут завтра."},{b:"Acaba o",bl:"kim",a:"?",h:"кто",t:"Частицы",ru:"Интересно, кто он?"}],
+m:[{q:"«Давайте пойдём» (1л.мн.):",o:["gideyim","gidelim","gitsin","gidin"],c:1,t:"Желат."},{q:"«Пусть он позвонит» (3л.ед.):",o:["arasın","ararım","arayalım","arayın"],c:0,t:"3л. повелит."},{q:"«Интересно» (частица):",o:["bakalım","diye","acaba","lütfen"],c:2,t:"Частицы"},{q:"«Тысяча» по-турецки:",o:["yüz","milyon","bin","on"],c:2,t:"Числит."}]},
+{id:8,nm:"Раздел 8",ds:"Время, дата, числа, словообразовательные аффиксы",
+c:[{tr:"saat kaç?",ru:"который час?",t:"Время"},{tr:"saat beş",ru:"пять часов ровно",t:"Время"},{tr:"saat beş buçuk",ru:"половина шестого (5:30)",t:"Время"},{tr:"saat beşi çeyrek geçe",ru:"четверть шестого (5:15)",t:"Время"},{tr:"saat altıya çeyrek kala",ru:"без четверти шесть (5:45)",t:"Время"},{tr:"saat kaçta?",ru:"в котором часу?",t:"Время"},{tr:"saat dokuzda",ru:"в девять часов",t:"Время"},{tr:"pazartesi",ru:"понедельник",t:"Дни недели"},{tr:"salı",ru:"вторник",t:"Дни недели"},{tr:"çarşamba",ru:"среда",t:"Дни недели"},{tr:"perşembe",ru:"четверг",t:"Дни недели"},{tr:"cuma",ru:"пятница",t:"Дни недели"},{tr:"cumartesi",ru:"суббота",t:"Дни недели"},{tr:"pazar",ru:"воскресенье",t:"Дни недели"}],
+tr:[{ru:"Который час? — Половина восьмого.",tr:"Saat kaç? – Saat yedi buçuk.",hint:"buçuk = половина",t:"Время"},{ru:"В котором часу начинается урок? — В девять.",tr:"Ders saat kaçta başlıyor? – Saat dokuzda.",hint:"-da = в (местный)",t:"Время"},{ru:"Какой сегодня день? — Понедельник.",tr:"Bugün günlerden ne? – Pazartesi.",hint:"",t:"Дата"},{ru:"Два года назад.",tr:"İki yıl önce.",hint:"önce = назад / до",t:"Время"},{ru:"Сегодня пятница.",tr:"Bugün cuma.",hint:"",t:"Дни недели"}],
+f:[{b:"Saat yedi",bl:"buçuk",a:".",h:"половина",t:"Время",ru:"Половина восьмого."},{b:"Ders saat dokuz",bl:"da",a:"başlıyor.",h:"в (местный)",t:"Время",ru:"Урок начинается в девять."},{b:"İki yıl",bl:"önce",a:".",h:"назад",t:"Время",ru:"Два года назад."},{b:"Bugün",bl:"cuma",a:".",h:"пятница",t:"Дни недели",ru:"Сегодня пятница."}],
+m:[{q:"«Половина» в обозначении времени:",o:["çeyrek","buçuk","kala","geçe"],c:1,t:"Время"},{q:"«Без чего-то» — какое слово:",o:["geçe","buçuk","kala","önce"],c:2,t:"Время"},{q:"«Понедельник»:",o:["pazar","pazartesi","perşembe","cuma"],c:1,t:"Дни недели"},{q:"«В девять» (в котором часу):",o:["saat dokuz","saat dokuzda","saat dokuzu","dokuz saat"],c:1,t:"Время"}]},
+{id:9,nm:"Раздел 9",ds:"Степени сравнения, будущее -AcAk, настоящее-будущее -Ir/-Ar",
+c:[{tr:"daha büyük",ru:"больше / крупнее (сравнит.)",t:"Сравнение"},{tr:"en büyük",ru:"самый большой (превосх.)",t:"Сравнение"},{tr:"-dan daha",ru:"...чем (конструкция сравнения)",t:"Сравнение"},{tr:"gideceğim",ru:"я пойду (-AcAk 1л.ед.)",t:"Будущее -AcAk"},{tr:"gidecek misin?",ru:"ты пойдёшь?",t:"Будущее -AcAk"},{tr:"gitmeyeceğim",ru:"я не пойду (отриц.)",t:"Будущее -AcAk"},{tr:"giderim",ru:"я хожу / пойду (-Ir)",t:"Наст.-буд."},{tr:"gelmez",ru:"он не придёт / не приходит",t:"Наст.-буд."},{tr:"her zaman",ru:"всегда",t:"Наречия"},{tr:"genellikle",ru:"обычно",t:"Наречия"},{tr:"bazen",ru:"иногда",t:"Наречия"},{tr:"hiç",ru:"никогда / совсем не",t:"Наречия"}],
+tr:[{ru:"Стамбул больше Анкары.",tr:"İstanbul Ankara'dan daha büyük.",hint:"-dan daha = ...чем",t:"Сравнение"},{ru:"Самый крупный город Турции.",tr:"Türkiye'nin en büyük şehri.",hint:"en = самый",t:"Сравнение"},{ru:"Я завтра пойду в библиотеку.",tr:"Yarın kütüphaneye gideceğim.",hint:"-AcAk 1л.ед.",t:"Будущее -AcAk"},{ru:"Ты пойдёшь с нами?",tr:"Bizimle gelecek misin?",hint:"",t:"Будущее -AcAk"},{ru:"Обычно я читаю по вечерам.",tr:"Genellikle akşamları kitap okurum.",hint:"-Ir = обычно делаю",t:"Наст.-буд."},{ru:"Я никогда не опаздываю.",tr:"Hiç geç kalmam.",hint:"hiç + отрицание",t:"Наст.-буд."}],
+f:[{b:"İstanbul Ankara'dan daha",bl:"büyük",a:".",h:"больше",t:"Сравнение",ru:"Стамбул больше Анкары."},{b:"Türkiye'nin en",bl:"büyük",a:"şehri.",h:"самый большой",t:"Сравнение",ru:"Самый большой город Турции."},{b:"Yarın kütüphaneye",bl:"gideceğim",a:".",h:"буд. 1л.ед.",t:"Будущее -AcAk",ru:"Завтра пойду в библиотеку."},{b:"Genellikle akşamları kitap",bl:"okurum",a:".",h:"-Ir 1л.ед.",t:"Наст.-буд.",ru:"Обычно читаю по вечерам."},{b:"Hiç geç",bl:"kalmam",a:".",h:"никогда не",t:"Наст.-буд.",ru:"Я никогда не опаздываю."}],
+m:[{q:"«Самый большой»:",o:["daha büyük","çok büyük","en büyük","büyük gibi"],c:2,t:"Сравнение"},{q:"Конструкция «больше чем X»:",o:["X gibi","X kadar","X'tan daha","X'a göre"],c:2,t:"Сравнение"},{q:"«Я пойду» (будущее, 1л.ед.):",o:["gidiyorum","gittim","gideceğim","giderim"],c:2,t:"Будущее -AcAk"},{q:"«Обычно хожу» — какое время?",o:["настоящее -yor","прошедшее -DI","-Ir наст.-будущее","будущее -AcAk"],c:2,t:"Наст.-буд."},{q:"«Иногда» по-турецки:",o:["her zaman","genellikle","bazen","hiç"],c:2,t:"Наречия"}]},
+{id:10,nm:"Раздел 10",ds:"Возможность -(y)Abil, невозможность, прошедшее субъективное -mIş",
+c:[{tr:"gidebilirim",ru:"я могу пойти",t:"Возможность"},{tr:"gidebiliyorum",ru:"я могу идти (сейчас)",t:"Возможность"},{tr:"gidebildim",ru:"я смог пойти",t:"Возможность"},{tr:"gidemiyorum",ru:"я не могу идти",t:"Невозможность"},{tr:"gidemem",ru:"я не могу (вообще)",t:"Невозможность"},{tr:"gidebilir misin?",ru:"ты можешь пойти?",t:"Возможность"},{tr:"gitmiş",ru:"он оказывается пошёл (-mIş)",t:"Прош. -mIş"},{tr:"gitmişim",ru:"я оказывается пошёл",t:"Прош. -mIş"},{tr:"meğer / meğerse",ru:"оказывается",t:"Прош. -mIş"},{tr:"galiba",ru:"кажется / наверное",t:"Прош. -mIş"},{tr:"söylemiş",ru:"говорят, сказал",t:"Прош. -mIş"}],
+tr:[{ru:"Ты можешь помочь мне?",tr:"Bana yardım edebilir misin?",hint:"-(y)Abil = мочь",t:"Возможность"},{ru:"Я не могу говорить по-английски.",tr:"İngilizce konuşamıyorum.",hint:"-(y)AmA = невозможность",t:"Невозможность"},{ru:"Они смогли убедить его?",tr:"Onu ikna edebildiler mi?",hint:"-Abildi = смогли",t:"Возможность"},{ru:"Оказывается, Ахмед ушёл.",tr:"Meğer Ahmet gitmiş.",hint:"meğer + -mIş",t:"Прош. -mIş"},{ru:"Кажется, я оставил планшет дома.",tr:"Galiba tableti evde bırakmışım.",hint:"galiba + -mIşIm",t:"Прош. -mIş"},{ru:"Вы не могли бы говорить громче?",tr:"Biraz daha yüksek sesle konuşabilir misiniz?",hint:"-(y)Abil + вопрос",t:"Возможность"}],
+f:[{b:"Bana yardım edebilir",bl:"misin",a:"?",h:"вопрос 2л.ед.",t:"Возможность",ru:"Ты можешь помочь?"},{b:"İngilizce konuş",bl:"amıyorum",a:".",h:"невозможность 1л.ед.",t:"Невозможность",ru:"Не могу говорить по-английски."},{b:"Meğer Ahmet",bl:"gitmiş",a:".",h:"прош. субъект. 3л.",t:"Прош. -mIş",ru:"Оказывается, Ахмед ушёл."},{b:"Galiba tableti evde bırak",bl:"mışım",a:".",h:"1л.ед. прош. субъект.",t:"Прош. -mIş",ru:"Кажется, я оставил планшет дома."}],
+m:[{q:"«Я могу» — правильная форма:",o:["gidiyorum","gideceğim","gidebilirim","gittim"],c:2,t:"Возможность"},{q:"«Я не могу идти» (сейчас):",o:["gidemem","gidemiyorum","gidemezdim","gidemeyeceğim"],c:1,t:"Невозможность"},{q:"«Оказывается, он пошёл» — время:",o:["прошедшее -DI","будущее -AcAk","субъективное -mIş","настоящее -yor"],c:2,t:"Прош. -mIş"},{q:"«Оказывается» по-турецки:",o:["galiba","acaba","meğer","belki"],c:2,t:"Прош. -mIş"},{q:"«Ты мог бы...?» (вежливо):",o:["-(y)AmA mısın?","-(y)Abil misin?","-(y)AcAk mısın?","-(y)Ir mısın?"],c:1,t:"Возможность"}]},
+{id:11,nm:"Раздел 11",ds:"Залоги: страдательный, возвратный, взаимный, понудительный",
+c:[{tr:"-(I)l-",ru:"аффикс страдательного залога",t:"Страд."},{tr:"yazılmak",ru:"быть написанным",t:"Страд."},{tr:"yapılıyor",ru:"делается / строится",t:"Страд."},{tr:"satılmak",ru:"продаваться",t:"Страд."},{tr:"tarafından",ru:"кем / со стороны (агент)",t:"Страд."},{tr:"-(I)n-",ru:"аффикс возвратного залога",t:"Возврат."},{tr:"yıkanmak",ru:"мыться",t:"Возврат."},{tr:"giyinmek",ru:"одеваться",t:"Возврат."},{tr:"-(I)ş-",ru:"аффикс взаимного залога",t:"Взаимн."},{tr:"görüşmek",ru:"встречаться / видеться",t:"Взаимн."},{tr:"tanışmak",ru:"знакомиться",t:"Взаимн."},{tr:"-DIr- / -t-",ru:"аффикс понудительного залога",t:"Понудит."},{tr:"yaptırmak",ru:"заставить сделать",t:"Понудит."},{tr:"okutmak",ru:"заставить читать",t:"Понудит."}],
+tr:[{ru:"Этот заказ будет оплачен в течение недели.",tr:"Bu sipariş bir hafta içinde ödenecek.",hint:"страд. + буд.",t:"Страд."},{ru:"Здание было построено муниципалитетом.",tr:"Bina belediye tarafından inşa edildi.",hint:"tarafından = кем",t:"Страд."},{ru:"Мы познакомились здесь.",tr:"Burada tanıştık.",hint:"tanışmak = взаимн.",t:"Взаимн."},{ru:"Она заставила ребёнка выпить лекарство.",tr:"Çocuğa ilacı içirdi.",hint:"понудит. залог",t:"Понудит."},{ru:"Здесь продаётся свежий хлеб.",tr:"Burada taze ekmek satılıyor.",hint:"satılmak = страд.",t:"Страд."}],
+f:[{b:"Bu sipariş bir hafta içinde öden",bl:"ecek",a:".",h:"страд. буд. 3л.ед.",t:"Страд.",ru:"Заказ будет оплачен."},{b:"Burada tanış",bl:"tık",a:".",h:"взаимн. прош. 1л.мн.",t:"Взаимн.",ru:"Мы познакомились здесь."},{b:"Bina belediye",bl:"tarafından",a:"inşa edildi.",h:"кем (агент)",t:"Страд.",ru:"Здание построено муниципалитетом."},{b:"Burada taze ekmek satıl",bl:"ıyor",a:".",h:"страд. наст.",t:"Страд.",ru:"Здесь продаётся свежий хлеб."}],
+m:[{q:"Аффикс страдательного залога:",o:["-(I)ş-","-(I)n-","-(I)l-","-DIr-"],c:2,t:"Залоги"},{q:"«Знакомиться» — какой залог?",o:["страдательный","понудительный","взаимный","возвратный"],c:2,t:"Залоги"},{q:"«Заставить сделать»:",o:["yapmak","yapılmak","yaptırmak","yapışmak"],c:2,t:"Залоги"},{q:"«Мыться» — какой залог?",o:["страдательный","возвратный","взаимный","понудительный"],c:1,t:"Залоги"},{q:"«Кем» (агент в страдат.):",o:["için","gibi","tarafından","hakkında"],c:2,t:"Страд."}]},
+{id:12,nm:"Раздел 12",ds:"Причастие -(y)An, субстантивация",
+c:[{tr:"gelen",ru:"тот, кто приходит / пришёл",t:"Причастие"},{tr:"gelen adam",ru:"приходящий человек",t:"Причастие"},{tr:"okuyan öğrenci",ru:"читающий студент",t:"Причастие"},{tr:"bilmeyen",ru:"тот, кто не знает (-mAyAn)",t:"Причастие"},{tr:"gelenler",ru:"те, кто пришли",t:"Субстантивация"},{tr:"çalışan",ru:"работающий / сотрудник",t:"Причастие"},{tr:"bilen",ru:"знающий",t:"Причастие"},{tr:"isteyen",ru:"желающий",t:"Субстантивация"},{tr:"gelenin kitabı",ru:"книга того, кто пришёл",t:"Субстантивация"}],
+tr:[{ru:"Кто много знает — тот много ошибается.",tr:"Çok bilen çok yanılır.",hint:"bilen = знающий",t:"Причастие"},{ru:"Есть ли среди нас желающие?",tr:"Aramızda isteyen var mı?",hint:"isteyen = желающий",t:"Субстантивация"},{ru:"Приходивший был невысокого роста.",tr:"Gelenin boyu kısaydı.",hint:"gelenin = пришедшего",t:"Субстантивация"},{ru:"Тот, кто старается, выигрывает.",tr:"Çalışan kazanır.",hint:"çalışan = старающийся",t:"Причастие"},{ru:"Самое главное — закончить проект вовремя.",tr:"En önemli olan projeyi vaktinde bitirmektir.",hint:"olan = являющееся",t:"Субстантивация"}],
+f:[{b:"Çok",bl:"bilen",a:"çok yanılır.",h:"знающий -(y)An",t:"Причастие",ru:"Кто много знает — ошибается."},{b:"Aramızda",bl:"isteyen",a:"var mı?",h:"желающий",t:"Субстантивация",ru:"Есть ли среди нас желающие?"},{b:"Çalış",bl:"an",a:"kazanır.",h:"аффикс причастия",t:"Причастие",ru:"Тот, кто старается, выигрывает."},{b:"Gel",bl:"meyen",a:"bizi arasın.",h:"отриц. причастие",t:"Причастие",ru:"Кто не придёт, пусть позвонит."}],
+m:[{q:"Причастие -(y)An образует:",o:["прошедшее время","причастие наст.-прошедшего","деепричастие","инфинитив"],c:1,t:"Причастие"},{q:"«Тот, кто не знает» (отриц.):",o:["bilen","bilmeyen","bilinen","bilmek"],c:1,t:"Причастие"},{q:"«Читающий студент»:",o:["okuyan öğrenci","okunan öğrenci","okuyacak öğrenci","okumuş öğrenci"],c:0,t:"Причастие"},{q:"«Те, кто пришли» (мн.ч.):",o:["gelen","gelenin","gelenler","gelenlerin"],c:2,t:"Субстантивация"}]},
+{id:13,nm:"Раздел 13",ds:"Деепричастие -(y)Ip, конструкции -Arken, -(I)ken",
+c:[{tr:"-(y)Ip",ru:"деепричастие (и затем / не...а)",t:"Деепричастие"},{tr:"gelip oturmak",ru:"прийти и сесть",t:"Деепричастие"},{tr:"cevap vermeyip",ru:"не ответив / вместо ответа",t:"Деепричастие"},{tr:"arayıp söylemek",ru:"позвонить и сказать",t:"Деепричастие"},{tr:"-Arken",ru:"пока / когда (одновременность)",t:"Конструкция -ken"},{tr:"çalışırken",ru:"пока работает / работая",t:"Конструкция -ken"},{tr:"evdeyken",ru:"пока был дома",t:"Конструкция -ken"},{tr:"okurken",ru:"пока читает / читая",t:"Конструкция -ken"},{tr:"-(I)yor+ken",ru:"пока делает (прогрессив + -ken)",t:"Конструкция -ken"}],
+tr:[{ru:"Позвонив, он сказал: «Не приду».",tr:"Arayıp 'gelemiyorum' dedi.",hint:"-(y)Ip = и затем",t:"Деепричастие"},{ru:"Политик не ответил на вопросы, удивив всех.",tr:"Politikacı sorulara cevap vermeyip herkesi şaşırttı.",hint:"-mAyIp = не... а",t:"Деепричастие"},{ru:"Пока я был дома, ничего не делал.",tr:"Evdeyken hiçbir şey yapmadım.",hint:"-(I)ken = пока был",t:"Конструкция -ken"},{ru:"Когда будешь выходить, выключи свет.",tr:"Çıkarken ışığı kapat.",hint:"-Arken = когда/пока",t:"Конструкция -ken"},{ru:"Пока читал, заснул.",tr:"Okurken uyuyakaldım.",hint:"okurken = пока читал",t:"Конструкция -ken"}],
+f:[{b:"Aray",bl:"ıp",a:"'gelemiyorum' dedi.",h:"деепричастие",t:"Деепричастие",ru:"Позвонив, сказал «не приду»."},{b:"Evde",bl:"yken",a:"hiçbir şey yapmadım.",h:"пока был дома",t:"Конструкция -ken",ru:"Пока был дома, ничего не делал."},{b:"Çık",bl:"arken",a:"ışığı kapat.",h:"когда выходишь",t:"Конструкция -ken",ru:"Когда выходишь, выключи свет."},{b:"Cevap ver",bl:"meyip",a:"herkesi şaşırttı.",h:"не ответив (-mAyIp)",t:"Деепричастие",ru:"Не ответив, удивил всех."}],
+m:[{q:"Деепричастие -(y)Ip выражает:",o:["одновременность","последовательность / противопоставление","причину","цель"],c:1,t:"Деепричастие"},{q:"«Пока я работал» (наст.-буд. основа):",o:["çalışırken","çalışacakken","çalışmışken","çalışmıyorken"],c:0,t:"Конструкция -ken"},{q:"«Не ответив» (деепричастие отриц.):",o:["cevap verip","cevap vermeyip","cevap vermeden","cevap verirken"],c:1,t:"Деепричастие"},{q:"«Пока читает»:",o:["okuyup","okuduktan","okurken","okumak için"],c:2,t:"Конструкция -ken"}]},
+{id:14,nm:"Раздел 14",ds:"Прошедшее длительное -(I)yordu, имперфект -ArdI, давнопрошедшее -mIştI",
+c:[{tr:"çalışıyordum",ru:"я работал (в процессе) — -(I)yordu 1л.ед.",t:"Прош. длит."},{tr:"çalışıyordu",ru:"он работал (в процессе)",t:"Прош. длит."},{tr:"çalışıyorduk",ru:"мы работали (в процессе)",t:"Прош. длит."},{tr:"çalışıyordum ama...",ru:"я работал, но... (фон для другого действия)",t:"Прош. длит."},{tr:"çalışırdım",ru:"я работал (обычно, бывало) — -ArdI",t:"Имперфект -ArdI"},{tr:"giderdi",ru:"он ходил / бывало ходил",t:"Имперфект -ArdI"},{tr:"eskiden",ru:"раньше / в прошлом",t:"Имперфект -ArdI"},{tr:"çocukken",ru:"в детстве / когда был ребёнком",t:"Имперфект -ArdI"},{tr:"gitmiştim",ru:"я (уже) пошёл — давнопрошедшее -mIştI",t:"Давнопрош. -mIştI"},{tr:"gelmişti",ru:"он (уже) пришёл",t:"Давнопрош. -mIştI"},{tr:"yapmıştım",ru:"я (уже) сделал",t:"Давнопрош. -mIştI"},{tr:"o geldiğinde",ru:"когда он пришёл",t:"Давнопрош. -mIştI"}],
+tr:[{ru:"Вчера весь день шёл дождь.",tr:"Dün bütün gün yağmur yağıyordu.",hint:"-(I)yordu = длительное прош.",t:"Прош. длит."},{ru:"Когда я вошёл, Тамер уже спал.",tr:"Girdiğimde Tamer uyuyordu.",hint:"фоновое действие",t:"Прош. длит."},{ru:"Раньше я курил, а теперь бросил.",tr:"Eskiden sigara içerdim, şimdi bıraktım.",hint:"eskiden + -ArdI",t:"Имперфект -ArdI"},{ru:"В детстве я каждый день читал книги.",tr:"Çocukken her gün kitap okurdum.",hint:"çocukken + -ArdI",t:"Имперфект -ArdI"},{ru:"Когда ты пришёл, Онур уже ушёл.",tr:"Sen geldiğinde Onur çoktan gitmişti.",hint:"-mIştI = действие до другого",t:"Давнопрош. -mIştI"},{ru:"Я только что выключил компьютер — кто его включил?",tr:"Bilgisayarımı az önce kapatmıştım, kim açtı?",hint:"kapatmıştım = уже выключил",t:"Давнопрош. -mIştI"}],
+f:[{b:"Dün bütün gün yağmur yağ",bl:"ıyordu",a:".",h:"прош. длит. 3л.ед.",t:"Прош. длит.",ru:"Вчера весь день шёл дождь."},{b:"Eskiden her gün kitap oku",bl:"rdum",a:".",h:"имперфект 1л.ед.",t:"Имперфект -ArdI",ru:"Раньше я каждый день читал."},{b:"Sen geldiğinde Onur çoktan git",bl:"mişti",a:".",h:"давнопрош. 3л.ед.",t:"Давнопрош. -mIştI",ru:"Когда ты пришёл, Онур уже ушёл."},{b:"Girdiğimde Tamer uyu",bl:"yordu",a:".",h:"прош. длит. 3л.ед.",t:"Прош. длит.",ru:"Когда я вошёл, Тамер спал."},{b:"Eskiden sigara iç",bl:"erdim",a:", şimdi bıraktım.",h:"имперфект 1л.ед.",t:"Имперфект -ArdI",ru:"Раньше я курил, теперь бросил."}],
+m:[{q:"«Я работал» (в процессе, прошлое):",o:["çalışırdım","çalışıyordum","çalışmıştım","çalıştım"],c:1,t:"Прош. длит."},{q:"«Бывало, ходил / обычно ходил»:",o:["gidiyordum","gittim","giderdim","gitmiştim"],c:2,t:"Имперфект -ArdI"},{q:"«Он уже пришёл» (до другого действия):",o:["geldi","geliyor","geliyordu","gelmişti"],c:3,t:"Давнопрош. -mIştI"},{q:"Какое время используется для фонового действия в прошлом?",o:["прошедшее -DI","прошедшее длительное -(I)yordu","имперфект -ArdI","субъективное -mIş"],c:1,t:"Прош. длит."},{q:"«Раньше» по-турецки:",o:["şimdi","sonra","eskiden","önce"],c:2,t:"Имперфект -ArdI"}]},
+
+{id:15,nm:"Раздел 15",ds:"Будущее-прошедшее -(y)AcAktI, az kaldı, предположение -mIştIr",
+c:[{tr:"gidecektim",ru:"я собирался пойти — -(y)AcAktI 1л.ед.",t:"Буд.-прош."},{tr:"gidecekti",ru:"он собирался пойти",t:"Буд.-прош."},{tr:"gitmeyecektim",ru:"я не собирался идти (отриц.)",t:"Буд.-прош."},{tr:"gidecek miydim?",ru:"я собирался идти? (вопрос)",t:"Буд.-прош."},{tr:"aslında",ru:"на самом деле / собственно говоря",t:"Буд.-прош."},{tr:"az kalsın / az kaldı",ru:"чуть было не... / едва не...",t:"az kaldı"},{tr:"az kalsın düştüm",ru:"я чуть не упал",t:"az kaldı"},{tr:"gitmiştir",ru:"он, наверное, ушёл — -mIştIr предположение",t:"Предположение"},{tr:"olmuştur",ru:"наверное, случилось",t:"Предположение"},{tr:"doğrudur",ru:"наверное, правильно",t:"Предположение"}],
+tr:[{ru:"Я не собирался с ним больше разговаривать, но он попросил прощения.",tr:"Onunla bir daha konuşmayacaktım ama özür diledi.",hint:"-(y)AcAktI = собирался, но...",t:"Буд.-прош."},{ru:"Мы и не планировали никуда ехать этим летом.",tr:"Bu yaz zaten hiçbir yere gitmeyecektik.",hint:"отрицание -(y)AcAktI",t:"Буд.-прош."},{ru:"Прости, ты собирался сегодня встретиться с друзьями?",tr:"Pardon, bugün arkadaşlarınla buluşacak mıydın?",hint:"вопрос -(y)AcAktI",t:"Буд.-прош."},{ru:"Я чуть было не опоздал на самолёт.",tr:"Az kalsın uçağı kaçırıyordum.",hint:"az kalsın = чуть не",t:"az kaldı"},{ru:"Сейчас девять — в офисе, наверное, уже никого нет.",tr:"Saat dokuz oldu, ofiste kimse kalmamıştır.",hint:"-mIştIr = предположение",t:"Предположение"}],
+f:[{b:"Onunla bir daha konuşmay",bl:"acaktım",a:" ama özür diledi.",h:"буд.-прош. отриц. 1л.ед.",t:"Буд.-прош.",ru:"Не собирался с ним говорить, но извинился."},{b:"Bu yaz zaten hiçbir yere git",bl:"meyecektik",a:".",h:"буд.-прош. отриц. 1л.мн.",t:"Буд.-прош.",ru:"Мы и так не собирались никуда ехать."},{b:"Az kalsın uçağı",bl:"kaçırıyordum",a:".",h:"чуть не (прош. длит.)",t:"az kaldı",ru:"Я чуть не опоздал на самолёт."},{b:"Ofiste kimse kal",bl:"mamıştır",a:".",h:"предположение -mIştIr",t:"Предположение",ru:"В офисе, наверное, уже никого нет."}],
+m:[{q:"«Я собирался пойти» (но не пошёл):",o:["gidecektim","gideceğim","gidiyordum","gitmiştim"],c:0,t:"Буд.-прош."},{q:"«Я не собирался» — отрицание:",o:["gitmeyecektim","gitmiyordum","gitmedim","gidemezdim"],c:0,t:"Буд.-прош."},{q:"«Чуть не...» по-турецки:",o:["aslında","belki","az kalsın","galiba"],c:2,t:"az kaldı"},{q:"-mIştIr выражает:",o:["прошедшее завершённое","удивление","предположение / вывод","пересказ"],c:2,t:"Предположение"},{q:"«На самом деле» по-турецки:",o:["eskiden","aslında","belki","galiba"],c:1,t:"Буд.-прош."}]},
+
+{id:16,nm:"Раздел 16",ds:"Условная модальность: -sA (реальное), -sAydI (нереальное)",
+c:[{tr:"-sA / -se",ru:"аффикс условного наклонения (если)",t:"Условн. -sA"},{tr:"gidersem",ru:"если я пойду (реальное условие)",t:"Условн. -sA"},{tr:"gidersen",ru:"если ты пойдёшь",t:"Условн. -sA"},{tr:"giderse",ru:"если он пойдёт",t:"Условн. -sA"},{tr:"gitmezsem",ru:"если я не пойду (отриц.)",t:"Условн. -sA"},{tr:"gitsem",ru:"если бы я пошёл (желание)",t:"Условн. -sA"},{tr:"-sAydI",ru:"нереальное условие (если бы...)",t:"Нереальн. -sAydI"},{tr:"gitseydim",ru:"если бы я пошёл (но не пошёл)",t:"Нереальн. -sAydI"},{tr:"olsaydı",ru:"если бы было",t:"Нереальн. -sAydI"},{tr:"nereye gidersen git",ru:"куда бы ты ни пошёл (уступит.)",t:"Уступит. конструкция"}],
+tr:[{ru:"Если ты будешь каждый день заниматься, через год заговоришь по-турецки.",tr:"Her gün çalışırsan bir yıl sonra Türkçe konuşursun.",hint:"-ArsA реальное условие",t:"Условн. реальн."},{ru:"Если хочешь, я закрою кондиционер.",tr:"İstersen klimayı kapatayım.",hint:"istersen = если хочешь",t:"Условн. реальн."},{ru:"Если бы у меня был миллион долларов, поехал бы в кругосветное путешествие.",tr:"Bir milyon dolarım olsaydı dünya turuna çıkardım.",hint:"-sAydI нереальное",t:"Нереальн. -sAydI"},{ru:"Если бы ты позвонил раньше, мы бы успели.",tr:"Daha önce arasaydın yetişirdik.",hint:"-sAydI + -ArdI",t:"Нереальн. -sAydI"},{ru:"Если у вас есть предложения, заполните анкету.",tr:"Önerileriniz varsa lütfen anketi doldurun.",hint:"varsa = если есть",t:"Условн. реальн."}],
+f:[{b:"Her gün çalış",bl:"ırsan",a:" Türkçe konuşursun.",h:"условие -ArsA 2л.ед.",t:"Условн. реальн.",ru:"Если будешь заниматься — заговоришь."},{b:"İster",bl:"sen",a:" klimayı kapatayım.",h:"если хочешь",t:"Условн. реальн.",ru:"Если хочешь, закрою кондиционер."},{b:"Bir milyon dolarım ol",bl:"saydı",a:" dünya turuna çıkardım.",h:"нереальное условие",t:"Нереальн. -sAydI",ru:"Если бы был миллион — поехал бы в тур."},{b:"Daha önce ara",bl:"saydın",a:" yetişirdik.",h:"нереальное 2л.ед.",t:"Нереальн. -sAydI",ru:"Если бы позвонил раньше — успели бы."},{b:"Önerileriniz var",bl:"sa",a:" anketi doldurun.",h:"если есть",t:"Условн. реальн.",ru:"Если есть предложения — заполните анкету."}],
+m:[{q:"Реальное условие «если я пойду»:",o:["gitseydim","gitmiş olsam","gidersem","gitsem"],c:2,t:"Условн. -sA"},{q:"Нереальное условие «если бы я пошёл» (но не пошёл):",o:["gidersem","gitseydim","giderseyim","gitsem"],c:1,t:"Нереальн. -sAydI"},{q:"«Если хочешь» по-турецки:",o:["istersen","isterim","istese","istersek"],c:0,t:"Условн. -sA"},{q:"Нереальное условие + результат: схема:",o:["-sAydI + -ArdI","-sA + -AcAk","-sA + -Ir","-mIş + -DI"],c:0,t:"Нереальн. -sAydI"},{q:"«Если бы было» 3л.ед.:",o:["olsa","olsaydı","olursa","olsam"],c:1,t:"Нереальн. -sAydI"}]},
+
+{id:17,nm:"Раздел 17",ds:"Субстантивация конструкций со служебными словами",
+c:[{tr:"yurt içi / yurt dışı",ru:"внутри страны / за рубежом",t:"Служ. слова"},{tr:"masa başı",ru:"за столом / рабочий (прил.)",t:"baş"},{tr:"sabah başı",ru:"начало утра",t:"baş"},{tr:"hafta içi / hafta sonu",ru:"в будние дни / в выходные",t:"Служ. слова"},{tr:"satır altı",ru:"построчный / под строкой",t:"Служ. слова"},{tr:"sayfa başı",ru:"на странице / за страницу",t:"baş"},{tr:"olaysız",ru:"без происшествий / спокойно",t:"Аффикс -sIz"},{tr:"yasa dışı",ru:"незаконный / вне закона",t:"dış"},{tr:"bir zamanlar",ru:"когда-то / в своё время",t:"bir"},{tr:"bir ara",ru:"одно время / в какой-то момент",t:"bir"},{tr:"bir an",ru:"на мгновение",t:"bir"},{tr:"her şey",ru:"всё / всё что угодно",t:"her"},{tr:"her biri",ru:"каждый из них",t:"her"}],
+tr:[{ru:"Праздничные мероприятия прошли спокойно.",tr:"Yılbaşı kutlamaları olaysız geçti.",hint:"olaysız = без происшествий",t:"Аффикс -sIz"},{ru:"Незаконная деятельность вредит экономике страны.",tr:"Yasa dışı faaliyetler ülkenin ekonomisini zayıflatır.",hint:"yasa dışı = вне закона",t:"dış"},{ru:"Когда-то Нуртекин был известным спортсменом.",tr:"Bir zamanlar Nurtekin meşhur bir sporcuydu.",hint:"bir zamanlar = когда-то",t:"bir"},{ru:"Медсестра будет звонить каждый час.",tr:"Hemşire saat başı arayacak.",hint:"saat başı = каждый час",t:"baş"},{ru:"Расходы на человека в этом отеле выросли.",tr:"Bu otelde kişi başı masraflar arttı.",hint:"kişi başı = на человека",t:"baş"}],
+f:[{b:"Yılbaşı kutlamaları olay",bl:"sız",a:" geçti.",h:"без (-sIz)",t:"Аффикс -sIz",ru:"Праздник прошёл без происшествий."},{b:"Yasa",bl:"dışı",a:" faaliyetler yasaktır.",h:"вне закона",t:"dış",ru:"Незаконная деятельность запрещена."},{b:"Bir",bl:"zamanlar",a:" burada orman vardı.",h:"когда-то",t:"bir",ru:"Когда-то здесь был лес."},{b:"Hemşire saat",bl:"başı",a:" arayacak.",h:"каждый час",t:"baş",ru:"Медсестра будет звонить каждый час."}],
+m:[{q:"«В выходные» по-турецки:",o:["hafta içi","hafta sonu","haftada bir","hafta başı"],c:1,t:"Служ. слова"},{q:"«За рубежом» по-турецки:",o:["yurt içi","yurt dışı","iç saha","dış kapı"],c:1,t:"dış"},{q:"«Когда-то» по-турецки:",o:["bir ara","bir an","bir zamanlar","bir kez"],c:2,t:"bir"},{q:"«Без» — аффикс:",o:["-lı/-li","-sız/-siz","-lık/-lik","-ca/-ce"],c:1,t:"Аффикс -sIz"},{q:"«На человека / за штуку»:",o:["kişi başı","kişi içi","kişi dışı","kişi altı"],c:0,t:"baş"}]}
+
+];
+
+let cs=null,cm='c',q=[],ix=0,ok=0,er=0,ans=false,fl=false;
+const pr=JSON.parse(localStorage.getItem('tp')||'{}');
+
+function sh(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b;}
+function nr(s){return s.trim().toLowerCase().replace(/[?.!,;–]/g,'').replace(/\s+/g,' ');}
+function $id(id){return document.getElementById(id);}
+
+function goHome(){
+  $id('hp').style.display='block';$id('sp').style.display='none';$id('rpage').style.display='none';
+  $id('nbk').style.display='none';$id('nt').textContent='Türkçe Тренажёр';$id('ns').textContent='Оганова, Часть 1';
+  renderHome();
+}
+
+function renderHome(){
+  $id('sg').innerHTML=D.map(s=>{
+    const p=pr[s.id]||{};
+    const tot=Object.values(p).reduce((a,v)=>a+(v.ok||0),0);
+    return`<div class="scard${tot>4?' done':''}" onclick="showReminder(${s.id})">
+      <div class="snum">${s.id}</div>
+      <div class="sinfo"><div class="sname">${s.nm}</div><div class="sdesc">${s.ds}</div>${tot>0?`<div class="sprog">✓ ${tot} верных ответов</div>`:''}</div>
+      <div style="color:var(--text3);font-size:20px">›</div>
+    </div>`;
+  }).join('');
+}
+
+function openSection(id){
+  cs=D.find(s=>s.id===id);cm='c';ix=0;ok=0;er=0;ans=false;fl=false;
+  $id('hp').style.display='none';$id('sp').style.display='block';
+  $id('nbk').style.display='block';$id('nt').textContent=cs.nm;$id('ns').textContent=cs.ds;
+  tabs();initQ();upd();render();
+}
+
+function tabs(){
+  const ms=[['c','Карточки'],['tr','Перевод'],['f','Пропуски'],['m','Выбор']];
+  $id('mt').innerHTML=ms.map(([k,l])=>`<button class="mtab${k===cm?' on':''}" onclick="sw('${k}')">${l}</button>`).join('');
+}
+
+function sw(m){cm=m;ix=0;ok=0;er=0;ans=false;fl=false;tabs();initQ();upd();render();}
+
+function initQ(){
+  if(cm==='c')q=sh(cs.c||[]);
+  else if(cm==='tr')q=sh(cs.tr||[]);
+  else if(cm==='f')q=sh(cs.f||[]);
+  else q=sh(cs.m||[]);
+}
+
+function upd(){
+  $id('so').textContent=ok;$id('se').textContent=er;
+  $id('sl').textContent=Math.max(0,q.length-ix);
+  $id('pf').style.width=(q.length>0?Math.round(ix/q.length*100):0)+'%';
+}
+
+function sav(){
+  if(!pr[cs.id])pr[cs.id]={};
+  pr[cs.id][cm]={ok,er,ts:Date.now()};
+  localStorage.setItem('tp',JSON.stringify(pr));
+}
+
+function render(){
+  if(ix>=q.length&&q.length>0){
+    sav();
+    const p=Math.round(ok/(ok+er)*100)||0;
+    $id('ea').innerHTML=`<div class="done"><div class="em">${p>=80?'🎉':'💪'}</div><h2>${p>=80?'Отлично!':'Продолжай!'}</h2><p>Верно: ${ok} из ${ok+er} (${p}%)</p><button class="btn btnp" onclick="rst()">Повторить</button></div>`;
+    return;
+  }
+  if(cm==='c')rCard();
+  else if(cm==='tr')rTr();
+  else if(cm==='f')rFill();
+  else rMC();
+}
+
+function rst(){ix=0;ok=0;er=0;ans=false;fl=false;sh(q);upd();render();}
+
+function rCard(){
+  const it=q[ix];fl=false;
+  $id('ea').innerHTML=`
+    <div class="card" id="fc" onclick="flip()" style="cursor:pointer;min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+      <div class="bdg">${it.t||''}</div>
+      <div id="fc-front">
+        <div class="fcw">${it.tr}</div>
+        <div class="fct">нажмите, чтобы перевести</div>
+      </div>
+      <div id="fc-back" style="display:none">
+        <div class="fcr">${it.ru}</div>
+        <div class="fcs">${it.tr}</div>
+      </div>
+    </div>
+    <div id="fc-btns" style="display:none;gap:10px;margin-top:12px">
+      <button class="btn bno" onclick="ca(false)">Не знал</button>
+      <button class="btn byes" onclick="ca(true)">Знал ✓</button>
+    </div>`;
+}
+
+
+function flip(){
+  if(fl)return;fl=true;
+  $id('fc-front').style.display='none';
+  $id('fc-back').style.display='block';
+  $id('fc-btns').style.display='flex';
+}
+
+
+function ca(k){if(k)ok++;else er++;ix++;upd();render();}
+
+function rTr(){
+  const it=q[ix];ans=false;
+  $id('ea').innerHTML=`<div class="card"><div class="bdg">${it.t||''}</div><div class="q">${it.ru}</div>${it.hint?`<div class="hint">${it.hint}</div>`:''}<textarea id="ai" placeholder="Введите перевод на турецком..." rows="3"></textarea><div class="br"><button class="btn" onclick="skip()">Пропустить</button><button class="btn btnp" id="cb" onclick="chkT()">Проверить</button></div><div class="fb" id="fb"></div></div>`;
+  const ta=$id('ai');
+  ta.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();chkT();}});
+  ta.focus();
+}
+
+function chkT(){
+  if(ans){nx();return;}
+  const it=q[ix];const val=$id('ai').value;const fb=$id('fb');const ta=$id('ai');
+  const c=nr(val)===nr(it.tr);
+  fb.className='fb show '+(c?'fbo':'fbn');
+  if(c){fb.innerHTML='✓ Верно!';ta.classList.add('ok');ok++;}
+  else{fb.innerHTML=`✗ Не совсем.<div class="fba">Правильно: ${it.tr}</div>`;ta.classList.add('ng');er++;}
+  ans=true;$id('cb').textContent='Далее →';upd();
+}
+
+function rFill(){
+  const it=q[ix];ans=false;
+  $id('ea').innerHTML=`<div class="card"><div class="bdg">${it.t||''}</div><div class="q" style="font-size:14px;color:var(--text2);margin-bottom:10px">${it.ru}</div><div class="fis">${it.b} <input type="text" class="fii" id="bi" placeholder="?" autocomplete="off" autocorrect="off" spellcheck="false"> ${it.a}</div>${it.h?`<div class="hint" style="margin-top:10px">${it.h}</div>`:''}<div class="br"><button class="btn" onclick="skip()">Пропустить</button><button class="btn btnp" id="cb" onclick="chkF()">Проверить</button></div><div class="fb" id="fb"></div></div>`;
+  const inp=$id('bi');
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')chkF();});
+  inp.focus();
+}
+
+function chkF(){
+  if(ans){nx();return;}
+  const it=q[ix];const val=$id('bi').value;const fb=$id('fb');const inp=$id('bi');
+  const c=nr(val)===nr(it.bl);
+  fb.className='fb show '+(c?'fbo':'fbn');
+  if(c){fb.innerHTML='✓ Верно!';inp.style.borderBottomColor='var(--gr)';ok++;}
+  else{fb.innerHTML=`✗ Не совсем.<div class="fba">Правильно: ${it.bl}</div>`;inp.style.borderBottomColor='var(--re)';er++;}
+  ans=true;$id('cb').textContent='Далее →';upd();
+}
+
+function rMC(){
+  const it=q[ix];ans=false;
+  const sh2=sh([...it.o]);const cor=it.o[it.c];
+  $id('ea').innerHTML=`<div class="card"><div class="bdg">${it.t||''}</div><div class="q">${it.q}</div><div class="mcg">${sh2.map(o=>`<button class="mco" onclick="chkM(this,'${o.replace(/'/g,"\\'")}','${cor.replace(/'/g,"\\'")}')"> ${o}</button>`).join('')}</div><div class="fb" id="fb"></div></div>`;
+}
+
+function chkM(el,ch,cor){
+  if(ans)return;ans=true;
+  const fb=$id('fb');
+  document.querySelectorAll('.mco').forEach(b=>{b.onclick=null;if(b.textContent.trim()===cor.trim())b.className='mco mcok';});
+  if(ch.trim()===cor.trim()){el.className='mco mcok';ok++;fb.className='fb show fbo';fb.innerHTML='✓ Верно!';}
+  else{el.className='mco mcng';er++;fb.className='fb show fbn';fb.innerHTML=`✗ Неверно. Правильно: <strong>${cor}</strong>`;}
+  upd();setTimeout(()=>{ix++;ans=false;upd();render();},1600);
+}
+
+function skip(){ix++;ans=false;upd();render();}
+function nx(){ix++;ans=false;upd();render();}
+
+const REMINDERS = {
+  1: {"title":"Раздел 1","blocks":[{"h":"Именное сказуемое","body":"В турецком нет глагола «быть» в настоящем времени. Прилагательное или существительное просто ставится после подлежащего:","ex":[["Otel uzak.","Отель далеко."],["Hava soğuk.","Погода холодная."],["Kitap çok ilginç.","Книга очень интересная."]]},{"h":"Указательные местоимения bu / şu / o","body":"bu = это/этот/эта (рядом), şu = вон тот (чуть дальше), o = тот (далеко или уже известный):","ex":[["Bu kitap.","Это книга."],["Şu sözlük.","Вон тот словарь."],["O adam kim?","Кто тот человек?"]]},{"h":"Существование: var / yok","body":"var = есть, yok = нет. Ставятся в конце предложения. Вопрос: var mı?","ex":[["Kitap var.","Книга есть."],["Arabası yok.","Машины нет."],["Zaman var mı?","Есть время?"]]},{"h":"Множественное число: -lAr","body":"Аффикс -lar / -ler. После твёрдых гласных (a, ı, o, u) → -lar, после мягких (e, i, ö, ü) → -ler:","ex":[["kitap → kitaplar","книга → книги"],["öğrenci → öğrenciler","студент → студенты"],["oda → odalar","комната → комнаты"]]}]},
+  2: {"title":"Раздел 2","blocks":[{"h":"Аффиксы сказуемости (личные окончания)","body":"Чтобы сказать «я врач», «ты студент» — добавляем аффикс к именной части. После гласной -yIm, после согласной -Im:","ex":[["Ben öğrenciyim.","Я студент."],["Sen doktorsun.","Ты врач."],["Biz mühendisiz.","Мы инженеры."]]},{"h":"Отрицание: değil","body":"Отрицание именного сказуемого — слово değil. Аффикс лица ставится после değil:","ex":[["O doktor değil.","Он не врач."],["Ben öğrenci değilim.","Я не студент."],["Biz burada değiliz.","Мы здесь не находимся."]]},{"h":"Двухаффиксный изафет: A'nın B'si","body":"«Книга студента» = öğrencinin kitabı. Первое слово получает родительный (-nIn), второе — притяжательный аффикс (-I, -ı, -u, -ü):","ex":[["öğrencinin kitabı","книга студента"],["Türkiye'nin başkenti","столица Турции"],["arkadaşımın arabası","машина моего друга"]]},{"h":"Одноаффиксный изафет: A + B'si","body":"Когда первое слово не имеет аффикса родительного падежа — только второе получает притяжательный. Часто в составных словах:","ex":[["sınıf arkadaşı","одноклассник"],["ders kitabı","учебник"],["Türkçe dersi","урок турецкого"]]}]},
+  3: {"title":"Раздел 3","blocks":[{"h":"Настоящее время: -(I)yor","body":"Суффикс -yor присоединяется к основе глагола. Если основа на гласную — гласная отбрасывается. Личные окончания: -um, -sun, —, -uz, -sunuz, -lar:","ex":[["gel-iyor-um → geliyorum","я прихожу/иду"],["yaz-ıyor-sun → yazıyorsun","ты пишешь"],["çalış-ıyor → çalışıyor","он работает"]]},{"h":"Отрицание настоящего: -mIyor","body":"Между основой и -yor вставляем -mı/-mi/-mu/-mü в зависимости от последней гласной основы:","ex":[["gel-mi-yor-um → gelmiyorum","я не прихожу"],["çalış-mı-yor → çalışmıyor","он не работает"],["bil-mi-yor-uz → bilmiyoruz","мы не знаем"]]},{"h":"Повелительное наклонение","body":"2л.ед. = чистая основа. 2л.мн. = основа + -In. Отрицание: -mA (ед.) и -mAyIn (мн.):","ex":[["gel! / gelin!","иди! / идите!"],["yaz! / yazın!","пиши! / пишите!"],["gelme! / gelmeyin!","не ходи! / не ходите!"]]},{"h":"Модальность: lazım / gerek","body":"«Нужно» по-турецки — слова lazım или gerek. Тот, кому нужно — в дательном падеже (-a/-e):","ex":[["Bana yardım lazım.","Мне нужна помощь."],["Sana para gerek mi?","Тебе нужны деньги?"],["Ona zaman lazım.","Ему нужно время."]]}]},
+  4: {"title":"Раздел 4","blocks":[{"h":"Система падежей турецкого языка","body":"Турецкий — язык с падежами. Четыре основных пространственных падежа и их вопросы:","ex":[["-da/-de: okulda","местный — где? (в школе)"],["-a/-e: okula","дательный — куда? (в школу)"],["-dan/-den: okuldan","исходный — откуда? (из школы)"],["-(y)ı/-i: okulu","винительный — что именно? (школу)"]]},{"h":"Закон сингармонизма (гласных)","body":"Гласная аффикса зависит от последней гласной слова. A-группа (a, ı, o, u) → A; E-группа (e, i, ö, ü) → E:","ex":[["masa → masada","стол → на столе"],["ev → evde","дом → в доме"],["okul → okulda","школа → в школе"]]},{"h":"Конструкции цели: için / amacıyla / üzere","body":"Все три означают «чтобы / с целью», но için самый частый. Ставятся после инфинитива на -mAk:","ex":[["Türkçe öğrenmek için geldim.","Я приехал, чтобы учить турецкий."],["toplantı amacıyla","с целью встречи"],["geri dönmemek üzere","чтобы не вернуться"]]},{"h":"Инфинитив в падежах (-mAk)","body":"Инфинитив может склоняться как существительное. Самые частые формы:","ex":[["okumayı seviyorum","я люблю читать (-mAyI + sevmek)"],["çalışmaya başladım","я начал работать (-mAyA başlamak)"],["sigara içmekten nefret ederim","я ненавижу курение (-mAktAn)"]]}]},
+  5: {"title":"Раздел 5","blocks":[{"h":"Прошедшее время: -DI","body":"Аффикс -dı/-di/-du/-dü (после глухих согласных -tı/-ti). Личные окончания: -m, -n, —, -k, -nız, -lar:","ex":[["git-ti-m → gittim","я пошёл"],["yaz-dı → yazdı","он написал"],["gel-di-k → geldik","мы пришли"]]},{"h":"Отрицание прошедшего: -meDI","body":"Перед аффиксом -DI вставляем -me/-ma:","ex":[["gitmedim","я не пошёл"],["yazmadın","ты не написал"],["gelmediler","они не пришли"]]},{"h":"Специальный вопрос","body":"Вопросительное слово ставится перед глаголом. Порядок слов: подлежащее — вопр. слово — глагол:","ex":[["Ne zaman geldin?","Когда ты пришёл?"],["Nerede oturuyorsunuz?","Где вы живёте?"],["Neden gitmedin?","Почему ты не пошёл?"]]},{"h":"Прошедшее именное сказуемое: -ydI","body":"«Я был студентом» — к именному сказуемому добавляем -ydı/-ydi/-ydu/-ydü + личный аффикс:","ex":[["Öğrenciydim.","Я был студентом."],["Evde değildi.","Его не было дома."],["Hasta mıydın?","Ты был болен?"]]}]},
+  6: {"title":"Раздел 6","blocks":[{"h":"Послелог için (для / чтобы)","body":"Ставится после имени существительного или инфинитива. Самый универсальный послелог:","ex":[["Sen için aldım.","Я купил для тебя."],["Dinlenmek için oturdum.","Я сел, чтобы отдохнуть."],["Bu iş için zaman lazım.","Для этой работы нужно время."]]},{"h":"Послелоги gibi и kadar","body":"gibi = как/подобно (сравнение). kadar = до/настолько...как (предел или равенство):","ex":[["Aslan gibi güçlü.","Сильный как лев."],["Sana kadar geldim.","Я дошёл до тебя."],["O kadar güzel ki!","Настолько красиво!"]]},{"h":"Послелог beri (с какого-то времени)","body":"beri = с (момента). Требует исходного падежа (-dan/-den) у предшествующего слова:","ex":[["Sabahtan beri bekliyorum.","Жду с утра."],["İki yıldır buradayım.","Я здесь уже два года."],["O günden beri görmedim.","С того дня не видел."]]},{"h":"hakkında, olarak, göre","body":"hakkında = о/насчёт. olarak = как/в качестве. göre = по/согласно — требует дательного:","ex":[["Bu film hakkında ne düşünüyorsun?","Что ты думаешь об этом фильме?"],["Müdür olarak çalışıyor.","Работает как директор."],["Bana göre doğru.","По-моему, правильно."]]}]},
+  7: {"title":"Раздел 7","blocks":[{"h":"Желательное наклонение (-AyIm / -AlIm)","body":"1л.ед. -AyIm = «дай-ка я...», 1л.мн. -AlIm = «давайте...». Выражают намерение или предложение:","ex":[["Bir bakayım.","Дай-ка я посмотрю."],["Sinemaya gidelim.","Давайте пойдём в кино."],["Sana yardım edeyim mi?","Помочь тебе?"]]},{"h":"Повелительное наклонение 3-го лица","body":"3л.ед. = основа + -sIn, 3л.мн. = основа + -sInlar. Значение «пусть он/они»:","ex":[["Gelsin.","Пусть придёт."],["Bilsinler.","Пусть знают."],["Ahmet arasın beni.","Пусть Ахмед мне позвонит."]]},{"h":"Числительные: образование","body":"Числа от 11 до 19: on + единицы. Десятки: yirmi, otuz, kırk, elli, altmış, yetmiş, seksen, doksan:","ex":[["on beş → 15","on + beş"],["yirmi üç → 23","yirmi + üç"],["iki yüz kırk beş → 245","iki yüz + kırk + beş"]]}]},
+  8: {"title":"Раздел 8","blocks":[{"h":"Который час: saat kaç?","body":"Полный час: saat beş (5:00). Половина: saat beş buçuk (5:30). После получасА: saat beşi yirmi geçe (5:20). До часа: saat altıya on kala (5:50):","ex":[["Saat üç.","Три часа ровно."],["Saat dört buçuk.","Половина пятого (4:30)."],["Saat beşi çeyrek geçe.","Четверть шестого (5:15)."]]},{"h":"В котором часу: saat kaçta?","body":"Чтобы сказать «в котором часу» — добавляем местный падеж -da/-de к числу часов:","ex":[["Saat dokuzda başlıyor.","Начинается в девять."],["Saat yedide buluşalım.","Давайте встретимся в семь."],["Saat ikide geldim.","Я пришёл в два."]]},{"h":"Дни недели и месяцы","body":"Дни: pazartesi (пн), salı (вт), çarşamba (ср), perşembe (чт), cuma (пт), cumartesi (сб), pazar (вс). Месяцы — заимствованы из европейских языков:","ex":[["Bu hafta çarşamba.","В эту среду."],["Ocak, Şubat, Mart...","Январь, февраль, март..."],["Geçen cuma.","В прошлую пятницу."]]}]},
+  9: {"title":"Раздел 9","blocks":[{"h":"Степени сравнения","body":"Сравнительная: daha + прилагательное. Превосходная: en + прилагательное. «Чем X»: X'tan/X'den daha:","ex":[["daha büyük","больше / крупнее"],["en büyük","самый большой"],["İstanbul Ankara'dan daha büyük.","Стамбул больше Анкары."]]},{"h":"Будущее категорическое время: -(y)AcAk","body":"Аффикс -acak/-ecek. Личные окончания: -ım, -sın, —, -ız, -sınız, -lar. Используется для конкретных будущих действий:","ex":[["gideceğim","я пойду"],["yazacak mısın?","ты напишешь?"],["Yarın gelmeyecekler.","Они завтра не придут."]]},{"h":"Настоящее-будущее время: -(I)r / -Ar","body":"Выражает регулярные/обычные действия, вечные истины, а также план/намерение. Основа + -ar/-er/-ır/-ir/-ur/-ür:","ex":[["Her sabah kahve içerim.","Каждое утро я пью кофе."],["Güneş doğudan doğar.","Солнце встаёт на востоке."],["Yarın gelirim.","Завтра приду (как правило или в плане)."]]}]},
+  10: {"title":"Раздел 10","blocks":[{"h":"Форма возможности: -(y)Abil","body":"Возможность/умение: основа + -abil/-ebil. Перед личными аффиксами ведёт себя как обычный глагол:","ex":[["gidebilirim","я могу пойти"],["Türkçe konuşabiliyorum.","Я умею говорить по-турецки."],["Yardım edebilir misin?","Можешь помочь?"]]},{"h":"Форма невозможности: -(y)AmA","body":"Невозможность: основа + -ama/-eme. В настоящем: -amıyor/-emiyor:","ex":[["gidemiyorum","я не могу идти (сейчас)"],["anlayamıyorum","я не понимаю / не могу понять"],["Yapamam.","Я не могу этого сделать."]]},{"h":"Прошедшее субъективное: -mIş","body":"Используется когда говорящий не был очевидцем события — пересказ, удивление, вывод по косвенным признакам:","ex":[["Meğer hasta olmuş.","Оказывается, он заболел."],["Galiba gitmiş.","Кажется, он ушёл."],["Çok yorulmuşsun.","Ты, оказывается, очень устал."]]}]},
+  11: {"title":"Раздел 11","blocks":[{"h":"Страдательный залог: -(I)l- / -(I)n-","body":"Кто-то делает → что-то делается. Аффикс -ıl/-il/-ul/-ül (или -ın после гласной). Агент (кем) — через tarafından:","ex":[["Kitap yazıldı.","Книга была написана."],["Kapı açıldı.","Дверь открылась / была открыта."],["Bina belediye tarafından yapıldı.","Здание построено муниципалитетом."]]},{"h":"Возвратный залог: -(I)n-","body":"Действие направлено на самого субъекта. Аффикс -ın/-in/-un/-ün после согласной:","ex":[["yıkanmak","мыться (мыть себя)"],["giyinmek","одеваться (одевать себя)"],["Aynaya baktı.","Он посмотрел на себя в зеркало."]]},{"h":"Взаимный и понудительный залоги","body":"Взаимный -(I)ş-: действие совершается друг с другом. Понудительный -DIr-/-t-: заставить кого-то сделать:","ex":[["tanışmak","знакомиться (друг с другом)"],["görüşmek","встречаться / видеться"],["Evi boyattım.","Я дал покрасить дом / велел покрасить."]]}]},
+  12: {"title":"Раздел 12","blocks":[{"h":"Причастие настоящего-прошедшего: -(y)An","body":"Образует определение или субстантив. Основа + -an/-en. Отрицание: -mAyAn:","ex":[["gelen adam","приходящий / пришедший человек"],["okuyan öğrenci","читающий студент"],["bilmeyen","тот, кто не знает"]]},{"h":"Субстантивация причастия","body":"Причастие может быть существительным — заменяет целый оборот «тот, кто...». Склоняется как обычное существительное:","ex":[["Gelenler oturdu.","Пришедшие сели."],["Bilenler bilsin.","Кто знает — пусть знает."],["İsteyenler gelsin.","Кто хочет — пусть приходит."]]}]},
+  13: {"title":"Раздел 13","blocks":[{"h":"Деепричастие на -(y)Ip","body":"Связывает два действия одного субъекта: первое совершается, затем — второе. Субъект не повторяется. Отрицание: -mAyIp (не сделав — зато сделал другое):","ex":[["Arayıp söyledi.","Позвонил и сказал."],["Kalkıp gitti.","Встал и ушёл."],["Cevap vermeyip çıktı.","Не ответив, вышел."]]},{"h":"Конструкция одновременности: -Arken / -(I)ken","body":"«Пока / когда». -Arken присоединяется к основе наст.-буд. времени. -(I)ken — к именам и другим формам:","ex":[["Çalışırken müzik dinliyorum.","Пока работаю, слушаю музыку."],["Evdeyken aramadın.","Пока я был дома, ты не звонил."],["Çıkarken kapıyı kilitle.","Когда будешь выходить, запри дверь."]]}],
+14: {"title":"Раздел 14","blocks":[
+  {"h":"Прошедшее длительное: -(I)yordu","body":"Описывает действие в процессе в прошлом — фон, на котором произошло другое событие. Образуется: основа + -ıyor/-iyor/-uyor/-üyor + -du/-dü:","ex":[["Kitap okuyordum, telefon çaldı.","Я читал книгу, (тут) зазвонил телефон."],["Dün yağmur yağıyordu.","Вчера шёл дождь (весь день)."],["Ne yapıyordun?","Что ты делал?"]]},
+  {"h":"Имперфект: -ArdI (eskiden, çocukken)","body":"Выражает регулярное действие в прошлом — «бывало, раньше...». Характерные слова: eskiden (раньше), çocukken (в детстве), bazen (иногда):","ex":[["Eskiden her gün spor yapardım.","Раньше я каждый день занимался спортом."],["Çocukken çok kitap okurdum.","В детстве я много читал."],["Hiç geç kalmazdı.","Бывало, никогда не опаздывал."]]},
+  {"h":"Давнопрошедшее: -mIştI","body":"Действие, завершившееся до другого прошедшего события. «Уже сделал к тому моменту»:","ex":[["Sen geldiğinde o çoktan gitmişti.","Когда ты пришёл, он уже ушёл."],["Filmi daha önce görmüştüm.","Я видел этот фильм раньше."],["Kapıyı kilitlemişti.","Он уже запер дверь (к тому времени)."]]}
+]},
+15: {"title":"Раздел 15","blocks":[
+  {"h":"Будущее-прошедшее: -(y)AcAktI","body":"«Собирался, планировал» — намерение в прошлом, которое не обязательно реализовалось. Очень часто с ama (но):","ex":[["Gidecektim ama kaldım.","Я собирался пойти, но остался."],["Bunu almayacaktım.","Я и не собирался это покупать."],["Bugün buluşacak mıydık?","Мы сегодня собирались встретиться?"]]},
+  {"h":"Конструкция az kaldı / az kalsın","body":"«Чуть не... / едва не...» — действие почти произошло, но не произошло:","ex":[["Az kalsın düştüm.","Я чуть не упал."],["Az kaldı kaçırıyordum treni.","Я чуть не опоздал на поезд."],["Az kaldı ağlıyordum.","Я чуть не заплакал."]]},
+  {"h":"Предположение: -mIştIr / -DIr","body":"-mIştIr и -DIr выражают вывод или предположение говорящего на основе косвенных признаков:","ex":[["Ofiste kimse kalmamıştır.","В офисе, наверное, уже никого нет."],["Yorulmuştur.","Он, наверное, устал."],["Doğrudur.","Наверное, правда / это должно быть верно."]]}
+]},
+16: {"title":"Раздел 16","blocks":[
+  {"h":"Реальное условие: -sA (-ArsA, -IrsA, -ysA)","body":"«Если...» для реальных или вероятных условий. Основа + условный аффикс + личное окончание:","ex":[["Gidersen, beni ara.","Если пойдёшь — позвони мне."],["Yağmur yağmazsa pikniğe gideriz.","Если не будет дождя — поедем на пикник."],["Vaktiniz varsa gelin.","Если у вас есть время — приходите."]]},
+  {"h":"Нереальное условие: -sAydI","body":"«Если бы...» — для условий, которые не выполнились. Схема: если бы X (-sAydI) → то Y (-ArdI):","ex":[["Param olsaydı alırdım.","Если бы у меня были деньги — купил бы."],["Erken gelseydin görürdün.","Если бы пришёл раньше — увидел бы."],["Bilseydim söylerdim.","Если бы знал — сказал бы."]]},
+  {"h":"Уступительные конструкции","body":"«Куда бы ни... / что бы ни...» — повтор глагола с условным аффиксом:","ex":[["Nereye gidersen git.","Куда бы ты ни пошёл."],["Ne yaparsan yap.","Что бы ты ни делал."],["Kim olursa olsun.","Кто бы это ни был."]]}
+]},
+17: {"title":"Раздел 17","blocks":[
+  {"h":"Субстантивация с «baş»","body":"baş (голова/начало) образует устойчивые выражения: saat başı (каждый час), masa başı (за столом/рабочий), sayfa başı (за страницу):","ex":[["Hemşire saat başı gelecek.","Медсестра будет приходить каждый час."],["Masa başı çalışma.","Работа за столом / офисная работа."],["Kişi başı 50 lira.","50 лир с человека."]]},
+  {"h":"Служебные слова: dış / iç + имя","body":"yurt içi (внутри страны), yurt dışı (за рубежом), hafta içi (в будни), hafta sonu (в выходные), yasa dışı (незаконный):","ex":[["Yurt dışına çıkıyorum.","Я еду за границу."],["Hafta sonu ne yapıyorsun?","Что делаешь в выходные?"],["Yasa dışı faaliyet.","Незаконная деятельность."]]},
+  {"h":"Эмфатический «bir»","body":"bir в усилительной функции: bir zamanlar (когда-то), bir ara (одно время), bir an (на мгновение), bir tek (только один):","ex":[["Bir zamanlar burada orman vardı.","Когда-то здесь был лес."],["Bir an sustum.","На мгновение я замолчал."],["Bir tek sen anlarsın.","Только ты понимаешь."]]}
+]
+}
+}
+};
+
+function showReminder(id){
+  const sec = D.find(s=>s.id===id);
+  const rem = REMINDERS[id];
+  // Hide all pages
+  $id('hp').style.display='none';
+  $id('sp').style.display='none';
+  $id('rpage').style.display='block';
+  $id('nbk').style.display='block';
+  $id('nt').textContent = sec.nm;
+  $id('ns').textContent = 'Напоминание';
+  // Store pending section
+  window._pendingSection = id;
+  // Render blocks
+  if(rem){
+    $id('r-title').textContent = rem.title + ' — Правила';
+    $id('r-blocks').innerHTML = rem.blocks.map(b=>
+      `<div class="rblock">
+        <div class="rblock-h">${b.h}</div>
+        <div class="rblock-body">${b.body}</div>
+        ${b.ex.map(e=>`<div class="rex"><span class="rex-tr">${e[0]}</span><span class="rex-ru">${e[1]}</span></div>`).join('')}
+      </div>`
+    ).join('');
+  } else {
+    $id('r-blocks').innerHTML = '<p style="color:var(--text2);font-size:14px">Напоминание для этого раздела пока не добавлено.</p>';
+  }
+}
+
+function startExercises(){
+  $id('rpage').style.display='none';
+  openSection(window._pendingSection);
+}
+
+renderHome();
+</script>
+</body>
+</html>
