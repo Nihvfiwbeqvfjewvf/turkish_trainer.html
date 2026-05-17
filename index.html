@@ -150,6 +150,135 @@ textarea:focus,input[type=text]:focus{border-color:var(--gr)}
 .vrule-ex:first-of-type{border-top:none}
 .vrule-tr{font-size:14px;font-weight:500}
 .vrule-ru{font-size:13px;color:var(--text2)}
+
+/* ===== VOCAB BLOCK ===== */
+.wpage{padding:0;display:none}
+.whome{padding:16px}
+.wblock-list{display:flex;flex-direction:column;gap:10px}
+.wblock-card{background:var(--bg2);border:.5px solid var(--b);border-radius:var(--r);padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:14px}
+.wblock-card:active{transform:scale(.98)}
+.wblock-num{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.wblock-info{flex:1}
+.wblock-name{font-size:14px;font-weight:500;margin-bottom:2px}
+.wblock-desc{font-size:12px;color:var(--text2)}
+.wblock-prog{font-size:11px;color:var(--text3);margin-top:3px}
+.wexpage{padding:16px;display:none}
+.wmtabs{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
+.wmtabs::-webkit-scrollbar{display:none}
+.wmtab{padding:6px 14px;border:.5px solid var(--b2);border-radius:20px;font-size:13px;cursor:pointer;white-space:nowrap;background:var(--bg2);color:var(--text2);flex-shrink:0}
+.wmtab.on{background:var(--gr);color:#fff;border-color:var(--gr)}
+
+/* ADAPTIVE */
+.adaptive-btn{width:100%;padding:12px;background:var(--reb);color:var(--re);border:.5px solid var(--re);border-radius:var(--r);font-size:14px;font-weight:500;cursor:pointer;margin-bottom:10px;font-family:inherit}
+/* STORIES */
+.story-page{padding:16px;display:none}
+.story-text{background:var(--bg2);border:.5px solid var(--b);border-radius:var(--r);padding:18px;margin-bottom:16px;font-size:15px;line-height:2}
+.story-word{cursor:pointer;border-bottom:1.5px dotted var(--gr)}
+.story-tip{display:none;background:var(--grb);color:var(--gr);font-size:12px;padding:2px 8px;border-radius:10px;margin-left:4px}
+.story-tip.show{display:inline-block}
+
+/* ===== DESIGN REFRESH ===== */
+/* Nav */
+.nav{background:var(--bg2);border-bottom:.5px solid var(--b);padding:0 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;height:52px}
+
+/* Home hero */
+.hero{margin-bottom:20px}
+.hero h1{font-size:24px;font-weight:700;margin-bottom:2px;letter-spacing:-.3px}
+.hero p{font-size:13px;color:var(--text3)}
+
+/* Section cards - cleaner */
+.scard{background:var(--bg2);border:.5px solid var(--b);border-radius:14px;padding:13px 14px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:transform .1s,background .1s}
+.scard:active{transform:scale(.98);background:var(--bg3)}
+.snum{width:38px;height:38px;border-radius:10px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--gr);flex-shrink:0}
+.scard.done .snum{background:var(--grb);color:var(--gr)}
+.sinfo{flex:1;min-width:0}
+.sname{font-size:14px;font-weight:500;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sdesc{font-size:12px;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sprog{font-size:11px;color:var(--gr);margin-top:2px}
+
+/* Section grid */
+.sgrid{display:flex;flex-direction:column;gap:8px}
+
+/* Exercise page */
+.sp{padding:16px;flex:1}
+
+/* Mode tabs - pill style */
+.mtab{padding:6px 14px;border:.5px solid var(--b2);border-radius:20px;font-size:13px;cursor:pointer;white-space:nowrap;background:var(--bg2);color:var(--text2);flex-shrink:0;transition:all .15s}
+.mtab.on{background:var(--gr);color:#fff;border-color:var(--gr)}
+
+/* Stat boxes */
+.sb{flex:1;background:var(--bg2);border-radius:10px;padding:8px 10px;text-align:center;border:.5px solid var(--b)}
+.sb .v{font-size:20px;font-weight:600;color:var(--text)}
+.sb .l{font-size:10px;color:var(--text3);margin-top:1px;text-transform:uppercase;letter-spacing:.04em}
+
+/* Cards */
+.card{background:var(--bg2);border:.5px solid var(--b);border-radius:14px;padding:16px;margin-bottom:12px}
+.bdg{display:inline-block;font-size:11px;color:var(--text3);background:var(--bg3);padding:2px 8px;border-radius:8px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em}
+
+/* Progress bar */
+.pb{height:3px;background:var(--bg3);border-radius:2px;margin-bottom:14px}
+.pf{height:100%;background:var(--green-l,#1D9E75);border-radius:2px;transition:width .4s ease}
+
+/* Buttons */
+.btn{padding:10px 16px;border:.5px solid var(--b2);border-radius:10px;font-size:14px;cursor:pointer;background:var(--bg2);color:var(--text);font-family:inherit;transition:background .1s}
+.btn:active{transform:scale(.97)}
+.btnp{background:var(--gr);color:#fff;border-color:var(--gr);flex:1;font-weight:500}
+.btnp:hover{background:#0a5a44}
+
+/* Feedback */
+.fb{margin-top:10px;padding:10px 12px;border-radius:10px;font-size:14px;display:none}
+.fb.show{display:block}
+.fbo{background:var(--grb);color:var(--gr)}
+.fbn{background:var(--reb);color:var(--re)}
+.fba{font-weight:600;margin-top:4px}
+
+/* MC options */
+.mco{width:100%;padding:11px 14px;border:.5px solid var(--b);border-radius:10px;font-size:14px;cursor:pointer;background:var(--bg2);color:var(--text);text-align:left;font-family:inherit;transition:all .12s}
+.mco:active{transform:scale(.99)}
+.mcok{background:var(--grb)!important;border-color:var(--gr)!important;color:var(--gr)!important;font-weight:500}
+.mcng{background:var(--reb)!important;border-color:var(--re)!important;color:var(--re)!important}
+
+/* Fill blank */
+.fis{font-size:16px;line-height:2.4}
+.fii{display:inline-block;width:120px;padding:2px 6px;font-size:15px;border:none;border-bottom:2px solid var(--b2);background:transparent;color:var(--text);font-family:inherit;outline:none;vertical-align:bottom}
+.fii:focus{border-bottom-color:var(--gr)}
+
+/* Done screen */
+.done{text-align:center;padding:32px 16px}
+.done .em{font-size:52px;margin-bottom:12px}
+.done h2{font-size:20px;font-weight:600;margin-bottom:6px}
+.done p{font-size:14px;color:var(--text2);margin-bottom:20px}
+
+/* Reminder blocks */
+.rblock{background:var(--bg2);border:.5px solid var(--b);border-radius:14px;padding:16px;margin-bottom:12px}
+.rblock-h{font-size:15px;font-weight:600;color:var(--gr);margin-bottom:6px}
+.rblock-body{font-size:13px;color:var(--text2);margin-bottom:10px;line-height:1.6}
+.rex{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-top:.5px solid var(--b);gap:12px}
+.rex:first-of-type{border-top:none}
+.rex-tr{font-size:14px;font-weight:500}
+.rex-ru{font-size:13px;color:var(--text2);text-align:right}
+.btn-start{width:100%;padding:13px;background:var(--gr);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:500;cursor:pointer;margin-top:8px;font-family:inherit}
+
+/* Verb / Vocab blocks */
+.vblock-card,.wblock-card{background:var(--bg2);border:.5px solid var(--b);border-radius:14px;padding:13px 14px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:transform .1s}
+.vblock-card:active,.wblock-card:active{transform:scale(.98)}
+.vblock-num,.wblock-num{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.vblock-name,.wblock-name{font-size:14px;font-weight:500;margin-bottom:1px}
+.vblock-desc,.wblock-desc{font-size:12px;color:var(--text2)}
+.vblock-prog,.wblock-prog{font-size:11px;color:var(--gr);margin-top:2px}
+
+/* Conj table */
+.conj-grid{display:grid;grid-template-columns:60px 1fr 1fr 1fr;border:.5px solid var(--b2);border-radius:12px;overflow:hidden;margin-bottom:14px;font-size:13px}
+.cg-hd{background:var(--gr);color:#fff;padding:7px 5px;font-size:11px;font-weight:500;text-align:center}
+.cg-hd:first-child{text-align:left;padding-left:8px}
+.cg-p{background:var(--bg3);color:var(--text2);padding:7px 8px;border-top:.5px solid var(--b);font-size:12px}
+.cg-pos{padding:7px 5px;border-top:.5px solid var(--b);text-align:center}
+.cg-neg{padding:7px 5px;border-top:.5px solid var(--b);text-align:center;color:#c0392b}
+.cg-q{padding:7px 5px;border-top:.5px solid var(--b);text-align:center;color:#1a6bb5;font-size:12px}
+
+/* Story */
+.story-text{background:var(--bg2);border:.5px solid var(--b);border-radius:14px;padding:16px;margin-bottom:16px;font-size:15px;line-height:2}
+/* ===== END DESIGN REFRESH ===== */
 </style>
 </head>
 <body>
@@ -158,7 +287,7 @@ textarea:focus,input[type=text]:focus{border-color:var(--gr)}
   <span class="nbk" id="nbk" onclick="goHome()" style="display:none">← Разделы</span>
   <div style="flex:1"><div class="nt" id="nt">Türkçe Тренажёр</div><div class="ns" id="ns">Оганова, Часть 1</div></div>
 </div>
-<div class="home" id="hp"><div class="hero"><h1>Türkçe 🇹🇷</h1><p>Тренажёр по учебнику Огановой — Разделы 1–13</p></div><div class="sgrid" id="sg"></div></div>
+<div class="home" id="hp"><div class="hero"><h1>Türkçe 🇹🇷</h1><p>Тренажёр по учебнику Огановой — Разделы 1–17</p></div><div class="sgrid" id="sg"></div></div>
 <div class="sp" id="sp" style="display:none"><div class="mtabs" id="mt"></div><div class="pb"><div class="pf" id="pf" style="width:0%"></div></div><div class="sr"><div class="sb"><div class="v" id="so">0</div><div class="l">Верно</div></div><div class="sb"><div class="v" id="se">0</div><div class="l">Ошибок</div></div><div class="sb"><div class="v" id="sl">—</div><div class="l">Осталось</div></div></div><div id="ea"></div></div>
 
 <div class="remind-page" id="rpage">
@@ -197,6 +326,42 @@ textarea:focus,input[type=text]:focus{border-color:var(--gr)}
     <div id="vea"></div>
   </div>
 </div>
+
+<div class="wpage" id="wpage">
+  <div class="whome" id="whome">
+    <div style="margin-bottom:20px">
+      <div style="font-size:20px;font-weight:600;margin-bottom:4px">Словарь 📖</div>
+      <div style="font-size:13px;color:var(--text2)">214 слов • 10 тем + частотные</div>
+    </div>
+    <div class="wblock-list" id="wblist"></div>
+  </div>
+  <div class="wexpage" id="wexpage">
+    <div style="margin-bottom:14px">
+      <div style="font-size:16px;font-weight:600" id="wex-title"></div>
+      <div style="font-size:12px;color:var(--text2)" id="wex-sub"></div>
+    </div>
+    <div class="wmtabs" id="wmtabs"></div>
+    <div class="pb"><div class="pf" id="wpf" style="width:0%"></div></div>
+    <div class="sr">
+      <div class="sb"><div class="v" id="wok">0</div><div class="l">Верно</div></div>
+      <div class="sb"><div class="v" id="werr">0</div><div class="l">Ошибок</div></div>
+      <div class="sb"><div class="v" id="wleft">—</div><div class="l">Осталось</div></div>
+    </div>
+    <div id="wea"></div>
+  </div>
+</div>
+
+<div style="display:none;padding:16px" id="apage">
+  <div style="margin-bottom:14px"><div style="font-size:16px;font-weight:600">Слабые слова ⚠️</div><div style="font-size:12px;color:var(--text2)">Слова которые вы не знали</div></div>
+  <div class="pb"><div class="pf" id="apf" style="width:0%"></div></div>
+  <div class="sr">
+    <div class="sb"><div class="v" id="aok">0</div><div class="l">Верно</div></div>
+    <div class="sb"><div class="v" id="aerr">0</div><div class="l">Ошибок</div></div>
+    <div class="sb"><div class="v" id="aleft">—</div><div class="l">Осталось</div></div>
+  </div>
+  <div id="aea"></div>
+</div>
+<div class="story-page" id="spage"></div>
 </div>
 </div>
 <script>
@@ -694,18 +859,39 @@ function nr(s){return s.trim().toLowerCase().replace(/[?.!,;–]/g,'').replace(/
 function $id(id){return document.getElementById(id);}
 
 function goHome(){
-  $id('hp').style.display='block';$id('sp').style.display='none';$id('rpage').style.display='none';$id('vpage').style.display='none';
+  $id('hp').style.display='block';$id('sp').style.display='none';$id('rpage').style.display='none';$id('vpage').style.display='none';$id('wpage').style.display='none';$id('apage').style.display='none';$id('spage').style.display='none';
   $id('nbk').style.display='none';$id('nt').textContent='Türkçe Тренажёр';$id('ns').textContent='Оганова, Часть 1';
   renderHome();
 }
 
 function renderHome(){
-  var vbtn='<div class="scard" onclick="openVerbs()" style="background:linear-gradient(135deg,#0F6E56,#1D9E75);border-color:transparent">'
-    +'<div class="vblock-num" style="background:rgba(255,255,255,0.2);color:#fff;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">🔤</div>'
-    +'<div class="vblock-info"><div class="vblock-name" style="color:#fff">Глаголы — спряжение и управление</div>'
-    +'<div class="vblock-desc" style="color:rgba(255,255,255,0.8)">7 блоков • 80+ глаголов из приложений Огановой</div></div>'
-    +'<div style="color:rgba(255,255,255,0.7);font-size:20px">›</div></div>';
-  $id('sg').innerHTML=vbtn+D.map(s=>{
+  var wkCount=Object.keys(JSON.parse(localStorage.getItem('weakWords')||'{}')).length;
+
+  // Special blocks
+  var specials = [
+    {onclick:"openStories()", icon:"📚", name:"Мини-истории", desc:"5 текстов • нажмите на слово — перевод", accent:true},
+    {onclick:"openVocab()", icon:"📖", name:"Словарь", desc:"214 слов • 10 тематических групп", accent:true},
+    {onclick:"openVerbs()", icon:"🔤", name:"Глаголы", desc:"7 блоков • управление и спряжение", accent:true},
+  ];
+  if(wkCount>0){
+    specials.unshift({onclick:"openAdaptive()", icon:"⚠️", name:"Слабые слова", desc:wkCount+" слов для повторения", weak:true});
+  }
+
+  var specialHtml = specials.map(function(b){
+    var style = b.weak
+      ? 'background:var(--reb);border-color:rgba(163,45,45,0.3)'
+      : 'background:var(--bg2);border-color:var(--b)';
+    var nameColor = b.weak ? 'color:var(--re)' : 'color:var(--text)';
+    return '<div class="scard" onclick="'+b.onclick+'" style="'+style+'">'
+      +'<div class="snum" style="background:var(--bg3);font-size:18px">'+b.icon+'</div>'
+      +'<div class="sinfo"><div class="sname" style="'+nameColor+'">'+b.name+'</div>'
+      +'<div class="sdesc">'+b.desc+'</div></div>'
+      +'<div style="color:var(--text3);font-size:18px">›</div></div>';
+  }).join('');
+
+  var sectLabel = '<div style="font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin:20px 0 10px">Учебник Огановой — Разделы 1–17</div>';
+
+  $id('sg').innerHTML=specialHtml+sectLabel+D.map(s=>{
     const p=pr[s.id]||{};
     const tot=Object.values(p).reduce((a,v)=>a+(v.ok||0),0);
     return`<div class="scard${tot>4?' done':''}" onclick="showReminder(${s.id})">
@@ -793,7 +979,7 @@ function flip(){
 }
 
 
-function ca(k){if(k)ok++;else er++;ix++;upd();render();}
+function ca(k){if(!k){er++;var it2=q[ix];if(it2&&it2.tr)trackWeak(it2.tr,it2.ru,'','','section');}else ok++;ix++;upd();render();}
 
 function rTr(){
   const it=q[ix];ans=false;
@@ -1382,7 +1568,8 @@ function renderVCard(){
   var it=vQ[vIx];vFl=false;
   $id('vea').innerHTML='<div class="card" id="vfc" onclick="vFlip()" style="cursor:pointer;min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">'
     +'<div id="vfc-f"><div style="font-size:26px;font-weight:600;margin-bottom:8px">'+it.tr+'</div>'
-    +'<div style="font-size:13px;color:var(--text3)">нажмите, чтобы перевести</div></div>'
+    +'<div style="font-size:13px;color:var(--text3)">нажмите, чтобы перевести</div>'
+    +'<button onclick="event.stopPropagation();speak(this.dataset.w)" data-w="'+it.tr+'" style="margin-top:8px;padding:5px 14px;border:.5px solid var(--b2);border-radius:16px;background:var(--bg2);color:var(--text2);font-size:12px;cursor:pointer">🔊</button></div>'
     +'<div id="vfc-b" style="display:none"><div style="font-size:20px;font-weight:500;color:var(--gr);margin-bottom:6px">'+it.ru+'</div>'
     +'<div style="font-size:13px;color:var(--text2)">'+it.tr+'</div></div></div>'
     +'<div id="vfc-btns" style="display:none;gap:10px;margin-top:12px">'
@@ -1487,6 +1674,436 @@ function setVConjV(i){vConjV=i;renderVConj();}
 function vSkip(){vIx++;vAns=false;updV();if(vIx>=vQ.length)showVDone();else renderVEx();}
 function vNxt(){vIx++;vAns=false;updV();if(vIx>=vQ.length)showVDone();else renderVEx();}
 // ===== END VERB TRAINER =====
+
+var WBLOCKS=[
+  {id:'top100',icon:'📊',name:'Топ-100 частотных слов',desc:'Самые нужные слова турецкого языка',color:'#1a6bb5',words:[['bir','один; какой-то; некий','Bir araba var.','Есть одна машина.'],['bu','это; этот; эта','Bu kitap benim.','Это моя книга.'],['da/de','тоже; и (присоед.)','Ben de geliyorum.','Я тоже иду.'],['ne','что; какой','Ne istiyorsun?','Что ты хочешь?'],['var','есть; существует','Zaman var.','Есть время.'],['yok','нет; не существует','Para yok.','Денег нет.'],['için','для; чтобы; ради','Sen için aldım.','Я купил для тебя.'],['gibi','как; подобно','Aslan gibi güçlü.','Сильный как лев.'],['ile','с; и; вместе с','Ahmet ile geldim.','Я пришёл с Ахметом.'],['çok','очень; много','Çok güzel.','Очень красиво.'],['daha','ещё; больше; ещё не','Daha erken.','Ещё рано.'],['kadar','до; настолько','Eve kadar yürüdüm.','Я шёл до дома.'],['sonra','после; потом','Sonra giderim.','Потом пойду.'],['önce','раньше; до; сначала','Önce ye, sonra git.','Сначала поешь, потом иди.'],['şimdi','сейчас; теперь','Şimdi neredesin?','Где ты сейчас?'],['hep','всегда; всё время','Hep geç kalırsın.','Ты всегда опаздываешь.'],['hiç','никогда; совсем','Hiç gitmedim.','Я никогда не ходил.'],['artık','уже; теперь (с изм.)','Artık gitmiyorum.','Теперь я не хожу.'],['zaten','и так; всё равно','Zaten biliyorum.','Я и так знаю.'],['belki','может быть; наверное','Belki gelir.','Может, придёт.'],['ama','но; однако','Geldi ama gitmedi.','Пришёл, но не ушёл.'],['çünkü','потому что','Gelmedi çünkü hasta.','Не пришёл, потому что болен.'],['eğer','если','Eğer gelirsen söyle.','Если придёшь — скажи.'],['ya da','или; либо','Çay ya da kahve?','Чай или кофе?'],['hem...hem','и...и; как...так и','Hem güzel hem ucuz.','И красивое, и дешёвое.'],['adam','мужчина; человек','O adam kim?','Кто тот мужчина?'],['kadın','женщина','O kadın doktor.','Та женщина — врач.'],['çocuk','ребёнок; дети','Çocuk okulda.','Ребёнок в школе.'],['gün','день','Her gün çalışıyorum.','Каждый день работаю.'],['yıl','год','Bu yıl Türkiye\'ye gidiyorum.','В этом году еду в Турцию.']]},
+  {id:'food',icon:'🍽️',name:'Еда и напитки',desc:'Продукты, блюда, напитки',color:'#c47a00',words:[['ekmek','хлеб','Ekmek al.','Купи хлеб.'],['su','вода','Su içiyorum.','Я пью воду.'],['çay','чай','Çay içer misiniz?','Будете чай?'],['kahve','кофе','Kahve severim.','Я люблю кофе.'],['süt','молоко','Süt içmiyorum.','Я не пью молоко.'],['et','мясо','Et yemiyorum.','Я не ем мясо.'],['tavuk','курица','Tavuk yiyorum.','Я ем курицу.'],['balık','рыба','Balık sevmiyorum.','Я не люблю рыбу.'],['sebze','овощи','Sebze yemek lazım.','Нужно есть овощи.'],['meyve','фрукты','Meyve seviyorum.','Я люблю фрукты.'],['elma','яблоко','Elma aldım.','Я купил яблоко.'],['portakal','апельсин','Portakal suyu içtim.','Я выпил апельсиновый сок.'],['domates','помидор','Domates kırmızı.','Помидор красный.'],['salata','салат','Salata yaptım.','Я сделал салат.'],['pilav','рис; плов','Pilav pişirdim.','Я приготовил рис.'],['çorba','суп','Çorba sıcak.','Суп горячий.'],['tatlı','сладкое; десерт','Tatlı istemiyorum.','Я не хочу десерт.'],['şeker','сахар; конфета','Şeker almadım.','Я не взял сахар.'],['tuz','соль','Tuz ver.','Дай соль.'],['yağ','масло; жир','Zeytinyağı kullandım.','Я использовал оливковое масло.'],['içecek','напиток','İçecek ne alayım?','Что взять из напитков?'],['meze','закуска','Meze siparişi verdim.','Я заказал закуску.']]},
+  {id:'body',icon:'🧍',name:'Тело и здоровье',desc:'Части тела, болезни, самочувствие',color:'#A32D2D',words:[['baş','голова','Başım ağrıyor.','У меня болит голова.'],['göz','глаз','Gözlerim yoruldu.','Мои глаза устали.'],['kulak','ухо','Kulağım ağrıyor.','У меня болит ухо.'],['burun','нос','Burnum akıyor.','У меня насморк.'],['ağız','рот','Ağzını aç.','Открой рот.'],['diş','зуб','Dişim ağrıyor.','У меня болит зуб.'],['boyun','шея','Boynum tutuldu.','У меня затекла шея.'],['omuz','плечо','Omzum ağrıyor.','У меня болит плечо.'],['el','рука (кисть)','Ellerini yıka.','Вымой руки.'],['parmak','палец','Parmağımı kestim.','Я порезал палец.'],['karın','живот','Karnım aç.','Я голоден.'],['sırt','спина','Sırtım ağrıyor.','У меня болит спина.'],['bacak','нога (вся)','Bacağım ağrıyor.','У меня болит нога.'],['ayak','стопа; нога','Ayağım ağrıyor.','У меня болит нога.'],['hasta','больной; пациент','Hasta değilim.','Я не болен.'],['ağrı','боль','Ağrım var.','У меня боль.'],['ateş','температура; жар','Ateşim var.','У меня температура.'],['ilaç','лекарство','İlaç içtim.','Я принял лекарство.'],['doktor','врач','Doktora gittim.','Я пошёл к врачу.'],['hastane','больница','Hastanede yattım.','Я лежал в больнице.']]},
+  {id:'clothes',icon:'👕',name:'Одежда',desc:'Предметы одежды и аксессуары',color:'#5a5a00',words:[['gömlek','рубашка','Beyaz gömlek giydim.','Я надел белую рубашку.'],['pantolon','брюки','Pantolon aldım.','Я купил брюки.'],['etek','юбка','Kısa etek giymedi.','Она не надела короткую юбку.'],['elbise','платье','Kırmızı elbise güzel.','Красное платье красивое.'],['kazak','свитер','Kazak giyiyorum.','Я надеваю свитер.'],['ceket','пиджак; жакет','Ceket aldım.','Я купил пиджак.'],['mont','куртка; пальто','Mont gerekiyor.','Нужна куртка.'],['ayakkabı','обувь; туфли','Ayakkabı giyiyorum.','Я надеваю обувь.'],['çorap','носки','Çorap almadım.','Я не купил носки.'],['çanta','сумка','Çantam nerede?','Где моя сумка?'],['şapka','шапка; шляпа','Şapka takıyorum.','Я надеваю шапку.'],['atkı','шарф','Atkı taktım.','Я намотал шарф.'],['eldiven','перчатки','Eldivenlerimi unuttum.','Я забыл перчатки.'],['gözlük','очки','Gözlük takıyorum.','Я ношу очки.'],['renk','цвет','Rengi güzel.','Цвет красивый.'],['kırmızı','красный','Kırmızı seviyorum.','Я люблю красный.'],['mavi','синий; голубой','Mavi göz güzel.','Голубые глаза красивые.'],['siyah','чёрный','Siyah giydim.','Я оделся в чёрное.'],['beyaz','белый','Beyaz gömlek.','Белая рубашка.'],['yeşil','зелёный','Yeşil araba aldım.','Я купил зелёную машину.']]},
+  {id:'home',icon:'🏠',name:'Дом и мебель',desc:'Комнаты, предметы, бытовая техника',color:'#0F6E56',words:[['ev','дом; квартира','Evdeyim.','Я дома.'],['oda','комната','Odama git.','Иди в мою комнату.'],['salon','гостиная; зал','Salonda oturuyoruz.','Мы сидим в гостиной.'],['mutfak','кухня','Mutfakta yemek yapıyorum.','Я готовлю на кухне.'],['banyo','ванная; душ','Banyoda yıkanıyorum.','Я моюсь в ванной.'],['yatak odası','спальня','Yatak odasında uyuyorum.','Я сплю в спальне.'],['masa','стол','Masada çalışıyorum.','Я работаю за столом.'],['sandalye','стул','Sandalyeye otur.','Садись на стул.'],['koltuk','кресло; диван','Koltuğa yattım.','Я лёг на диван.'],['yatak','кровать','Yatakta uyuyorum.','Я сплю в кровати.'],['dolap','шкаф','Dolabı açtım.','Я открыл шкаф.'],['pencere','окно','Pencereyi aç.','Открой окно.'],['kapı','дверь','Kapıyı kapat.','Закрой дверь.'],['ışık','свет; лампа','Işığı yak.','Включи свет.'],['televizyon','телевизор','Televizyon seyrediyorum.','Я смотрю телевизор.'],['buzdolabı','холодильник','Buzdolabında var.','В холодильнике есть.'],['çamaşır makinesi','стиральная машина','Çamaşır makinesini çalıştırdım.','Я включил стиральную машину.'],['kiracı','арендатор; жилец','Kiracı gidecek.','Жилец уедет.'],['komşu','сосед','Komşular iyi insanlar.','Соседи — хорошие люди.'],['kira','аренда; плата','Kira pahalı.','Аренда дорогая.']]},
+  {id:'city',icon:'🏙️',name:'Город и транспорт',desc:'Места в городе, транспорт, маршруты',color:'#1a6bb5',words:[['şehir','город','Büyük şehirde yaşıyorum.','Я живу в большом городе.'],['sokak','улица','Sokakta yürüyorum.','Я иду по улице.'],['cadde','проспект; широкая улица','Ana caddede dükkan var.','На главном проспекте есть магазин.'],['meydan','площадь','Meydanda buluşalım.','Давайте встретимся на площади.'],['park','парк','Parkta yürüdüm.','Я гулял в парке.'],['durak','остановка','Durakta bekliyorum.','Я жду на остановке.'],['istasyon','станция; вокзал','İstasyona gittim.','Я пошёл на вокзал.'],['havalimanı','аэропорт','Havalimanında bekledim.','Я ждал в аэропорту.'],['otobüs','автобус','Otobüse bindim.','Я сел в автобус.'],['metro','метро','Metroyla gittim.','Я поехал на метро.'],['taksi','такси','Taksi çağırdım.','Я вызвал такси.'],['bilet','билет','Bilet aldım.','Я купил билет.'],['harita','карта','Haritaya baktım.','Я посмотрел на карту.'],['yol','дорога; путь','Yol uzun.','Дорога длинная.'],['köprü','мост','Köprüden geçtim.','Я перешёл через мост.'],['market','магазин; супермаркет','Markete gidiyorum.','Я иду в магазин.'],['restoran','ресторан','Restoranda yedik.','Мы поели в ресторане.'],['otel','отель','Otelde kaldım.','Я остановился в отеле.'],['müze','музей','Müzeye gittim.','Я пошёл в музей.'],['eczane','аптека','Eczaneden ilaç aldım.','Я купил лекарство в аптеке.']]},
+  {id:'nature',icon:'🌿',name:'Природа и погода',desc:'Природа, животные, погода',color:'#2d7a2d',words:[['hava','погода; воздух','Hava soğuk.','Погода холодная.'],['güneş','солнце','Güneş çıktı.','Вышло солнце.'],['yağmur','дождь','Yağmur yağıyor.','Идёт дождь.'],['kar','снег','Kar yağıyor.','Идёт снег.'],['rüzgar','ветер','Rüzgar çok.','Очень ветрено.'],['bulut','облако','Bulut var.','Есть облака.'],['sıcak','жара; горячий','Hava çok sıcak.','Очень жарко.'],['soğuk','холод; холодный','Hava soğuk.','Холодно.'],['deniz','море','Denize gidiyorum.','Я еду к морю.'],['göl','озеро','Gölde yüzdük.','Мы плавали в озере.'],['dağ','гора','Dağa çıktık.','Мы поднялись в горы.'],['orman','лес','Ormanda yürüdük.','Мы гуляли в лесу.'],['çiçek','цветок','Çiçek aldım.','Я купил цветок.'],['ağaç','дерево','Ağaç büyük.','Дерево большое.'],['köpek','собака','Köpeğim var.','У меня есть собака.'],['kedi','кошка','Kedi uyuyor.','Кошка спит.'],['kuş','птица','Kuş uçuyor.','Птица летит.'],['balık','рыба','Balık yüzüyor.','Рыба плывёт.'],['at','лошадь','At güzel bir hayvan.','Лошадь — красивое животное.'],['hayvan','животное','Hayvanları seviyorum.','Я люблю животных.']]},
+  {id:'work',icon:'💼',name:'Работа и учёба',desc:'Офис, учёба, карьера',color:'#7a3bb5',words:[['iş','работа; дело; труд','İşe gidiyorum.','Я иду на работу.'],['ofis','офис','Ofiste çalışıyorum.','Я работаю в офисе.'],['toplantı','собрание; встреча','Toplantıya katıldım.','Я участвовал во встрече.'],['proje','проект','Proje hazırladım.','Я подготовил проект.'],['rapor','отчёт','Rapor yazdım.','Я написал отчёт.'],['müdür','директор; руководитель','Müdür geldi.','Директор пришёл.'],['çalışan','сотрудник','Çalışanlar iyi.','Сотрудники хорошие.'],['maaş','зарплата','Maaşım az.','Моя зарплата маленькая.'],['okul','школа','Okula gidiyorum.','Я иду в школу.'],['sınıf','класс; аудитория','Sınıfta oturuyorum.','Я сижу в классе.'],['ders','урок; занятие','Ders var.','Есть урок.'],['ödev','домашнее задание','Ödev yaptım.','Я сделал домашнее задание.'],['sınav','экзамен; тест','Sınav zor.','Экзамен трудный.'],['not','оценка; заметка','Not aldım.','Я получил оценку.'],['kütüphane','библиотека','Kütüphanede çalıştım.','Я занимался в библиотеке.'],['bilgisayar','компьютер','Bilgisayar kullanıyorum.','Я пользуюсь компьютером.'],['telefon','телефон','Telefon ettim.','Я позвонил.'],['e-posta','электронная почта','E-posta gönderdim.','Я отправил письмо.'],['internet','интернет','İnternete bağlandım.','Я подключился к интернету.'],['para','деньги','Para lazım.','Нужны деньги.']]},
+  {id:'adjectives',icon:'🎨',name:'Прилагательные',desc:'Самые частые прилагательные',color:'#c47a00',words:[['güzel','красивый; хороший','Çok güzel.','Очень красиво.'],['iyi','хороший; хорошо','Her şey iyi.','Всё хорошо.'],['kötü','плохой; плохо','Kötü haber.','Плохая новость.'],['büyük','большой','Büyük ev.','Большой дом.'],['küçük','маленький','Küçük çocuk.','Маленький ребёнок.'],['uzun','длинный; высокий; долгий','Uzun yol.','Длинная дорога.'],['kısa','короткий; низкий','Kısa elbise.','Короткое платье.'],['yeni','новый','Yeni araba aldım.','Я купил новую машину.'],['eski','старый; прежний','Eski ev.','Старый дом.'],['hızlı','быстрый','Hızlı araba.','Быстрая машина.'],['yavaş','медленный','Yavaş git.','Иди медленно.'],['kolay','лёгкий; простой','Ders kolay.','Урок лёгкий.'],['zor','трудный; тяжёлый','Sınav zor.','Экзамен трудный.'],['doğru','правильный; прямо','Doğru söylüyorsun.','Ты говоришь правильно.'],['yanlış','неправильный; ошибочный','Yanlış yaptım.','Я сделал ошибку.'],['açık','открытый; светлый','Kapı açık.','Дверь открыта.'],['kapalı','закрытый','Dükkan kapalı.','Магазин закрыт.'],['temiz','чистый','Eller temiz mi?','Руки чистые?'],['kirli','грязный','Elbise kirli.','Одежда грязная.'],['yorgun','уставший','Çok yorgunum.','Я очень устал.'],['mutlu','счастливый; довольный','Mutluyum.','Я счастлив.'],['üzgün','грустный; расстроенный','Üzgün görünüyorsun.','Ты выглядишь расстроенным.']]},
+  {id:'adverbs',icon:'⚡',name:'Наречия и союзы',desc:'Самые частые связующие слова',color:'#0F6E56',words:[['hemen','сразу; немедленно','Hemen gel.','Приходи сразу.'],['çabuk','быстро; скоро','Çabuk ol.','Поторопись.'],['yavaşça','медленно; тихонько','Yavaşça konuş.','Говори тихо.'],['birlikte','вместе','Birlikte gidelim.','Пойдём вместе.'],['beraber','вместе; совместно','Beraber çalıştık.','Мы работали вместе.'],['ayrı','отдельно; отдельный','Ayrı oturuyor.','Он живёт отдельно.'],['sadece','только; лишь','Sadece su istiyorum.','Я хочу только воды.'],['bile','даже','Seni bile görmedi.','Он даже тебя не видел.'],['işte','вот; вот именно','İşte budur.','Вот оно.'],['tabii','конечно; разумеется','Tabii ki.','Конечно.'],['mutlaka','обязательно; непременно','Mutlaka gel.','Обязательно приходи.'],['aslında','на самом деле','Aslında biliyordum.','На самом деле я знал.'],['neyse','ладно; неважно','Neyse, geçelim.','Ладно, перейдём.'],['nasılsa','всё равно; как бы то','Nasılsa gidecek.','Он всё равно уйдёт.'],['hem...hem','и...и','Hem akıllı hem güzel.','И умная, и красивая.'],['ne...ne','ни...ни','Ne geldi ne gitti.','Ни пришёл, ни ушёл.'],['ya...ya','или...или','Ya gel ya git.','Или приходи, или уходи.'],['ki','что; чтобы (союз)','Biliyorum ki gelecek.','Я знаю, что придёт.'],['de/da','тоже; даже','O da geldi.','Он тоже пришёл.'],['ise','а; же; что касается','Ben ise gittim.','А я пошёл.']]},
+];
+
+var wPR=JSON.parse(localStorage.getItem('wpr')||'{}');
+var wCurBlock=null,wCurMode='cards',wQ=[],wIx=0,wOk=0,wEr=0,wAns=false,wFl=false;
+
+function openVocab(){
+  $id('hp').style.display='none';$id('sp').style.display='none';
+  $id('rpage').style.display='none';$id('vpage').style.display='none';
+  $id('wpage').style.display='block';
+  $id('nbk').style.display='block';
+  $id('nt').textContent='Словарь';
+  $id('ns').textContent='Тематические группы';
+  showWHome();
+}
+
+function showWHome(){
+  $id('whome').style.display='block';
+  $id('wexpage').style.display='none';
+  $id('nt').textContent='Словарь';
+  $id('ns').textContent='Тематические группы';
+  var html='';
+  WBLOCKS.forEach(function(b){
+    var p=wPR[b.id]||{},tot=Object.values(p).reduce(function(a,v){return a+(v.ok||0);},0);
+    html+='<div class="wblock-card" onclick="openWBlock(this.dataset.id)" data-id="'+b.id+'">'
+      +'<div class="wblock-num" style="background:'+b.color+'22;color:'+b.color+'">'+b.icon+'</div>'
+      +'<div class="wblock-info"><div class="wblock-name">'+b.name+'</div>'
+      +'<div class="wblock-desc">'+b.desc+' • '+b.words.length+' слов</div>'
+      +(tot>0?'<div class="wblock-prog">✓ '+tot+' верных</div>':'')
+      +'</div><div style="color:var(--text3);font-size:20px">›</div></div>';
+  });
+  $id('wblist').innerHTML=html;
+}
+
+function openWBlock(id){
+  wCurBlock=WBLOCKS.find(function(b){return b.id===id;});
+  wCurMode='cards';wIx=0;wOk=0;wEr=0;wAns=false;wFl=false;
+  $id('whome').style.display='none';
+  $id('wexpage').style.display='block';
+  $id('nt').textContent=wCurBlock.name;
+  $id('ns').textContent=wCurBlock.desc;
+  renderWMTabs();renderWEx();
+}
+
+function renderWMTabs(){
+  var tabs=[['cards','Карточки'],['fill','Пропуски'],['mc','Выбор']];
+  $id('wmtabs').innerHTML=tabs.map(function(t){
+    return '<button class="wmtab'+(t[0]===wCurMode?' on':'')+'" onclick="setWMode(\''+t[0]+'\')">'+t[1]+'</button>';
+  }).join('');
+}
+
+function setWMode(m){wCurMode=m;wIx=0;wOk=0;wEr=0;wAns=false;wFl=false;renderWMTabs();renderWEx();}
+
+function initWQ(){
+  var ws=wCurBlock.words;
+  if(wCurMode==='cards'){
+    wQ=sh(ws.map(function(w){return {tr:w[0],ru:w[1],ex:w[2],exru:w[3]};}));
+  } else if(wCurMode==='fill'){
+    // Fill: show Russian translation, fill in Turkish word
+    wQ=sh(ws.map(function(w){
+      var tr=w[0],parts=tr.split('');
+      var blank=tr; var pre='';
+      // Show first letter, blank the rest
+      if(tr.length>3){pre=tr[0];blank=tr.slice(1);}
+      return {pre:pre,bl:tr,a:'',h:w[1],ru:w[3]+' — '+w[2],full:tr};
+    }));
+  } else {
+    // MC: pick correct Turkish for Russian
+    wQ=sh(ws.map(function(w,i){
+      var cor=w[0];
+      var others=sh(ws.filter(function(_,j){return j!==i;})).slice(0,3).map(function(x){return x[0];});
+      return {q:w[1],o:sh([cor].concat(others)),c:0,cor:cor,ru:w[3]};
+    }));
+    // Fix c index after shuffle
+    wQ.forEach(function(q){q.c=q.o.indexOf(q.cor);});
+  }
+}
+
+function updW(){
+  $id('wok').textContent=wOk;$id('werr').textContent=wEr;
+  $id('wleft').textContent=Math.max(0,wQ.length-wIx);
+  $id('wpf').style.width=(wQ.length>0?Math.round(wIx/wQ.length*100):0)+'%';
+}
+
+function savWPR(){
+  if(!wPR[wCurBlock.id])wPR[wCurBlock.id]={};
+  wPR[wCurBlock.id][wCurMode]={ok:wOk,err:wEr};
+  localStorage.setItem('wpr',JSON.stringify(wPR));
+}
+
+function renderWEx(){
+  $id('wpf').style.width='0%';
+  $id('wok').textContent='0';$id('werr').textContent='0';$id('wleft').textContent='—';
+  initWQ();updW();
+  if(wIx>=wQ.length&&wQ.length>0){showWDone();return;}
+  if(wCurMode==='cards')renderWCard();
+  else if(wCurMode==='fill')renderWFill();
+  else renderWMC();
+}
+
+function showWDone(){
+  savWPR();
+  var pct=Math.round(wOk/(wOk+wEr)*100)||0;
+  $id('wea').innerHTML='<div class="done"><div class="em">'+(pct>=80?'🎉':'💪')+'</div>'
+    +'<h2>'+(pct>=80?'Отлично!':'Продолжай!')+'</h2>'
+    +'<p>Верно: '+wOk+' из '+(wOk+wEr)+' ('+pct+'%)</p>'
+    +'<div style="display:flex;gap:8px;margin-top:4px">'
+    +'<button class="btn" style="flex:1" onclick="showWHome()">← Темы</button>'
+    +'<button class="btn btnp" style="flex:1" onclick="rstW()">Повторить</button>'
+    +'</div></div>';
+}
+
+function rstW(){wIx=0;wOk=0;wEr=0;wAns=false;wFl=false;sh(wQ);updW();renderWEx();}
+
+function renderWCard(){
+  var it=wQ[wIx];wFl=false;
+  $id('wea').innerHTML='<div class="card" onclick="wFlip()" style="cursor:pointer;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">'
+    +'<div id="wfc-f">'
+    +'<div style="font-size:28px;font-weight:600;margin-bottom:8px;color:var(--text)">'+it.tr+'</div>'
+    +'<div style="font-size:13px;color:var(--text3)">нажмите, чтобы перевести</div>'
+    +'</div>'
+    +'<div id="wfc-b" style="display:none">'
+    +'<div style="font-size:22px;font-weight:500;color:var(--gr);margin-bottom:6px">'+it.ru+'</div>'
+    +'<div style="font-size:13px;color:var(--text2);margin-top:6px;font-style:italic">'+it.ex+'</div>'
+    +'<div style="font-size:13px;color:var(--text3)">'+it.exru+'</div>'
+    +'</div></div>'
+    +'<div id="wfc-btns" style="display:none;gap:10px;margin-top:12px">'
+    +'<button class="btn bno" onclick="wCA(false)">Не знал</button>'
+    +'<button class="btn byes" onclick="wCA(true)">Знал ✓</button></div>';
+}
+
+function wFlip(){
+  if(wFl)return;wFl=true;
+  $id('wfc-f').style.display='none';
+  $id('wfc-b').style.display='block';
+  $id('wfc-btns').style.display='flex';
+}
+function wCA(k){if(!k){wEr++;var it2=wQ[wIx];if(it2&&it2.tr)trackWeak(it2.tr,it2.ru,it2.ex||'',it2.exru||'','vocab');}else wOk++;wIx++;updW();if(wIx>=wQ.length)showWDone();else renderWCard();}
+
+function renderWFill(){
+  var it=wQ[wIx];wAns=false;
+  $id('wea').innerHTML='<div class="card">'
+    +'<div class="bdg">TR</div>'
+    +'<div class="q" style="font-size:14px;color:var(--text2);margin-bottom:12px">'+it.h+'</div>'
+    +'<div style="font-size:13px;color:var(--text3);margin-bottom:10px;font-style:italic">'+it.ru+'</div>'
+    +'<div style="font-size:15px;margin-bottom:12px">Напишите по-турецки:</div>'
+    +'<input type="text" id="wbi" placeholder="?" autocomplete="off" autocorrect="off" spellcheck="false" style="font-size:16px">'
+    +'<div class="br"><button class="btn" onclick="wSkip()">Пропустить</button>'
+    +'<button class="btn btnp" id="wcb" onclick="wChkF()">Проверить</button></div>'
+    +'<div class="fb" id="wfb"></div></div>';
+  var inp=$id('wbi');
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter')wChkF();});
+  inp.focus();
+}
+
+function wChkF(){
+  if(wAns){wNxt();return;}
+  var it=wQ[wIx],val=$id('wbi').value,fb=$id('wfb'),inp=$id('wbi');
+  var c=nr(val)===nr(it.bl);
+  fb.className='fb show '+(c?'fbo':'fbn');
+  if(c){fb.innerHTML='✓ Верно!';inp.classList.add('ok');wOk++;}
+  else{fb.innerHTML='✗ Не совсем.<div class="fba">Правильно: '+it.bl+'</div>';inp.classList.add('ng');wEr++;}
+  wAns=true;$id('wcb').textContent='Далее →';updW();
+}
+
+function renderWMC(){
+  var it=wQ[wIx];wAns=false;
+  var cor=it.o[it.c];
+  var btns=it.o.map(function(o){
+    return '<button class="mco" onclick="wChkMC(this,\''+o.replace(/'/g,"\\'")+'\',\''+cor.replace(/'/g,"\\'")+'\')"> '+o+'</button>';
+  }).join('');
+  $id('wea').innerHTML='<div class="card">'
+    +'<div class="bdg">Словарь</div>'
+    +'<div class="q">'+it.q+'</div>'
+    +'<div style="font-size:13px;color:var(--text3);margin-bottom:12px;font-style:italic">'+it.ru+'</div>'
+    +'<div style="font-size:13px;color:var(--text2);margin-bottom:10px">Как это по-турецки?</div>'
+    +'<div class="mcg">'+btns+'</div>'
+    +'<div class="fb" id="wfb"></div></div>';
+}
+
+function wChkMC(el,ch,cor){
+  if(wAns)return;wAns=true;
+  var fb=$id('wfb');
+  document.querySelectorAll('.mco').forEach(function(b){b.onclick=null;if(b.textContent.trim()===cor.trim())b.className='mco mcok';});
+  if(ch.trim()===cor.trim()){el.className='mco mcok';wOk++;fb.className='fb show fbo';fb.innerHTML='✓ Верно!';}
+  else{el.className='mco mcng';wEr++;fb.className='fb show fbn';fb.innerHTML='✗ Неверно. Правильно: <strong>'+cor+'</strong>';}
+  updW();setTimeout(function(){wIx++;wAns=false;updW();if(wIx>=wQ.length)showWDone();else renderWMC();},1600);
+}
+
+function wSkip(){wIx++;wAns=false;updW();if(wIx>=wQ.length)showWDone();else renderWEx();}
+function wNxt(){wIx++;wAns=false;updW();if(wIx>=wQ.length)showWDone();else renderWEx();}
+// ===== END VOCAB BLOCK =====
+
+
+
+// ===== ADAPTIVE =====
+var weakWords=JSON.parse(localStorage.getItem('weakWords')||'{}');
+function trackWeak(tr,ru,ex,exru,src){var k=tr;if(!weakWords[k])weakWords[k]={tr:tr,ru:ru,ex:ex||'',exru:exru||'',count:0,src:src||''};weakWords[k].count++;localStorage.setItem('weakWords',JSON.stringify(weakWords));}
+function clearWeak(tr){delete weakWords[tr];localStorage.setItem('weakWords',JSON.stringify(weakWords));}
+function getWeakList(){return Object.values(weakWords).sort(function(a,b){return b.count-a.count;});}
+
+function openAdaptive(){
+  var list=getWeakList();
+  if(list.length===0){alert('Пока нет слов! Проходите разделы и нажимайте "Не знал".');return;}
+  $id('hp').style.display='none';$id('sp').style.display='none';$id('rpage').style.display='none';
+  $id('vpage').style.display='none';$id('wpage').style.display='none';$id('spage').style.display='none';
+  $id('apage').style.display='block';$id('nbk').style.display='block';
+  $id('nt').textContent='Слабые слова';$id('ns').textContent=list.length+' слов для повторения';
+  runAdaptive(sh(list.map(function(w){return {tr:w.tr,ru:w.ru,ex:w.ex,exru:w.exru};})));
+}
+
+function runAdaptive(q){
+  var ix=0,ok=0,er=0,fl=false;
+  function upd(){$id('aok').textContent=ok;$id('aerr').textContent=er;$id('aleft').textContent=Math.max(0,q.length-ix);$id('apf').style.width=(q.length>0?Math.round(ix/q.length*100):0)+'%';}
+  function done(){var pct=Math.round(ok/(ok+er)*100)||0;$id('aea').innerHTML='<div class="done"><div class="em">'+(pct>=80?'🎉':'💪')+'</div><h2>'+(pct>=80?'Слабые слова побеждены!':'Ещё раз!')+'</h2><p>Верно: '+ok+' из '+(ok+er)+' ('+pct+'%)</p><button class="btn btnp" onclick="goHome()">На главную</button></div>';}
+  function renderQ(){
+    if(ix>=q.length){done();return;}
+    var it=q[ix];fl=false;
+    $id('aea').innerHTML='<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text3);margin-bottom:12px"><span>✓ '+ok+' ✗ '+er+'</span><span>Осталось: '+(q.length-ix)+'</span></div>'
+      +'<div class="card" onclick="aFlip()" style="cursor:pointer;min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center" id="afc">'
+      +'<div id="afc-f"><div style="font-size:26px;font-weight:600;margin-bottom:8px">'+it.tr+'</div>'
+      +'<div style="font-size:13px;color:var(--text3)">нажмите, чтобы перевести</div>'
+      +'<button onclick="event.stopPropagation();speak(this.dataset.w)" data-w="'+it.tr+'" style="margin-top:8px;padding:5px 14px;border:.5px solid var(--b2);border-radius:16px;background:var(--bg2);color:var(--text2);font-size:12px;cursor:pointer">🔊</button></div>'
+      +'<div id="afc-b" style="display:none"><div style="font-size:20px;font-weight:500;color:var(--gr);margin-bottom:6px">'+it.ru+'</div>'
+      +(it.ex?'<div style="font-size:13px;color:var(--text2);font-style:italic">'+it.ex+'</div>':'')+'</div></div>'
+      +'<div id="afc-btns" style="display:none;gap:10px;margin-top:12px">'
+      +'<button class="btn bno" id="abno">Не знал</button>'
+      +'<button class="btn byes" id="abyes">Знал ✓</button></div>';
+    $id('abno').onclick=function(){er++;ix++;upd();renderQ();};
+    $id('abyes').onclick=function(){ok++;clearWeak(it.tr);ix++;upd();renderQ();};
+  }
+  window.aFlip=function(){if(fl)return;fl=true;$id('afc-f').style.display='none';$id('afc-b').style.display='block';$id('afc-btns').style.display='flex';};
+  upd();renderQ();
+}
+// ===== END ADAPTIVE =====
+
+// ===== STORIES =====
+var STORIES=[
+{id:'cafe',title:'В кафе ☕',level:'A1',
+ text:[
+  {t:'Ahmet sabah erken kalktı.',note:'kalktı = встал'},
+  {t:'Kahvaltı yapmak istedi.',note:'kahvaltı = завтрак'},
+  {t:'Eve ekmek yoktu.',note:'yoktu = не было'},
+  {t:'Markete gitmek istemedi.',note:'istemedi = не захотел'},
+  {t:'Yakındaki kafede oturdu.',note:'yakındaki = в ближайшем'},
+  {t:'Garsona baktı ve dedi:',note:'garson = официант'},
+  {t:'"Bir kahve ve tost lütfen."',note:'tost = тост (блюдо)'},
+  {t:'Garson gülümsedi.',note:'gülümsedi = улыбнулся'},
+  {t:'"Hemen getiriyorum."',note:'hemen = сейчас же'},
+  {t:'Beş dakika sonra kahve geldi.',note:'sonra = потом'},
+  {t:'Çok güzeldi.',note:'güzeldi = было вкусно'},
+ ],
+ questions:[
+  {q:'Ahmet neden markete gitmedi?',o:['Para yoktu','Eve ekmek yoktu ama gitmek istemedi','Geç kalmıştı','Marketi sevmiyordu'],c:1},
+  {q:'Garson ne dedi?',o:['Kahve yok.','Hemen getiriyorum.','Beş dakika bekleyin.','Tost yok.'],c:1},
+  {q:'Kahve kaç dakikada geldi?',o:['On dakika','Üç dakika','Beş dakika','Bir dakika'],c:2},
+ ]},
+{id:'market',title:'В магазине 🛒',level:'A1',
+ text:[
+  {t:'Ayşe alışverişe çıktı.',note:'alışveriş = покупки'},
+  {t:'Markete girdi.',note:'girdi = вошла'},
+  {t:'Sepet aldı.',note:'sepet = корзина'},
+  {t:'Önce sebze reyonuna gitti.',note:'reyon = отдел'},
+  {t:'Domates, salatalık ve biber aldı.',note:'salatalık = огурец; biber = перец'},
+  {t:'Sonra et bölümüne geçti.',note:'bölüm = отдел'},
+  {t:'Ama tavuk pahalıydı.',note:'pahalıydı = было дорого'},
+  {t:'Balık aldı.',note:'balık = рыба'},
+  {t:'Kasaya geldi.',note:'kasa = касса'},
+  {t:'Yüz lira ödedi.',note:'ödedi = заплатила'},
+  {t:'Eve döndü.',note:'döndü = вернулась'},
+ ],
+ questions:[
+  {q:'Ayşe neden tavuk almadı?',o:['Tavuk yoktu','Tavuk pahalıydı','Tavuk istemedi','Balık daha ucuzdu'],c:1},
+  {q:'Ayşe markette ne kadar ödedi?',o:['Elli lira','İki yüz lira','Yüz lira','Yetmiş lira'],c:2},
+  {q:'Ayşe önce hangi bölüme gitti?',o:['Et bölümü','Kasa','Sebze reyonu','Balık bölümü'],c:2},
+ ]},
+{id:'weather',title:'Погода 🌦️',level:'A1',
+ text:[
+  {t:'Bugün hava çok değişkendi.',note:'değişken = переменчивый'},
+  {t:'Sabah güneş vardı.',note:'güneş = солнце'},
+  {t:'Mehmet dışarı çıktı.',note:'dışarı = наружу'},
+  {t:'Mont giymedi çünkü sıcaktı.',note:'mont = куртка; çünkü = потому что'},
+  {t:'Öğleden sonra bulutlar geldi.',note:'öğleden sonra = после полудня'},
+  {t:'Yağmur yağmaya başladı.',note:'yağmur yağmak = идти дождю'},
+  {t:'Mehmet ıslandı.',note:'ıslandı = промок'},
+  {t:'"Şemsiye alsaydım!" dedi.',note:'şemsiye = зонт; alsaydım = взял бы'},
+  {t:'Hızlıca eve koştu.',note:'koştu = побежал'},
+  {t:'Sıcak çay içti ve uyudu.',note:'uyudu = уснул'},
+ ],
+ questions:[
+  {q:'Mehmet neden mont giymedi?',o:['Montu yoktu','Hava sıcaktı','Unuttu','Eve yakındı'],c:1},
+  {q:'Mehmet ne zaman ıslandı?',o:['Sabah','Öğle','Öğleden sonra','Gece'],c:2},
+  {q:'Eve döndükten sonra ne yaptı?',o:['Banyo yaptı','Telefon etti','Çay içti ve uyudu','Uyudu ve çay içti'],c:2},
+ ]},
+{id:'doctor',title:'У врача 🏥',level:'A2',
+ text:[
+  {t:'Zeynep iki gündür hasta.',note:'iki gündür = уже два дня'},
+  {t:'Ateşi ve boğaz ağrısı var.',note:'boğaz = горло; ağrı = боль'},
+  {t:'Doktora gitmek zorunda kaldı.',note:'zorunda kalmak = быть вынужденным'},
+  {t:'Randevu aldı.',note:'randevu = запись на приём'},
+  {t:'Kliniğe gitti.',note:'klinik = клиника'},
+  {t:'Doktor muayene etti.',note:'muayene = осмотр'},
+  {t:'"Grip olmuşsunuz" dedi.',note:'grip = грипп; olmuşsunuz = у вас'},
+  {t:'"Üç gün istirahat edin."',note:'istirahat = отдых'},
+  {t:'İlaç yazdı.',note:'ilaç yazmak = выписать лекарство'},
+  {t:'Zeynep eczaneden ilaçları aldı.',note:'eczane = аптека'},
+ ],
+ questions:[
+  {q:'Zeynep kaç gündür hasta?',o:['Bir gün','Üç gün','İki gün','Beş gün'],c:2},
+  {q:'Doktor ne teşhis koydu?',o:['Soğuk algınlığı','Grip','Bronşit','Bademcik'],c:1},
+  {q:'Kaç gün istirahat?',o:['Bir','İki','Beş','Üç'],c:3},
+ ]},
+{id:'phone',title:'Телефонный звонок 📱',level:'A2',
+ text:[
+  {t:'Saat akşam sekizdi.',note:'sekizdi = было восемь'},
+  {t:'Murat telefon etti.',note:'telefon etmek = позвонить'},
+  {t:'"Yarın buluşabilir miyiz?"',note:'buluşmak = встретиться'},
+  {t:'"Saat kaçta?" dedim.',note:'saat kaçta = в котором часу'},
+  {t:'"Öğleden sonra ikide olur mu?"',note:'olur mu = подойдёт ли'},
+  {t:'"Biraz erken değil mi?"',note:'erken = рано'},
+  {t:'"Tamam, üçe erteleyebiliriz."',note:'ertelemek = перенести'},
+  {t:'"Nerede buluşalım?"',note:'nerede = где'},
+  {t:'"Kapalıçarşı önünde."',note:'önünde = перед'},
+  {t:'"Tamam, görüşürüz."',note:'görüşürüz = увидимся'},
+ ],
+ questions:[
+  {q:'Murat kaçta buluşmak istedi?',o:['Birde','İkide','Üçte','Dörtte'],c:1},
+  {q:'Sonunda kaçte buluşacaklar?',o:['İkide','Birde','Dörtte','Üçte'],c:3},
+  {q:'Nerede buluşacaklar?',o:['Kafede','Evde','Kapalıçarşı önünde','Parkta'],c:2},
+ ]},
+];
+
+var sCurStory=null,sQix=0,sQok=0,sQerr=0,sQans=false;
+
+function openStories(){
+  $id('hp').style.display='none';$id('sp').style.display='none';$id('rpage').style.display='none';
+  $id('vpage').style.display='none';$id('wpage').style.display='none';$id('apage').style.display='none';
+  $id('spage').style.display='block';$id('nbk').style.display='block';
+  $id('nt').textContent='Истории';$id('ns').textContent='Тексты с переводом и вопросами';
+  showStoriesHome();
+}
+
+function showStoriesHome(){
+  sCurStory=null;
+  var html='<div style="margin-bottom:20px"><div style="font-size:20px;font-weight:600;margin-bottom:4px">Мини-истории 📚</div>'
+    +'<div style="font-size:13px;color:var(--text2)">Нажмите на предложение — увидите перевод</div></div>'
+    +'<div style="display:flex;flex-direction:column;gap:10px">';
+  STORIES.forEach(function(s){
+    html+='<div class="scard" onclick="openStory(\''+s.id+'\')">'
+      +'<div class="snum" style="background:var(--bg3);font-size:20px">'+s.title.split(' ').slice(-1)[0]+'</div>'
+      +'<div class="sinfo"><div class="sname">'+s.title+'</div>'
+      +'<div class="sdesc">Уровень '+s.level+' • '+s.text.length+' предложений</div></div>'
+      +'<div style="color:var(--text3);font-size:20px">›</div></div>';
+  });
+  html+='</div>';
+  $id('spage').innerHTML=html;
+}
+
+function openStory(id){
+  sCurStory=STORIES.find(function(s){return s.id===id;});
+  sQix=0;sQok=0;sQerr=0;sQans=false;
+  $id('nt').textContent=sCurStory.title;
+  $id('ns').textContent='Уровень '+sCurStory.level;
+  renderStoryRead();
+}
+
+function renderStoryRead(){
+  var s=sCurStory;
+  var rows=s.text.map(function(line,i){
+    return '<div style="margin-bottom:8px;cursor:pointer" onclick="toggleTip('+i+')">'
+      +'<span style="font-size:15px">'+line.t+'</span>'
+      +' <span id="tip-'+i+'" style="display:none;font-size:12px;color:var(--gr);background:var(--grb);padding:2px 8px;border-radius:10px">'+line.note+'</span>'
+      
+      +'</div>';
+  }).join('');
+  $id('spage').innerHTML='<div style="font-size:12px;color:var(--text2);margin-bottom:10px">💡 Нажмите на предложение — перевод ключевых слов</div>'
+    +'<div class="story-text">'+rows+'</div>'
+    +'<div style="display:flex;gap:8px">'
+    +'<button class="btn" style="flex:1" onclick="showStoriesHome()">← Истории</button>'
+    +'<button class="btn btnp" style="flex:1" onclick="startStoryQuiz()">Вопросы →</button>'
+    +'</div>';
+}
+
+function toggleTip(i){var el=$id('tip-'+i);if(el)el.style.display=el.style.display==='none'?'inline-block':'none';}
+
+function startStoryQuiz(){sQix=0;sQok=0;sQerr=0;sQans=false;renderStoryQ();}
+
+function renderStoryQ(){
+  var s=sCurStory;
+  if(sQix>=s.questions.length){
+    var pct=Math.round(sQok/(sQok+sQerr)*100)||0;
+    $id('spage').innerHTML='<div class="done"><div class="em">'+(pct>=80?'🎉':'💪')+'</div>'
+      +'<h2>'+(pct>=80?'Отлично!':'Попробуй ещё')+'</h2>'
+      +'<p>Верно: '+sQok+' из '+(sQok+sQerr)+' ('+pct+'%)</p>'
+      +'<div style="display:flex;gap:8px">'
+      +'<button class="btn" style="flex:1" onclick="openStory(sCurStory.id)">Читать снова</button>'
+      +'<button class="btn btnp" style="flex:1" onclick="showStoriesHome()">Другая история</button>'
+      +'</div></div>';
+    return;
+  }
+  var q=s.questions[sQix],cor=q.o[q.c];
+  var btns=q.o.map(function(o){return '<button class="mco" onclick="chkSQ(this,\''+o.replace(/'/g,"\\'")+'\',\''+cor.replace(/'/g,"\\'")+'\')"> '+o+'</button>';}).join('');
+  $id('spage').innerHTML='<div style="font-size:12px;color:var(--text3);margin-bottom:12px">Вопрос '+(sQix+1)+' из '+s.questions.length+'</div>'
+    +'<div class="card"><div class="bdg">Вопрос к тексту</div>'
+    +'<div class="q">'+q.q+'</div>'
+    +'<div class="mcg">'+btns+'</div>'
+    +'<div class="fb" id="sfb"></div></div>'
+    +'<button class="btn" style="margin-top:8px;width:100%" onclick="openStory(sCurStory.id)">← Вернуться к тексту</button>';
+}
+
+function chkSQ(el,ch,cor){
+  if(sQans)return;sQans=true;
+  var fb=$id('sfb');
+  document.querySelectorAll('.mco').forEach(function(b){b.onclick=null;if(b.textContent.trim()===cor.trim())b.className='mco mcok';});
+  if(ch.trim()===cor.trim()){el.className='mco mcok';sQok++;fb.className='fb show fbo';fb.innerHTML='✓ Верно!';}
+  else{el.className='mco mcng';sQerr++;fb.className='fb show fbn';fb.innerHTML='✗ Неверно. Правильно: <strong>'+cor+'</strong>';}
+  setTimeout(function(){sQix++;sQans=false;renderStoryQ();},1600);
+}
+// ===== END STORIES =====
 
 renderHome();
 </script>
