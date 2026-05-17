@@ -92,6 +92,64 @@ textarea:focus,input[type=text]:focus{border-color:var(--gr)}
 .rex-ru{font-size:13px;color:var(--text2);text-align:right}
 .btn-start{width:100%;padding:14px;background:var(--gr);color:#fff;border:none;border-radius:var(--r);font-size:16px;font-weight:500;cursor:pointer;margin-top:8px;font-family:inherit}
 .btn-start:active{transform:scale(.98)}
+
+/* VERB TRAINER */
+
+/* ===== VERB BLOCK ===== */
+.vpage{padding:16px;display:none;overflow-y:auto}
+.vtabs{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
+.vtabs::-webkit-scrollbar{display:none}
+.vtab{padding:6px 14px;border:.5px solid var(--b2);border-radius:20px;font-size:13px;cursor:pointer;white-space:nowrap;background:var(--bg2);color:var(--text2);flex-shrink:0}
+.vtab.on{background:var(--gr);color:#fff;border-color:var(--gr)}
+.vcard{background:var(--bg2);border:.5px solid var(--b);border-radius:var(--r);padding:14px 16px;margin-bottom:10px;cursor:pointer}
+.vcard:active{transform:scale(.98)}
+.vcard-head{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.vcard-tr{font-size:17px;font-weight:600}
+.vcase{font-size:11px;color:#fff;background:var(--gr);padding:2px 8px;border-radius:10px;flex-shrink:0}
+.vcard-ru{font-size:13px;color:var(--text2)}
+.vex{font-size:13px;margin-top:8px;padding-top:8px;border-top:.5px solid var(--b);display:none}
+.vex.open{display:block}
+.vex-tr{color:var(--text);font-weight:500;margin-bottom:2px}
+.vex-ru{color:var(--text2)}
+.conj-grid{display:grid;grid-template-columns:80px 1fr 1fr 1fr;border:.5px solid var(--b2);border-radius:var(--r);overflow:hidden;margin-bottom:16px;font-size:13px}
+.conj-hd{background:var(--gr);color:#fff;padding:7px 6px;font-size:11px;font-weight:500;text-align:center}
+.conj-hd:first-child{text-align:left;padding-left:10px}
+.conj-p{background:var(--bg3);color:var(--text2);padding:7px 10px;border-top:.5px solid var(--b);font-size:12px}
+.conj-pos{padding:7px 6px;border-top:.5px solid var(--b);text-align:center;color:var(--text)}
+.conj-neg{padding:7px 6px;border-top:.5px solid var(--b);text-align:center;color:#A32D2D}
+.conj-q{padding:7px 6px;border-top:.5px solid var(--b);text-align:center;color:#1a6bb5}
+.quiz-stat{display:flex;justify-content:space-between;font-size:12px;color:var(--text3);margin-bottom:12px}
+
+/* ===== VERB TRAINER ===== */
+.vpage{padding:0;display:none}
+.vhome{padding:16px}
+.vblock-list{display:flex;flex-direction:column;gap:10px}
+.vblock-card{background:var(--bg2);border:.5px solid var(--b);border-radius:var(--r);padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:14px}
+.vblock-card:active{transform:scale(.98)}
+.vblock-num{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.vblock-info{flex:1}
+.vblock-name{font-size:14px;font-weight:500;margin-bottom:2px}
+.vblock-desc{font-size:12px;color:var(--text2)}
+.vblock-prog{font-size:11px;color:var(--text3);margin-top:3px}
+.vexpage{padding:16px;display:none}
+.vmtabs{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
+.vmtabs::-webkit-scrollbar{display:none}
+.vmtab{padding:6px 14px;border:.5px solid var(--b2);border-radius:20px;font-size:13px;cursor:pointer;white-space:nowrap;background:var(--bg2);color:var(--text2);flex-shrink:0}
+.vmtab.on{background:var(--gr);color:#fff;border-color:var(--gr)}
+.conj-grid{display:grid;grid-template-columns:60px 1fr 1fr 1fr;border:.5px solid var(--b2);border-radius:var(--r);overflow:hidden;margin-bottom:14px;font-size:13px}
+.cg-hd{background:var(--gr);color:#fff;padding:7px 5px;font-size:11px;font-weight:500;text-align:center}
+.cg-hd:first-child{text-align:left;padding-left:8px}
+.cg-p{background:var(--bg3);color:var(--text2);padding:7px 8px;border-top:.5px solid var(--b);font-size:12px}
+.cg-pos{padding:7px 5px;border-top:.5px solid var(--b);text-align:center}
+.cg-neg{padding:7px 5px;border-top:.5px solid var(--b);text-align:center;color:#A32D2D}
+.cg-q{padding:7px 5px;border-top:.5px solid var(--b);text-align:center;color:#1a6bb5;font-size:12px}
+.vrule{background:var(--bg2);border:.5px solid var(--b);border-radius:var(--r);padding:14px;margin-bottom:12px}
+.vrule-h{font-size:15px;font-weight:600;color:var(--gr);margin-bottom:6px}
+.vrule-b{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:10px}
+.vrule-ex{display:flex;justify-content:space-between;padding:5px 0;border-top:.5px solid var(--b);gap:12px}
+.vrule-ex:first-of-type{border-top:none}
+.vrule-tr{font-size:14px;font-weight:500}
+.vrule-ru{font-size:13px;color:var(--text2)}
 </style>
 </head>
 <body>
@@ -110,6 +168,35 @@ textarea:focus,input[type=text]:focus{border-color:var(--gr)}
   </div>
   <div id="r-blocks"></div>
   <button class="btn-start" onclick="startExercises()">Перейти к упражнениям →</button>
+
+  <div class="vtabs" id="vtabs"></div>
+  <div id="varea"></div>
+</div>
+
+
+<div class="vpage" id="vpage">
+  <div class="vhome" id="vhome">
+    <div style="margin-bottom:20px">
+      <div style="font-size:20px;font-weight:600;margin-bottom:4px">Глаголы 🔤</div>
+      <div style="font-size:13px;color:var(--text2)">Управление и спряжение — 80+ глаголов</div>
+    </div>
+    <div class="vblock-list" id="vblist"></div>
+  </div>
+  <div class="vexpage" id="vexpage">
+    <div style="margin-bottom:14px">
+      <div style="font-size:16px;font-weight:600" id="vex-title"></div>
+      <div style="font-size:12px;color:var(--text2)" id="vex-sub"></div>
+    </div>
+    <div class="vmtabs" id="vmtabs"></div>
+    <div class="pb"><div class="pf" id="vpf" style="width:0%"></div></div>
+    <div class="sr">
+      <div class="sb"><div class="v" id="vok">0</div><div class="l">Верно</div></div>
+      <div class="sb"><div class="v" id="verr">0</div><div class="l">Ошибок</div></div>
+      <div class="sb"><div class="v" id="vleft">—</div><div class="l">Осталось</div></div>
+    </div>
+    <div id="vea"></div>
+  </div>
+</div>
 </div>
 </div>
 <script>
@@ -213,13 +300,18 @@ function nr(s){return s.trim().toLowerCase().replace(/[?.!,;–]/g,'').replace(/
 function $id(id){return document.getElementById(id);}
 
 function goHome(){
-  $id('hp').style.display='block';$id('sp').style.display='none';$id('rpage').style.display='none';
+  $id('hp').style.display='block';$id('sp').style.display='none';$id('rpage').style.display='none';$id('vpage').style.display='none';
   $id('nbk').style.display='none';$id('nt').textContent='Türkçe Тренажёр';$id('ns').textContent='Оганова, Часть 1';
   renderHome();
 }
 
 function renderHome(){
-  $id('sg').innerHTML=D.map(s=>{
+  var vbtn='<div class="scard" onclick="openVerbs()" style="background:linear-gradient(135deg,#0F6E56,#1D9E75);border-color:transparent">'
+    +'<div class="vblock-num" style="background:rgba(255,255,255,0.2);color:#fff;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">🔤</div>'
+    +'<div class="vblock-info"><div class="vblock-name" style="color:#fff">Глаголы — спряжение и управление</div>'
+    +'<div class="vblock-desc" style="color:rgba(255,255,255,0.8)">7 блоков • 80+ глаголов из приложений Огановой</div></div>'
+    +'<div style="color:rgba(255,255,255,0.7);font-size:20px">›</div></div>';
+  $id('sg').innerHTML=vbtn+D.map(s=>{
     const p=pr[s.id]||{};
     const tot=Object.values(p).reduce((a,v)=>a+(v.ok||0),0);
     return`<div class="scard${tot>4?' done':''}" onclick="showReminder(${s.id})">
@@ -432,6 +524,575 @@ function startExercises(){
   $id('rpage').style.display='none';
   openSection(window._pendingSection);
 }
+
+
+
+
+
+
+// ===== VERB TRAINER =====
+var VBLOCKS = [
+{id:'acc', icon:'🎯', name:'Управление — Винительный', desc:'-(y)I • 41 глагол',
+ color:'#0F6E56',
+ rule:{h:'Глаголы с винительным падежом -(y)I',
+  b:'Прямое дополнение (кого? что?) оформляется винительным падежом. Аффикс: -(y)ı/-i/-u/-ü после согласной, -(y)ı/-i/-u/-ü после гласной.',
+  ex:[['Kitabı okuyorum.','Я читаю книгу.'],['Seni görüyorum.','Я тебя вижу.'],['Türkçeyi öğreniyorum.','Я учу турецкий.']]},
+ cards:[
+  ['almak','брать; покупать'],['anlamak','понимать'],['aramak','искать; звонить'],
+  ['beklemek','ждать'],['bilmek','знать'],['bırakmak','оставлять; бросать'],
+  ['bitirmek','заканчивать'],['bulmak','находить'],['değiştirmek','менять'],
+  ['dinlemek','слушать'],['duymak','слышать'],['düşünmek','думать'],
+  ['getirmek','приносить'],['görmek','видеть'],['göstermek','показывать'],
+  ['götürmek','отвозить'],['harcamak','тратить'],['hatırlamak','помнить'],
+  ['hazırlamak','готовить (что-то)'],['içmek','пить; курить'],
+  ['istemek','хотеть'],['izlemek','смотреть'],['kapatmak','закрывать'],
+  ['kaybetmek','терять'],['kazanmak','выигрывать'],['kesmek','резать'],
+  ['kullanmak','использовать'],['okumak','читать'],['öğrenmek','учить'],
+  ['özlemek','скучать (по кому-то)'],['satmak','продавать'],['seçmek','выбирать'],
+  ['sevmek','любить'],['seyretmek','смотреть (фильм)'],['söylemek','говорить'],
+  ['tutmak','держать'],['unutmak','забывать'],['yapmak','делать'],
+  ['yazmak','писать'],['yemek','есть; кушать'],['ziyaret etmek','посещать'],
+ ],
+ fill:[
+  {b:'Kitab',bl:'ı',a:' okuyorum.',h:'вин. пад. от kitap',ru:'Я читаю книгу.'},
+  {b:'Sen',bl:'i',a:' seviyorum.',h:'вин. пад. от sen',ru:'Я тебя люблю.'},
+  {b:'Türkçe',bl:'yi',a:' öğreniyorum.',h:'вин. пад. от Türkçe',ru:'Я учу турецкий.'},
+  {b:'Araba',bl:'yı',a:' aldım.',h:'вин. пад. от araba',ru:'Я купил машину.'},
+  {b:'Müzik',bl:'i',a:' dinliyorum.',h:'вин. пад. от müzik',ru:'Я слушаю музыку.'},
+  {b:'Film',bl:'i',a:' seyrediyorum.',h:'вин. пад. от film',ru:'Я смотрю фильм.'},
+  {b:'Kapı',bl:'yı',a:' kapat.',h:'вин. пад. от kapı',ru:'Закрой дверь.'},
+  {b:'Anahtarı unut',bl:'madım',a:'.',h:'не забыл — отриц. прош.',ru:'Я не забыл ключ.'},
+ ],
+ translate:[
+  {ru:'Я тебя слышу.',tr:'Seni duyuyorum.',hint:'sen → seni (вин.)'},
+  {ru:'Я хочу воды.',tr:'Su istiyorum.',hint:'su без аффикса (неопред.)'},
+  {ru:'Я купил книгу.',tr:'Kitabı aldım.',hint:'kitap → kitabı (вин.)'},
+  {ru:'Закрой дверь.',tr:'Kapıyı kapat.',hint:'kapı → kapıyı (вин.)'},
+  {ru:'Я смотрю фильм.',tr:'Filmi seyrediyorum.',hint:'film → filmi (вин.)'},
+  {ru:'Ты видишь меня?',tr:'Beni görüyor musun?',hint:'ben → beni (вин.)'},
+  {ru:'Я учу турецкий язык.',tr:'Türkçeyi öğreniyorum.',hint:'Türkçe → Türkçeyi'},
+  {ru:'Я не забыл твоё имя.',tr:'Adını unutmadım.',hint:'adı → adını (притяж.+вин.)'},
+ ],
+ mc:[
+  {q:'«Я читаю книгу» — правильно:',o:['Kitap okuyorum','Kitabı okuyorum','Kitaba okuyorum','Kitaptan okuyorum'],c:1},
+  {q:'Вин. падеж от «araba»:',o:['arabaya','arabadan','arabayı','arabada'],c:2},
+  {q:'«Я тебя люблю» по-турецки:',o:['Sen seviyorum','Sana seviyorum','Seni seviyorum','Senden seviyorum'],c:2},
+  {q:'Какой глагол требует вин. падеж?',o:['gitmek','bakmak','sevmek','benzemek'],c:2},
+  {q:'Вин. падеж от «film»:',o:['filme','filmi','filmden','filmde'],c:1},
+  {q:'«Закрой дверь» — правильно:',o:['Kapıda kapat','Kapıya kapat','Kapıyı kapat','Kapıdan kapat'],c:2},
+ ]},
+
+{id:'dat', icon:'📍', name:'Управление — Дательный', desc:'-(y)A • 18 глаголов',
+ color:'#1a6bb5',
+ rule:{h:'Глаголы с дательным падежом -(y)A',
+  b:'Дательный падеж отвечает на вопросы «кому? куда? к кому?». Аффикс: -a/-e после согласной, -ya/-ye после гласной.',
+  ex:[['Bana bak.','Посмотри на меня.'],['Okula gidiyorum.','Я иду в школу.'],['Sana inanıyorum.','Я тебе верю.']]},
+ cards:[
+  ['alışmak','привыкать'],['bakmak','смотреть; ухаживать'],
+  ['başlamak','начинать'],['başvurmak','обращаться'],
+  ['benzemek','быть похожим'],['binmek','садиться (в транспорт)'],
+  ['cevap vermek','отвечать'],['çalışmak','стараться; пытаться'],
+  ['girmek','входить'],['gitmek','идти; ехать'],
+  ['güvenmek','доверять'],['inanmak','верить'],
+  ['katılmak','участвовать'],['söylemek','говорить (кому-то)'],
+  ['ulaşmak','достигать'],['uymak','соответствовать'],
+  ['yardım etmek','помогать'],['gülmek','смеяться (над кем-то)'],
+ ],
+ fill:[
+  {b:'Okul',bl:'a',a:' gidiyorum.',h:'дат. от okul',ru:'Я иду в школу.'},
+  {b:'Ban',bl:'a',a:' bak.',h:'дат. от ben',ru:'Посмотри на меня.'},
+  {b:'San',bl:'a',a:' inanıyorum.',h:'дат. от sen',ru:'Я тебе верю.'},
+  {b:'Otobüs',bl:'e',a:' bindim.',h:'дат. от otobüs',ru:'Я сел в автобус.'},
+  {b:'Annen',bl:'e',a:' benziyorsun.',h:'дат. от anne',ru:'Ты похож на маму.'},
+  {b:'Toplantı',bl:'ya',a:' katıldım.',h:'дат. от toplantı',ru:'Я участвовал в собрании.'},
+  {b:'Çalışma',bl:'ya',a:' başladım.',h:'дат. от çalışmak',ru:'Я начал работать.'},
+  {b:'Kural',bl:'lara',a:' uy.',h:'дат. мн.ч. от kural',ru:'Соблюдай правила.'},
+ ],
+ translate:[
+  {ru:'Посмотри на меня.',tr:'Bana bak.',hint:'ben → bana (дат.)'},
+  {ru:'Я иду в школу.',tr:'Okula gidiyorum.',hint:'okul → okula (дат.)'},
+  {ru:'Я тебе верю.',tr:'Sana inanıyorum.',hint:'sen → sana (дат.)'},
+  {ru:'Помоги мне.',tr:'Bana yardım et.',hint:'bana = мне (дат.)'},
+  {ru:'Ответь на вопрос.',tr:'Soruya cevap ver.',hint:'soru → soruya (дат.)'},
+  {ru:'Я участвовал в собрании.',tr:'Toplantıya katıldım.',hint:'toplantı → toplantıya'},
+  {ru:'Я сел в автобус.',tr:'Otobüse bindim.',hint:'otobüs → otobüse (дат.)'},
+  {ru:'Ты похож на маму.',tr:'Annene benziyorsun.',hint:'anne → annene (притяж.+дат.)'},
+ ],
+ mc:[
+  {q:'«Я иду в школу» — правильно:',o:['Okulda gidiyorum','Okulu gidiyorum','Okula gidiyorum','Okuldan gidiyorum'],c:2},
+  {q:'Дат. падеж от «ev»:',o:['evde','eve','evi','evden'],c:1},
+  {q:'«Начать работать» — конструкция:',o:['çalışmadan başlamak','çalışmayı başlamak','çalışmaya başlamak','çalışmaktan başlamak'],c:2},
+  {q:'Какой глагол требует дат. падеж?',o:['okumak','sevmek','gitmek','görmek'],c:2},
+  {q:'«Помоги мне» — правильно:',o:['Benden yardım et','Beni yardım et','Bana yardım et','Benimle yardım et'],c:2},
+  {q:'Дат. падеж от «toplantı»:',o:['toplantıda','toplantıya','toplantıyı','toplantıdan'],c:1},
+ ]},
+
+{id:'abl', icon:'↗️', name:'Управление — Исходный', desc:'-DAn • 20 глаголов',
+ color:'#7a3bb5',
+ rule:{h:'Глаголы с исходным падежом -DAn',
+  b:'Исходный падеж отвечает на вопросы «от кого? откуда? из чего?». Аффикс: -dan/-den после звонких, -tan/-ten после глухих.',
+  ex:[['Evden çıktım.','Я вышел из дома.'],['Senden bahsettim.','Я говорил о тебе.'],['Karanlıktan korkuyorum.','Я боюсь темноты.']]},
+ cards:[
+  ['ayrılmak','уходить; расставаться'],['bahsetmek','говорить (о чём-то)'],
+  ['bıkmak','надоедать; уставать'],['caymak','передумать'],
+  ['çekinmek','стесняться'],['çıkmak','выходить'],
+  ['emin olmak','быть уверенным'],['hoşlanmak','нравиться (что-то)'],
+  ['inmek','сходить (с транспорта)'],['kaçınmak','избегать'],
+  ['korkmak','бояться'],['kurtulmak','избавляться'],
+  ['nefret etmek','ненавидеть'],['özür dilemek','извиняться'],
+  ['sıkılmak','уставать; скучать'],['şikayet etmek','жаловаться'],
+  ['utanmak','стыдиться'],['vazgeçmek','отказываться'],
+  ['yorulmak','уставать (от чего-то)'],['zevk almak','получать удовольствие'],
+ ],
+ fill:[
+  {b:'Ev',bl:'den',a:' çıktım.',h:'исх. от ev',ru:'Я вышел из дома.'},
+  {b:'Otobüs',bl:'ten',a:' indim.',h:'исх. от otobüs',ru:'Я вышел из автобуса.'},
+  {b:'Bu iş',bl:'ten',a:' bıktım.',h:'исх. от iş',ru:'Мне надоела эта работа.'},
+  {b:'Karanllık',bl:'tan',a:' korkuyorum.',h:'исх. от karanlık',ru:'Я боюсь темноты.'},
+  {b:'Sen',bl:'den',a:' bahsettim.',h:'исх. от sen',ru:'Я говорил о тебе.'},
+  {b:'Plan',bl:'ımdan',a:' vazgeçtim.',h:'исх.+притяж.',ru:'Я отказался от плана.'},
+  {b:'Mü',bl:'zikten',a:' zevk alıyorum.',h:'исх. от müzik',ru:'Мне нравится музыка.'},
+  {b:'Bu',bl:'ndan',a:' eminim.',h:'исх. от bu',ru:'Я в этом уверен.'},
+ ],
+ translate:[
+  {ru:'Я вышел из дома.',tr:'Evden çıktım.',hint:'ev → evden (исх.)'},
+  {ru:'Я боюсь темноты.',tr:'Karanlıktan korkuyorum.',hint:'karanlık → karanlıktan'},
+  {ru:'Я говорил о тебе.',tr:'Senden bahsettim.',hint:'sen → senden (исх.)'},
+  {ru:'Я устал от этой работы.',tr:'Bu işten sıkıldım.',hint:'iş → işten (исх.)'},
+  {ru:'Я в этом уверен.',tr:'Bundan eminim.',hint:'bu → bundan (исх.)'},
+  {ru:'Я вышел из автобуса.',tr:'Otobüsten indim.',hint:'otobüs → otobüsten'},
+  {ru:'Прошу у тебя прощения.',tr:'Senden özür dilerim.',hint:'sen → senden'},
+  {ru:'Мне нравится музыка.',tr:'Müzikten hoşlanıyorum.',hint:'müzik → müzikten'},
+ ],
+ mc:[
+  {q:'«Я вышел из дома» — правильно:',o:['Evde çıktım','Evden çıktım','Eve çıktım','Evi çıktım'],c:1},
+  {q:'Исх. падеж от «otobüs»:',o:['otobüse','otobüsü','otobüsten','otobüste'],c:2},
+  {q:'«Я боюсь» — глагол korkmak требует:',o:['вин. -(y)I','дат. -(y)A','исх. -DAn','мест. -DA'],c:2},
+  {q:'«Говорить о чём-то» — bahsetmek требует:',o:['дат. -(y)A','вин. -(y)I','исх. -DAn','без падежа'],c:2},
+  {q:'Исх. падеж от «iş»:',o:['işe','işi','işte','işten'],c:3},
+  {q:'«Я устал от работы» — правильно:',o:['İşte yoruldum','İşe yoruldum','İşten yoruldum','İşi yoruldum'],c:2},
+ ]},
+
+{id:'yor', icon:'⚡', name:'Спряжение — Настоящее', desc:'Şimdiki zaman -(I)yor',
+ color:'#c47a00',
+ rule:{h:'Настоящее время -(I)yor',
+  b:'Аффикс -yor присоединяется к основе. Если основа на гласную — она отбрасывается. Гласный перед -yor согласуется по сингармонизму: -ıyor/-iyor/-uyor/-üyor.',
+  ex:[['geliyorum / gelmiyorum / geliyor muyum?','я прихожу / не прихожу / прихожу ли?'],['çalışıyor / çalışmıyor / çalışıyor mu?','он работает / не работает / работает?'],['gidiyoruz / gitmiyoruz / gidiyor muyuz?','мы идём / не идём / идём?']]},
+ cards:[
+  ['geliyorum','я прихожу/иду — 1л.ед.'],['geliyorsun','ты приходишь — 2л.ед.'],
+  ['geliyor','он приходит — 3л.ед.'],['geliyoruz','мы приходим — 1л.мн.'],
+  ['geliyorsunuz','вы приходите — 2л.мн.'],['geliyorlar','они приходят — 3л.мн.'],
+  ['gelmiyorum','я не прихожу — отриц.'],['geliyor muyum?','прихожу ли я? — вопрос'],
+  ['gidiyorum','я иду — gitmek'],['yapıyor','он делает — yapmak'],
+  ['çalışıyorum','я работаю — çalışmak'],['okuyorum','я читаю — okumak'],
+  ['biliyorum','я знаю — bilmek'],['konuşuyor','он говорит — konuşmak'],
+ ],
+ fill:[
+  {b:'Ben gel',bl:'iyorum',a:'.',h:'-yor 1л.ед. от gelmek',ru:'Я прихожу.'},
+  {b:'Sen git',bl:'miyorsun',a:'.',h:'отриц. -yor 2л.ед.',ru:'Ты не идёшь.'},
+  {b:'O çalış',bl:'ıyor',a:' mu?',h:'вопрос -yor 3л.ед.',ru:'Он работает?'},
+  {b:'Biz oku',bl:'yoruz',a:'.',h:'-yor 1л.мн. от okumak',ru:'Мы читаем.'},
+  {b:'Siz konuş',bl:'uyor',a:'musunuz?',h:'вопрос -yor 2л.мн.',ru:'Вы говорите?'},
+  {b:'Onlar bil',bl:'miyorlar',a:'.',h:'отриц. -yor 3л.мн.',ru:'Они не знают.'},
+  {b:'Ben yap',bl:'ıyorum',a:'.',h:'-yor 1л.ед. от yapmak',ru:'Я делаю.'},
+  {b:'O gel',bl:'miyor',a:'.',h:'отриц. -yor 3л.ед.',ru:'Он не приходит.'},
+ ],
+ translate:[
+  {ru:'Я прихожу.',tr:'Geliyorum.',hint:'-yor 1л.ед.'},
+  {ru:'Ты не идёшь.',tr:'Gitmiyorsun.',hint:'отриц. -yor 2л.ед.'},
+  {ru:'Он работает?',tr:'Çalışıyor mu?',hint:'вопрос -yor 3л.ед.'},
+  {ru:'Мы читаем.',tr:'Okuyoruz.',hint:'-yor 1л.мн.'},
+  {ru:'Они не знают.',tr:'Bilmiyorlar.',hint:'отриц. -yor 3л.мн.'},
+  {ru:'Ты говоришь по-турецки?',tr:'Türkçe konuşuyor musun?',hint:'вопрос -yor'},
+  {ru:'Я не делаю этого.',tr:'Bunu yapmıyorum.',hint:'отриц. -yor 1л.ед.'},
+  {ru:'Вы идёте?',tr:'Gidiyor musunuz?',hint:'вопрос -yor 2л.мн.'},
+ ],
+ mc:[
+  {q:'«Я прихожу» (gelmek, 1л.ед.):',o:['gelirim','geldim','geliyorum','geleceğim'],c:2},
+  {q:'Отрицание -yor для 1л.ед.:',o:['-miyorum','-mıyorum','оба верны (зависит от глагола)','ни один'],c:2},
+  {q:'«Он не работает» (çalışmak):',o:['çalışmıyor','çalışmıyorum','çalışmiyor','çalışmuyor'],c:0},
+  {q:'Вопрос для «geliyor» (3л.ед.):',o:['geliyor misin?','geliyor mu?','geliyor mısın?','geliyor muyum?'],c:1},
+  {q:'«Мы читаем» (okumak, 1л.мн.):',o:['okuruz','okuduk','okuyoruz','okuyacağız'],c:2},
+  {q:'Настоящее от yapmak — 2л.ед.:',o:['yaparsın','yaptın','yapıyorsun','yapacaksın'],c:2},
+ ],
+ conj:{
+  gelmek:[['geliyorum','gelmiyorum','geliyor muyum?'],['geliyorsun','gelmiyorsun','geliyor musun?'],['geliyor','gelmiyor','geliyor mu?'],['geliyoruz','gelmiyoruz','geliyor muyuz?'],['geliyorsunuz','gelmiyorsunuz','geliyor musunuz?'],['geliyorlar','gelmiyorlar','geliyorlar mı?']],
+  gitmek:[['gidiyorum','gitmiyorum','gidiyor muyum?'],['gidiyorsun','gitmiyorsun','gidiyor musun?'],['gidiyor','gitmiyor','gidiyor mu?'],['gidiyoruz','gitmiyoruz','gidiyor muyuz?'],['gidiyorsunuz','gitmiyorsunuz','gidiyor musunuz?'],['gidiyorlar','gitmiyorlar','gidiyorlar mı?']],
+  yapmak:[['yapıyorum','yapmıyorum','yapıyor muyum?'],['yapıyorsun','yapmıyorsun','yapıyor musun?'],['yapıyor','yapmıyor','yapıyor mu?'],['yapıyoruz','yapmıyoruz','yapıyor muyuz?'],['yapıyorsunuz','yapmıyorsunuz','yapıyor musunuz?'],['yapıyorlar','yapmıyorlar','yapıyorlar mı?']],
+  çalışmak:[['çalışıyorum','çalışmıyorum','çalışıyor muyum?'],['çalışıyorsun','çalışmıyorsun','çalışıyor musun?'],['çalışıyor','çalışmıyor','çalışıyor mu?'],['çalışıyoruz','çalışmıyoruz','çalışıyor muyuz?'],['çalışıyorsunuz','çalışmıyorsunuz','çalışıyor musunuz?'],['çalışıyorlar','çalışmıyorlar','çalışıyorlar mı?']],
+  konuşmak:[['konuşuyorum','konuşmuyorum','konuşuyor muyum?'],['konuşuyorsun','konuşmuyorsun','konuşuyor musun?'],['konuşuyor','konuşmuyor','konuşuyor mu?'],['konuşuyoruz','konuşmuyoruz','konuşuyor muyuz?'],['konuşuyorsunuz','konuşmuyorsunuz','konuşuyor musunuz?'],['konuşuyorlar','konuşmuyorlar','konuşuyorlar mı?']],
+ }},
+
+{id:'di', icon:'⏮️', name:'Спряжение — Прошедшее', desc:'Geçmiş zaman -DI',
+ color:'#A32D2D',
+ rule:{h:'Прошедшее категорическое время -DI',
+  b:'Аффикс -dı/-di/-du/-dü (после глухих: -tı/-ti/-tu/-tü). Очевидец события. Личные окончания: -m, -n, —, -k, -nız/-niz, -lar/-ler.',
+  ex:[['gittim / gitmedim / gittim mi?','я пошёл / не пошёл / пошёл ли?'],['yaptı / yapmadı / yaptı mı?','он сделал / не сделал / сделал?'],['geldik / gelmedik / geldik mi?','мы пришли / не пришли / пришли?']]},
+ cards:[
+  ['gittim','я пошёл — 1л.ед.'],['gittin','ты пошёл — 2л.ед.'],
+  ['gitti','он пошёл — 3л.ед.'],['gittik','мы пошли — 1л.мн.'],
+  ['gittiniz','вы пошли — 2л.мн.'],['gittiler','они пошли — 3л.мн.'],
+  ['gitmedim','я не пошёл — отриц.'],['gittim mi?','пошёл ли я? — вопрос'],
+  ['yaptım','я сделал — yapmak'],['çalıştım','я работал — çalışmak'],
+  ['okudum','я читал — okumak'],['bildim','я знал — bilmek'],
+  ['konuştum','я говорил — konuşmak'],['geldim','я пришёл — gelmek'],
+ ],
+ fill:[
+  {b:'Ben git',bl:'tim',a:'.',h:'-DI 1л.ед. от gitmek',ru:'Я пошёл.'},
+  {b:'Sen yap',bl:'madın',a:'.',h:'отриц. -DI 2л.ед.',ru:'Ты не сделал.'},
+  {b:'O gel',bl:'di',a:' mi?',h:'вопрос -DI 3л.ед.',ru:'Он пришёл?'},
+  {b:'Biz oku',bl:'duk',a:'.',h:'-DI 1л.мн. от okumak',ru:'Мы читали.'},
+  {b:'Siz konuş',bl:'madınız',a:'.',h:'отриц. -DI 2л.мн.',ru:'Вы не говорили.'},
+  {b:'Onlar bil',bl:'diler',a:'.',h:'-DI 3л.мн. от bilmek',ru:'Они знали.'},
+  {b:'Ben çalış',bl:'tım',a:'.',h:'-DI 1л.ед. от çalışmak',ru:'Я работал.'},
+  {b:'O git',bl:'medi',a:'.',h:'отриц. -DI 3л.ед.',ru:'Он не пошёл.'},
+ ],
+ translate:[
+  {ru:'Я пошёл.',tr:'Gittim.',hint:'-DI 1л.ед.'},
+  {ru:'Ты не сделал.',tr:'Yapmadın.',hint:'отриц. -DI 2л.ед.'},
+  {ru:'Он пришёл?',tr:'Geldi mi?',hint:'вопрос -DI 3л.ед.'},
+  {ru:'Мы читали.',tr:'Okuduk.',hint:'-DI 1л.мн.'},
+  {ru:'Они знали.',tr:'Bildiler.',hint:'-DI 3л.мн.'},
+  {ru:'Я не пошёл.',tr:'Gitmedim.',hint:'отриц. -DI 1л.ед.'},
+  {ru:'Вы работали?',tr:'Çalıştınız mı?',hint:'вопрос -DI 2л.мн.'},
+  {ru:'Она говорила.',tr:'Konuştu.',hint:'-DI 3л.ед.'},
+ ],
+ mc:[
+  {q:'«Я пошёл» (gitmek, 1л.ед.):',o:['gidiyorum','gittim','gideceğim','giderim'],c:1},
+  {q:'Прошедшее от yapmak — 3л.ед.:',o:['yapar','yapıyor','yaptı','yapacak'],c:2},
+  {q:'«Мы не читали» (okumak):',o:['okumadık','okumduk','okumıyorduk','okumadılar'],c:0},
+  {q:'Вопрос для «geldi» (3л.ед.):',o:['geldi mi?','geldi misin?','geldi miyim?','geldi miyiz?'],c:0},
+  {q:'Прошедшее от çalışmak — 1л.ед.:',o:['çalışıyorum','çalışırdım','çalıştım','çalışacağım'],c:2},
+  {q:'«Ты не пришёл» — правильно:',o:['gelmedin','gelmiyor','gelmeyeceksin','gelmezdim'],c:0},
+ ],
+ conj:{
+  gelmek:[['geldim','gelmedim','geldim mi?'],['geldin','gelmedin','geldin mi?'],['geldi','gelmedi','geldi mi?'],['geldik','gelmedik','geldik mi?'],['geldiniz','gelmediniz','geldiniz mi?'],['geldiler','gelmediler','geldiler mi?']],
+  gitmek:[['gittim','gitmedim','gittim mi?'],['gittin','gitmedin','gittin mi?'],['gitti','gitmedi','gitti mi?'],['gittik','gitmedik','gittik mi?'],['gittiniz','gitmediniz','gittiniz mi?'],['gittiler','gitmediler','gittiler mi?']],
+  yapmak:[['yaptım','yapmadım','yaptım mı?'],['yaptın','yapmadın','yaptın mı?'],['yaptı','yapmadı','yaptı mı?'],['yaptık','yapmadık','yaptık mı?'],['yaptınız','yapmadınız','yaptınız mı?'],['yaptılar','yapmadılar','yaptılar mı?']],
+  çalışmak:[['çalıştım','çalışmadım','çalıştım mı?'],['çalıştın','çalışmadın','çalıştın mı?'],['çalıştı','çalışmadı','çalıştı mı?'],['çalıştık','çalışmadık','çalıştık mı?'],['çalıştınız','çalışmadınız','çalıştınız mı?'],['çalıştılar','çalışmadılar','çalıştılar mı?']],
+  konuşmak:[['konuştum','konuşmadım','konuştum mu?'],['konuştun','konuşmadın','konuştun mu?'],['konuştu','konuşmadı','konuştu mu?'],['konuştuk','konuşmadık','konuştuk mu?'],['konuştunuz','konuşmadınız','konuştunuz mu?'],['konuştular','konuşmadılar','konuştular mı?']],
+ }},
+
+{id:'acak', icon:'🔮', name:'Спряжение — Будущее', desc:'Gelecek zaman -(y)AcAk',
+ color:'#0F6E56',
+ rule:{h:'Будущее время -(y)AcAk',
+  b:'Аффикс -acak/-ecek. После гласной добавляется -y. Используется для конкретных будущих действий. Отрицание: -mayacak/-meyecek.',
+  ex:[['gideceğim / gitmeyeceğim / gidecek miyim?','я пойду / не пойду / пойду ли?'],['yapacak / yapmayacak / yapacak mı?','он сделает / не сделает / сделает?'],['geleceğiz / gelmeyeceğiz / gelecek miyiz?','мы придём / не придём / придём?']]},
+ cards:[
+  ['gideceğim','я пойду — 1л.ед.'],['gideceksin','ты пойдёшь — 2л.ед.'],
+  ['gidecek','он пойдёт — 3л.ед.'],['gideceğiz','мы пойдём — 1л.мн.'],
+  ['gideceksiniz','вы пойдёте — 2л.мн.'],['gidecekler','они пойдут — 3л.мн.'],
+  ['gitmeyeceğim','я не пойду — отриц.'],['gidecek misin?','ты пойдёшь? — вопрос'],
+  ['yapacağım','я сделаю — yapmak'],['çalışacağım','я буду работать — çalışmak'],
+  ['okuyacağım','я буду читать — okumak'],['bileceğim','я буду знать — bilmek'],
+  ['konuşacağım','я буду говорить — konuşmak'],['geleceğim','я приду — gelmek'],
+ ],
+ fill:[
+  {b:'Ben git',bl:'eceğim',a:'.',h:'буд. 1л.ед. от gitmek',ru:'Я пойду.'},
+  {b:'Sen yap',bl:'mayacaksın',a:'.',h:'отриц. буд. 2л.ед.',ru:'Ты не сделаешь.'},
+  {b:'O gel',bl:'ecek',a:' mi?',h:'вопрос буд. 3л.ед.',ru:'Он придёт?'},
+  {b:'Biz oku',bl:'yacağız',a:'.',h:'буд. 1л.мн. от okumak',ru:'Мы будем читать.'},
+  {b:'Siz konuş',bl:'mayacaksınız',a:'.',h:'отриц. буд. 2л.мн.',ru:'Вы не будете говорить.'},
+  {b:'Onlar bil',bl:'ecekler',a:'.',h:'буд. 3л.мн. от bilmek',ru:'Они будут знать.'},
+  {b:'Ben çalış',bl:'acağım',a:'.',h:'буд. 1л.ед. от çalışmak',ru:'Я буду работать.'},
+  {b:'O git',bl:'meyecek',a:'.',h:'отриц. буд. 3л.ед.',ru:'Он не пойдёт.'},
+ ],
+ translate:[
+  {ru:'Я пойду.',tr:'Gideceğim.',hint:'буд. 1л.ед.'},
+  {ru:'Ты не сделаешь.',tr:'Yapmayacaksın.',hint:'отриц. буд. 2л.ед.'},
+  {ru:'Он придёт?',tr:'Gelecek mi?',hint:'вопрос буд. 3л.ед.'},
+  {ru:'Мы будем читать.',tr:'Okuyacağız.',hint:'буд. 1л.мн.'},
+  {ru:'Они будут знать.',tr:'Bilecekler.',hint:'буд. 3л.мн.'},
+  {ru:'Я не пойду.',tr:'Gitmeyeceğim.',hint:'отриц. буд. 1л.ед.'},
+  {ru:'Вы будете работать?',tr:'Çalışacak mısınız?',hint:'вопрос буд. 2л.мн.'},
+  {ru:'Она будет говорить.',tr:'Konuşacak.',hint:'буд. 3л.ед.'},
+ ],
+ mc:[
+  {q:'«Я пойду» (gitmek, 1л.ед.):',o:['gidiyorum','gittim','gideceğim','giderim'],c:2},
+  {q:'Будущее от yapmak — 3л.ед.:',o:['yapar','yapıyor','yaptı','yapacak'],c:3},
+  {q:'«Мы не придём» (gelmek):',o:['gelmedik','gelmeyeceğiz','gelmiyoruz','gelmezdik'],c:1},
+  {q:'Вопрос для «gelecek» (3л.ед.):',o:['gelecek misin?','gelecek miyim?','gelecek mi?','gelecek miyiz?'],c:2},
+  {q:'Будущее от çalışmak — 1л.ед.:',o:['çalışıyorum','çalışırdım','çalıştım','çalışacağım'],c:3},
+  {q:'Отрицание будущего: основа +',o:['-mayacak/-meyecek','-mıyor/-miyor','-maz/-mez','-madan/-meden'],c:0},
+ ],
+ conj:{
+  gelmek:[['geleceğim','gelmeyeceğim','gelecek miyim?'],['geleceksin','gelmeyeceksin','gelecek misin?'],['gelecek','gelmeyecek','gelecek mi?'],['geleceğiz','gelmeyeceğiz','gelecek miyiz?'],['geleceksiniz','gelmeyeceksiniz','gelecek misiniz?'],['gelecekler','gelmeyecekler','gelecekler mi?']],
+  gitmek:[['gideceğim','gitmeyeceğim','gidecek miyim?'],['gideceksin','gitmeyeceksin','gidecek misin?'],['gidecek','gitmeyecek','gidecek mi?'],['gideceğiz','gitmeyeceğiz','gidecek miyiz?'],['gideceksiniz','gitmeyeceksiniz','gidecek misiniz?'],['gidecekler','gitmeyecekler','gidecekler mi?']],
+  yapmak:[['yapacağım','yapmayacağım','yapacak mıyım?'],['yapacaksın','yapmayacaksın','yapacak mısın?'],['yapacak','yapmayacak','yapacak mı?'],['yapacağız','yapmayacağız','yapacak mıyız?'],['yapacaksınız','yapmayacaksınız','yapacak mısınız?'],['yapacaklar','yapmayacaklar','yapacaklar mı?']],
+  çalışmak:[['çalışacağım','çalışmayacağım','çalışacak mıyım?'],['çalışacaksın','çalışmayacaksın','çalışacak mısın?'],['çalışacak','çalışmayacak','çalışacak mı?'],['çalışacağız','çalışmayacağız','çalışacak mıyız?'],['çalışacaksınız','çalışmayacaksınız','çalışacak mısınız?'],['çalışacaklar','çalışmayacaklar','çalışacaklar mı?']],
+  konuşmak:[['konuşacağım','konuşmayacağım','konuşacak mıyım?'],['konuşacaksın','konuşmayacaksın','konuşacak mısın?'],['konuşacak','konuşmayacak','konuşacak mı?'],['konuşacağız','konuşmayacağız','konuşacak mıyız?'],['konuşacaksınız','konuşmayacaksınız','konuşacak mısınız?'],['konuşacaklar','konuşmayacaklar','konuşacaklar mı?']],
+ }},
+
+{id:'ir', icon:'🔄', name:'Спряжение — Наст.-будущее', desc:'Geniş zaman -(I)r',
+ color:'#5a5a00',
+ rule:{h:'Настоящее-будущее время -(I)r / -Ar',
+  b:'Выражает регулярные действия, обычай, вечные истины. Аффикс: -ar/-er (1-сл. глаголы), -ır/-ir/-ur/-ür (многосл.). Отрицание: -maz/-mez.',
+  ex:[['giderim / gitmem / gider miyim?','я хожу / не хожу / хожу ли?'],['yapar / yapmaz / yapar mı?','он делает / не делает / делает?'],['geliriz / gelmeyiz / gelir miyiz?','мы приходим / не приходим / приходим?']]},
+ cards:[
+  ['giderim','я хожу/пойду — 1л.ед.'],['gidersin','ты ходишь — 2л.ед.'],
+  ['gider','он ходит — 3л.ед.'],['gideriz','мы ходим — 1л.мн.'],
+  ['gidersiniz','вы ходите — 2л.мн.'],['giderler','они ходят — 3л.мн.'],
+  ['gitmem','я не хожу — отриц.'],['gider miyim?','хожу ли я? — вопрос'],
+  ['yaparım','я делаю — yapmak'],['çalışırım','я работаю — çalışmak'],
+  ['okurum','я читаю — okumak'],['bilirim','я знаю — bilmek'],
+  ['konuşurum','я говорю — konuşmak'],['gelirim','я прихожу — gelmek'],
+ ],
+ fill:[
+  {b:'Ben gid',bl:'erim',a:'.',h:'-Ir 1л.ед. от gitmek',ru:'Я хожу/пойду.'},
+  {b:'Sen yap',bl:'mazsın',a:'.',h:'отриц. -Ir 2л.ед.',ru:'Ты не делаешь.'},
+  {b:'O gel',bl:'ir',a:' mi?',h:'вопрос -Ir 3л.ед.',ru:'Он приходит?'},
+  {b:'Biz oku',bl:'ruz',a:'.',h:'-Ir 1л.мн. от okumak',ru:'Мы читаем.'},
+  {b:'Siz konuş',bl:'mazsınız',a:'.',h:'отриц. -Ir 2л.мн.',ru:'Вы не говорите.'},
+  {b:'Onlar bil',bl:'mez',a:'.',h:'отриц. -Ir 3л.ед./мн.',ru:'Они не знают.'},
+  {b:'Ben çalış',bl:'ırım',a:'.',h:'-Ir 1л.ед. от çalışmak',ru:'Я работаю.'},
+  {b:'O git',bl:'mez',a:'.',h:'отриц. -Ir 3л.ед.',ru:'Он не ходит.'},
+ ],
+ translate:[
+  {ru:'Я хожу (обычно).',tr:'Giderim.',hint:'-Ir 1л.ед.'},
+  {ru:'Ты не делаешь.',tr:'Yapmazsın.',hint:'отриц. -Ir 2л.ед.'},
+  {ru:'Он приходит?',tr:'Gelir mi?',hint:'вопрос -Ir 3л.ед.'},
+  {ru:'Мы читаем (обычно).',tr:'Okuruz.',hint:'-Ir 1л.мн.'},
+  {ru:'Они не знают.',tr:'Bilmezler.',hint:'отриц. -Ir 3л.мн.'},
+  {ru:'Я обычно не хожу.',tr:'Gitmem.',hint:'отриц. -Ir 1л.ед.'},
+  {ru:'Вы работаете (обычно)?',tr:'Çalışır mısınız?',hint:'вопрос -Ir 2л.мн.'},
+  {ru:'Она обычно говорит по-турецки.',tr:'Türkçe konuşur.',hint:'-Ir 3л.ед.'},
+ ],
+ mc:[
+  {q:'«Я хожу» (gitmek, 1л.ед., обычное):',o:['gidiyorum','gittim','gideceğim','giderim'],c:3},
+  {q:'Наст.-буд. от yapmak — 3л.ед.:',o:['yapıyor','yaptı','yapar','yapacak'],c:2},
+  {q:'«Мы не приходим» (gelmek, наст.-буд.):',o:['gelmedik','gelmiyoruz','gelmeyiz','gelmezdik'],c:2},
+  {q:'Отрицание наст.-буд.: основа +',o:['-mıyor/-miyor','-maz/-mez','-mayacak','-madan'],c:1},
+  {q:'Наст.-буд. от çalışmak — 1л.ед.:',o:['çalışıyorum','çalışırdım','çalıştım','çalışırım'],c:3},
+  {q:'«Солнце встаёт на востоке» — какое время?',o:['настоящее -yor','будущее -AcAk','наст.-будущее -Ir','прошедшее -DI'],c:2},
+ ],
+ conj:{
+  gelmek:[['gelirim','gelmem','gelir miyim?'],['gelirsin','gelmezsin','gelir misin?'],['gelir','gelmez','gelir mi?'],['geliriz','gelmeyiz','gelir miyiz?'],['gelirsiniz','gelmezsiniz','gelir misiniz?'],['gelirler','gelmezler','gelirler mi?']],
+  gitmek:[['giderim','gitmem','gider miyim?'],['gidersin','gitmezsin','gider misin?'],['gider','gitmez','gider mi?'],['gideriz','gitmeyiz','gider miyiz?'],['gidersiniz','gitmezsiniz','gider misiniz?'],['giderler','gitmezler','giderler mi?']],
+  yapmak:[['yaparım','yapmam','yapar mıyım?'],['yaparsın','yapmazsın','yapar mısın?'],['yapar','yapmaz','yapar mı?'],['yaparız','yapmayız','yapar mıyız?'],['yaparsınız','yapmazsınız','yapar mısınız?'],['yaparlar','yapmazlar','yaparlar mı?']],
+  çalışmak:[['çalışırım','çalışmam','çalışır mıyım?'],['çalışırsın','çalışmazsın','çalışır mısın?'],['çalışır','çalışmaz','çalışır mı?'],['çalışırız','çalışmayız','çalışır mıyız?'],['çalışırsınız','çalışmazsınız','çalışır mısınız?'],['çalışırlar','çalışmazlar','çalışırlar mı?']],
+  konuşmak:[['konuşurum','konuşmam','konuşur muyum?'],['konuşursun','konuşmazsın','konuşur musun?'],['konuşur','konuşmaz','konuşur mu?'],['konuşuruz','konuşmayız','konuşur muyuz?'],['konuşursunuz','konuşmazsınız','konuşur musunuz?'],['konuşurlar','konuşmazlar','konuşurlar mı?']],
+ }},
+];
+
+var PERS=['Ben','Sen','O','Biz','Siz','Onlar'];
+var vPR=JSON.parse(localStorage.getItem('vpr')||'{}');
+var vCurBlock=null,vCurMode='cards',vQ=[],vIx=0,vOk=0,vEr=0,vAns=false,vFl=false,vConjV=0;
+
+function openVerbs(){
+  $id('hp').style.display='none';$id('sp').style.display='none';
+  $id('rpage').style.display='none';$id('vpage').style.display='block';
+  $id('nbk').style.display='block';
+  $id('nt').textContent='Глаголы';$id('ns').textContent='Управление и спряжение';
+  showVHome();
+}
+
+function showVHome(){
+  $id('vhome').style.display='block';
+  $id('vexpage').style.display='none';
+  $id('nt').textContent='Глаголы';
+  $id('ns').textContent='Управление и спряжение';
+  var html='';
+  VBLOCKS.forEach(function(b){
+    var p=vPR[b.id]||{},tot=Object.values(p).reduce(function(a,v){return a+(v.ok||0);},0);
+    html+='<div class="vblock-card" onclick="openVBlock(this.dataset.id)" data-id="'+b.id+'">'
+      +'<div class="vblock-num" style="background:'+b.color+'22;color:'+b.color+'">'+b.icon+'</div>'
+      +'<div class="vblock-info"><div class="vblock-name">'+b.name+'</div>'
+      +'<div class="vblock-desc">'+b.desc+'</div>'
+      +(tot>0?'<div class="vblock-prog">✓ '+tot+' верных</div>':'')
+      +'</div><div style="color:var(--text3);font-size:20px">›</div></div>';
+  });
+  $id('vblist').innerHTML=html;
+}
+
+
+function openVBlock(id){
+  vCurBlock=VBLOCKS.find(function(b){return b.id===id;});
+  vCurMode='rule';vIx=0;vOk=0;vEr=0;vAns=false;vFl=false;vConjV=0;
+  $id('vhome').style.display='none';
+  $id('vexpage').style.display='block';
+  $id('nt').textContent=vCurBlock.name;
+  $id('ns').textContent=vCurBlock.desc;
+  renderVMTabs();renderVEx();
+}
+
+function renderVMTabs(){
+  var b=vCurBlock;
+  var tabs=[['rule','Правило'],['cards','Карточки'],['fill','Пропуски'],['translate','Перевод'],['mc','Выбор']];
+  if(b.conj) tabs.push(['conj','Спряжение']);
+  $id('vmtabs').innerHTML=tabs.map(function(t){
+    return '<button class="vmtab'+(t[0]===vCurMode?' on':'')+'" onclick="setVMode(\''+t[0]+'\')">'+t[1]+'</button>';
+  }).join('');
+}
+
+function setVMode(m){vCurMode=m;vIx=0;vOk=0;vEr=0;vAns=false;vFl=false;renderVMTabs();renderVEx();}
+
+function initVQ(){
+  var b=vCurBlock;
+  if(vCurMode==='cards') vQ=sh(b.cards.map(function(c){return {tr:c[0],ru:c[1]};}));
+  else if(vCurMode==='fill') vQ=sh(b.fill);
+  else if(vCurMode==='translate') vQ=sh(b.translate);
+  else if(vCurMode==='mc') vQ=sh(b.mc);
+}
+
+function updV(){
+  $id('vok').textContent=vOk;$id('verr').textContent=vEr;
+  $id('vleft').textContent=Math.max(0,vQ.length-vIx);
+  $id('vpf').style.width=(vQ.length>0?Math.round(vIx/vQ.length*100):0)+'%';
+}
+
+function savVPR(){
+  if(!vPR[vCurBlock.id])vPR[vCurBlock.id]={};
+  vPR[vCurBlock.id][vCurMode]={ok:vOk,err:vEr};
+  localStorage.setItem('vpr',JSON.stringify(vPR));
+}
+
+function renderVEx(){
+  var b=vCurBlock,area=$id('vea');
+  $id('vpf').style.width='0%';
+  $id('vok').textContent='0';$id('verr').textContent='0';$id('vleft').textContent='—';
+
+  if(vCurMode==='rule'){
+    var r=b.rule;
+    var exhtml=r.ex.map(function(e){
+      return '<div class="vrule-ex"><span class="vrule-tr">'+e[0]+'</span><span class="vrule-ru">'+e[1]+'</span></div>';
+    }).join('');
+    area.innerHTML='<div class="vrule"><div class="vrule-h">'+r.h+'</div><div class="vrule-b">'+r.b+'</div>'+exhtml+'</div>'
+      +'<button class="btn btnp" style="width:100%;margin-top:4px" onclick="setVMode(\'cards\')">Перейти к карточкам →</button>';
+    return;
+  }
+  if(vCurMode==='conj'){renderVConj();return;}
+
+  initVQ();updV();
+  if(vIx>=vQ.length&&vQ.length>0){showVDone();return;}
+  if(vCurMode==='cards') renderVCard();
+  else if(vCurMode==='fill') renderVFill();
+  else if(vCurMode==='translate') renderVTr();
+  else renderVMC();
+}
+
+function showVDone(){
+  savVPR();
+  var pct=Math.round(vOk/(vOk+vEr)*100)||0;
+  $id('vea').innerHTML='<div class="done"><div class="em">'+(pct>=80?'🎉':'💪')+'</div>'
+    +'<h2>'+(pct>=80?'Отлично!':'Продолжай!')+'</h2>'
+    +'<p>Верно: '+vOk+' из '+(vOk+vEr)+' ('+pct+'%)</p>'
+    +'<div style="display:flex;gap:8px;margin-top:4px">'
+    +'<button class="btn" style="flex:1" onclick="showVHome()">← Блоки</button>'
+    +'<button class="btn btnp" style="flex:1" onclick="rstV()">Повторить</button>'
+    +'</div></div>';
+}
+
+function rstV(){vIx=0;vOk=0;vEr=0;vAns=false;vFl=false;sh(vQ);updV();renderVEx();}
+
+function renderVCard(){
+  var it=vQ[vIx];vFl=false;
+  $id('vea').innerHTML='<div class="card" id="vfc" onclick="vFlip()" style="cursor:pointer;min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">'
+    +'<div id="vfc-f"><div style="font-size:26px;font-weight:600;margin-bottom:8px">'+it.tr+'</div>'
+    +'<div style="font-size:13px;color:var(--text3)">нажмите, чтобы перевести</div></div>'
+    +'<div id="vfc-b" style="display:none"><div style="font-size:20px;font-weight:500;color:var(--gr);margin-bottom:6px">'+it.ru+'</div>'
+    +'<div style="font-size:13px;color:var(--text2)">'+it.tr+'</div></div></div>'
+    +'<div id="vfc-btns" style="display:none;gap:10px;margin-top:12px">'
+    +'<button class="btn bno" onclick="vCA(false)">Не знал</button>'
+    +'<button class="btn byes" onclick="vCA(true)">Знал ✓</button></div>';
+}
+
+function vFlip(){
+  if(vFl)return;vFl=true;
+  $id('vfc-f').style.display='none';$id('vfc-b').style.display='block';
+  $id('vfc-btns').style.display='flex';
+}
+function vCA(k){if(k)vOk++;else vEr++;vIx++;updV();
+  if(vIx>=vQ.length)showVDone();else renderVCard();}
+
+function renderVFill(){
+  var it=vQ[vIx];vAns=false;
+  $id('vea').innerHTML='<div class="card"><div class="bdg">'+vCurBlock.id.toUpperCase()+'</div>'
+    +'<div class="q" style="font-size:14px;color:var(--text2);margin-bottom:10px">'+it.ru+'</div>'
+    +'<div class="fis">'+it.b+' <input type="text" class="fii" id="vbi" placeholder="?" autocomplete="off" autocorrect="off" spellcheck="false"> '+it.a+'</div>'
+    +(it.h?'<div class="hint" style="margin-top:10px">'+it.h+'</div>':'')
+    +'<div class="br"><button class="btn" onclick="vSkip()">Пропустить</button>'
+    +'<button class="btn btnp" id="vcb" onclick="vChkF()">Проверить</button></div>'
+    +'<div class="fb" id="vfb"></div></div>';
+  var inp=$id('vbi');
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter')vChkF();});
+  inp.focus();
+}
+
+function vChkF(){
+  if(vAns){vNxt();return;}
+  var it=vQ[vIx],val=$id('vbi').value,fb=$id('vfb'),inp=$id('vbi');
+  var c=nr(val)===nr(it.bl);
+  fb.className='fb show '+(c?'fbo':'fbn');
+  if(c){fb.innerHTML='✓ Верно!';inp.style.borderBottomColor='var(--gr)';vOk++;}
+  else{fb.innerHTML='✗ Не совсем.<div class="fba">Правильно: '+it.bl+'</div>';inp.style.borderBottomColor='var(--re)';vEr++;}
+  vAns=true;$id('vcb').textContent='Далее →';updV();
+}
+
+function renderVTr(){
+  var it=vQ[vIx];vAns=false;
+  $id('vea').innerHTML='<div class="card"><div class="bdg">RU → TR</div>'
+    +'<div class="q">'+it.ru+'</div>'
+    +(it.hint?'<div class="hint">'+it.hint+'</div>':'')
+    +'<textarea id="vai" placeholder="Введите перевод на турецком..." rows="3"></textarea>'
+    +'<div class="br"><button class="btn" onclick="vSkip()">Пропустить</button>'
+    +'<button class="btn btnp" id="vcb" onclick="vChkT()">Проверить</button></div>'
+    +'<div class="fb" id="vfb"></div></div>';
+  var ta=$id('vai');
+  ta.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();vChkT();}});
+  ta.focus();
+}
+
+function vChkT(){
+  if(vAns){vNxt();return;}
+  var it=vQ[vIx],val=$id('vai').value,fb=$id('vfb'),ta=$id('vai');
+  var c=nr(val)===nr(it.tr);
+  fb.className='fb show '+(c?'fbo':'fbn');
+  if(c){fb.innerHTML='✓ Верно!';ta.classList.add('ok');vOk++;}
+  else{fb.innerHTML='✗ Не совсем.<div class="fba">Правильно: '+it.tr+'</div>';ta.classList.add('ng');vEr++;}
+  vAns=true;$id('vcb').textContent='Далее →';updV();
+}
+
+function renderVMC(){
+  var it=vQ[vIx];vAns=false;
+  var cor=it.o[it.c],opts=sh([].concat(it.o));
+  var btns=opts.map(function(o){
+    return '<button class="mco" onclick="vChkMC(this,\''+o.replace(/'/g,"\\'")+'\',\''+cor.replace(/'/g,"\\'")+'\')"> '+o+'</button>';
+  }).join('');
+  $id('vea').innerHTML='<div class="card"><div class="bdg">Выбор формы</div>'
+    +'<div class="q">'+it.q+'</div>'
+    +'<div class="mcg">'+btns+'</div>'
+    +'<div class="fb" id="vfb"></div></div>';
+}
+
+function vChkMC(el,ch,cor){
+  if(vAns)return;vAns=true;
+  var fb=$id('vfb');
+  document.querySelectorAll('.mco').forEach(function(b){b.onclick=null;if(b.textContent.trim()===cor.trim())b.className='mco mcok';});
+  if(ch.trim()===cor.trim()){el.className='mco mcok';vOk++;fb.className='fb show fbo';fb.innerHTML='✓ Верно!';}
+  else{el.className='mco mcng';vEr++;fb.className='fb show fbn';fb.innerHTML='✗ Неверно. Правильно: <strong>'+cor+'</strong>';}
+  updV();setTimeout(function(){vIx++;vAns=false;updV();if(vIx>=vQ.length)showVDone();else renderVMC();},1600);
+}
+
+function renderVConj(){
+  var b=vCurBlock,conj=b.conj;
+  var vkeys=Object.keys(conj);
+  var v=conj[vkeys[vConjV]];
+  var vbtns=vkeys.map(function(k,i){
+    return '<button class="vmtab'+(i===vConjV?' on':'')+'" style="font-size:11px;padding:4px 10px" onclick="setVConjV('+i+')">'+k+'</button>';
+  }).join('');
+  var rows=PERS.map(function(p,i){
+    return '<div class="cg-p">'+p+'</div><div class="cg-pos">'+v[i][0]+'</div><div class="cg-neg">'+v[i][1]+'</div><div class="cg-q">'+v[i][2]+'</div>';
+  }).join('');
+  $id('vea').innerHTML='<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">'+vbtns+'</div>'
+    +'<div class="conj-grid">'
+    +'<div class="cg-hd">Лицо</div><div class="cg-hd">✓ Утверждение</div><div class="cg-hd">✗ Отрицание</div><div class="cg-hd">? Вопрос</div>'
+    +rows+'</div>';
+}
+function setVConjV(i){vConjV=i;renderVConj();}
+
+function vSkip(){vIx++;vAns=false;updV();if(vIx>=vQ.length)showVDone();else renderVEx();}
+function vNxt(){vIx++;vAns=false;updV();if(vIx>=vQ.length)showVDone();else renderVEx();}
+// ===== END VERB TRAINER =====
 
 renderHome();
 </script>
